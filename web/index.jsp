@@ -365,39 +365,55 @@
                             </a>
                             <ul class="treeview-menu">
                                 <li><a id="menu_dos" href="#"><i class="fa fa-circle-o"></i>Desayunos</a></li>
-                                <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Morris</a></li>
-                                <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>
-                                <li><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i>Almuerzos</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i>Cenas</a></li>
                             </ul>
                         </li>
                         <li class="treeview">
                             <a href="#">
                                 <i class="fa fa-laptop"></i>
-                                <span>UI Elements</span>
+                                <span>Pensionistas</span>
                                 <span class="pull-right-container">
                                     <i class="fa fa-angle-left pull-right"></i>
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="pages/UI/general.html"><i class="fa fa-circle-o"></i> General</a></li>
-                                <li><a href="pages/UI/icons.html"><i class="fa fa-circle-o"></i> Icons</a></li>
-                                <li><a href="pages/UI/buttons.html"><i class="fa fa-circle-o"></i> Buttons</a></li>
-                                <li><a href="pages/UI/sliders.html"><i class="fa fa-circle-o"></i> Sliders</a></li>
-                                <li><a href="pages/UI/timeline.html"><i class="fa fa-circle-o"></i> Timeline</a></li>
-                                <li><a href="pages/UI/modals.html"><i class="fa fa-circle-o"></i> Modals</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i>Pensionistas</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i>Pensionistas Mes</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i>Pensionistas Ejecutivos</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i>Pensionistas General</a></li>
                             </ul>
                         </li>
                         <li class="treeview">
                             <a href="#">
-                                <i class="fa fa-edit"></i> <span>Forms</span>
+                                <i class="fa fa-laptop"></i>
+                                <span>Comidas</span>
                                 <span class="pull-right-container">
                                     <i class="fa fa-angle-left pull-right"></i>
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="pages/forms/general.html"><i class="fa fa-circle-o"></i> General Elements</a></li>
-                                <li><a href="pages/forms/advanced.html"><i class="fa fa-circle-o"></i> Advanced Elements</a></li>
-                                <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Editors</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i>Desayunos</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i>Almuerzos</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i>Cenas</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i>Extras</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-edit"></i> <span>Mantenimiento</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="#"><i class="fa fa-circle-o"></i>Usuarios</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i>Persona</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i>Pensionistas</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i>Desayunos</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i>Almuerzos</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i>Cenas</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i>Extras</a></li>
                             </ul>
                         </li>
                         <li class="treeview">
@@ -408,12 +424,12 @@
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="pages/tables/prueba.jsp"><i class="fa fa-circle-o"></i> Simple tables</a></li>
-                                <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> Data tables</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> Simple tables</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> Data tables</a></li>
                             </ul>
                         </li>
                         <li>
-                            <a href="pages/calendar.html">
+                            <a href="#">
                                 <i class="fa fa-calendar"></i> <span>Calendar</span>
                                 <span class="pull-right-container">
                                     <small class="label pull-right bg-red">3</small>
@@ -422,7 +438,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="pages/mailbox/mailbox.html">
+                            <a href="#">
                                 <i class="fa fa-envelope"></i> <span>Mailbox</span>
                                 <span class="pull-right-container">
                                     <small class="label pull-right bg-yellow">12</small>
@@ -490,18 +506,18 @@
                 <!-- Contenido Principal -->  
 
 
-                    <section class="content">
-                        <div class="box">
-                            <div class="box-header with-border">
-                                
-                                <div id="contenido">
-                                    <%@include file="views/Dashboard/Dashboard.jsp" %>
-                                </div>
+                <section class="content">
+                    <div class="box">
+                        <div class="box-header with-border">
 
-
+                            <div id="contenido">
+                                <%@include file="views/Dashboard/Dashboard.jsp" %>
                             </div>
+
+
                         </div>
-                    </section>
+                    </div>
+                </section>
 
                 <!-- /.content -->
             </div>
@@ -514,44 +530,44 @@
                 reserved.
             </footer>
 
-        <!-- ./wrapper -->
+            <!-- ./wrapper -->
 
-        <!-- jQuery 3 -->
-        <script src="bower_components/jquery/dist/jquery.min.js"></script>
-        <!-- jQuery UI 1.11.4 -->
-        <script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
-        <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-        <script>
-            $.widget.bridge('uibutton', $.ui.button);
-        </script>
-        <!-- Bootstrap 3.3.7 -->
-        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-        <!-- Morris.js charts -->
-        <script src="bower_components/raphael/raphael.min.js"></script>
-        <script src="bower_components/morris.js/morris.min.js"></script>
-        <!-- Sparkline -->
-        <script src="bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
-        <!-- jvectormap -->
-        <script src="plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
-        <script src="plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-        <!-- jQuery Knob Chart -->
-        <script src="bower_components/jquery-knob/dist/jquery.knob.min.js"></script>
-        <!-- daterangepicker -->
-        <script src="bower_components/moment/min/moment.min.js"></script>
-        <script src="bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
-        <!-- datepicker -->
-        <script src="bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
-        <!-- Bootstrap WYSIHTML5 -->
-        <script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
-        <!-- Slimscroll -->
-        <script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-        <!-- FastClick -->
-        <script src="bower_components/fastclick/lib/fastclick.js"></script>
-        <!-- AdminLTE App -->
-        <script src="dist/js/adminlte.min.js"></script>
-        <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-        <script src="dist/js/pages/dashboard.js"></script>
-        <!-- AdminLTE for demo purposes -->
-        <script src="dist/js/demo.js"></script>
+            <!-- jQuery 3 -->
+            <script src="bower_components/jquery/dist/jquery.min.js"></script>
+            <!-- jQuery UI 1.11.4 -->
+            <script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
+            <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+            <script>
+                $.widget.bridge('uibutton', $.ui.button);
+            </script>
+            <!-- Bootstrap 3.3.7 -->
+            <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+            <!-- Morris.js charts -->
+            <script src="bower_components/raphael/raphael.min.js"></script>
+            <script src="bower_components/morris.js/morris.min.js"></script>
+            <!-- Sparkline -->
+            <script src="bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
+            <!-- jvectormap -->
+            <script src="plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+            <script src="plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+            <!-- jQuery Knob Chart -->
+            <script src="bower_components/jquery-knob/dist/jquery.knob.min.js"></script>
+            <!-- daterangepicker -->
+            <script src="bower_components/moment/min/moment.min.js"></script>
+            <script src="bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+            <!-- datepicker -->
+            <script src="bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+            <!-- Bootstrap WYSIHTML5 -->
+            <script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+            <!-- Slimscroll -->
+            <script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+            <!-- FastClick -->
+            <script src="bower_components/fastclick/lib/fastclick.js"></script>
+            <!-- AdminLTE App -->
+            <script src="dist/js/adminlte.min.js"></script>
+            <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+            <script src="dist/js/pages/dashboard.js"></script>
+            <!-- AdminLTE for demo purposes -->
+            <script src="dist/js/demo.js"></script>
     </body>
 </html>

@@ -15,6 +15,7 @@
         <title>JSP Page</title>
     </head>
     <body>
+       
         <div class="table-responsive">
             <div class="box-header">
                 <h3>Lista de desayunos <button class="btn btn-primary btn-sm">Nuevo</button></h3>
@@ -235,7 +236,7 @@
                             </div>
                         </td>
                     </tr>
-                    
+
 
                 </tbody>
 
