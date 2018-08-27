@@ -8,7 +8,10 @@
 <%@ page import="javax.sql.*, javax.naming.*" %>
 
 
+
 <%		
+    //Inicio de la conexión a Mysql
+    
 	Statement   stmt = null;
 	Statement   stmt2 = null;
 	ResultSet   rset = null;
@@ -31,5 +34,6 @@
 
 	NumberFormat  nf = NumberFormat.getInstance();		
 
+        //fin de la conexión
  
 %>
