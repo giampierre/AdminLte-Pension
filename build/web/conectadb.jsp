@@ -21,7 +21,7 @@
 	Date dt	= new Date();
 	
 	Class.forName("com.mysql.jdbc.Driver");
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/bdventas", "root", "");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/bd_pension", "root", "");
 		
 	stmt  = conn.createStatement();
 	stmt2 = conn.createStatement();

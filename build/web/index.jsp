@@ -378,8 +378,8 @@
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="#"><i class="fa fa-circle-o"></i>Pensionistas</a></li>
-                                <li><a href="#"><i class="fa fa-circle-o"></i>Pensionistas Mes</a></li>
+                                <li><a id="menu_cinco" href="#"><i class="fa fa-circle-o"></i>Pensionistas</a></li>
+                                <li><a id="menu_seis" href="#"><i class="fa fa-circle-o"></i>Pensionistas Mes</a></li>
                                 <li><a href="#"><i class="fa fa-circle-o"></i>Pensionistas Ejecutivos</a></li>
                                 <li><a href="#"><i class="fa fa-circle-o"></i>Pensionistas General</a></li>
                             </ul>

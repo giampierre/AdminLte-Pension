@@ -8,42 +8,52 @@
 $(document).ready(function () { // inicio ready.function
 
     $("#menu_uno").click(function () {
+        $('#contenido').html('<center><img src="dist/img/loader.gif" width="20px" height="20px"/></center>');
         $("#contenido").load("views/Dashboard/Dashboard.jsp");
     });
 
     $("#menu_dos").click(function () {
+        $('#contenido').html('<center><img src="dist/img/loader.gif" width="20px" height="20px"/></center>');
         $("#contenido").load("views/RegistrarComidas/RegistrarDesayunos/AddDesayuno.jsp");
     });
 
     $("#menu_tres").click(function () {
+        $('#contenido').html('<center><img src="dist/img/loader.gif" width="20px" height="20px"/></center>');
         $("#contenido").load("");
     });
 
     $("#menu_cuatro").click(function () {
+        $('#contenido').html('<center><img src="dist/img/loader.gif" width="20px" height="20px"/></center>');
         $("#contenido").load("");
     });
 
     $("#menu_cinco").click(function () {
-        $("#contenido").load("");
+        $('#contenido').html('<center><img src="dist/img/loader.gif" width="20px" height="20px"/></center>');
+        $("#contenido").load("views/Pensionistas/Pensionistas.jsp");
     });
 
     $("#menu_seis").click(function () {
-        $("#contenido").load("");
+        $('#contenido').html('<center><img src="dist/img/loader.gif" width="20px" height="20px"/></center>');
+        $("#contenido").load("views/Pensionistas/PensionistasMes.jsp");
     });
 
     $("#menu_siete").click(function () {
+        $('#contenido').html('<center><img src="dist/img/loader.gif" width="20px" height="20px"/></center>');
         $("#contenido").load("");
     });
 
     $("#menu_ocho").click(function () {
+        $('#contenido').html('<center><img src="dist/img/loader.gif" width="20px" height="20px"/></center>');
         $("#contenido").load("");
     });
 
     $("#menu_nueve").click(function () {
+        $('#contenido').html('<center><img src="dist/img/loader.gif" width="20px" height="20px"/></center>');
         $("#contenido").load("");
     });
 
     $("#menu_diez").click(function () {
+        $('#contenido').html('<center><img src="dist/img/loader.gif" width="20px" height="20px"/></center>');
         $("#contenido").load("");
     });
 
