@@ -21,7 +21,7 @@
                         <span class="info-box-icon"><i class="fa fa-heartbeat"></i></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text">Hospitalizados</span>
+                            <span class="info-box-text">???????</span>
                             <span class="info-box-number cursor"></span>
 
                             <div class="progress">
@@ -40,7 +40,7 @@
                         <span class="info-box-icon"><i class="fa fa-plus"></i></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text">Ingresos</span>
+                            <span class="info-box-text">???????</span>
                             <span class="info-box-number cursor" ></span>
 
                             <div class="progress">
@@ -60,7 +60,7 @@
                         <span class="info-box-icon"><i class="fa fa-minus"></i></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text">Egresos</span>
+                            <span class="info-box-text">???????</span>
                             <span  class="info-box-number cursor"  ></span>
 
                             <div class="progress">
@@ -81,7 +81,7 @@
                         <span class="info-box-icon"><i class="fa fa-bed"></i></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text">Privadas disponibles</span>
+                            <span class="info-box-text">???????</span>
                             <span  class="info-box-number cursor" data ></span>
 
 
@@ -102,7 +102,7 @@
                         <span class="info-box-icon"><i class="fa fa-bed"></i></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text">Bipersonales disponibles</span>
+                            <span class="info-box-text">???????</span>
                             <span class="info-box-number cursor" ></span>
 
 
@@ -123,7 +123,7 @@
                         <span class="info-box-icon"><i class="fa fa-bed"></i></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text">Suites disponibles</span>
+                            <span class="info-box-text">???????</span>
                             <span  class="info-box-number cursor" ></span>
 
 
@@ -144,7 +144,7 @@
                         <span class="info-box-icon"><i class="fa fa-ban"></i></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text">Camas bloqueadas</span>
+                            <span class="info-box-text">???????</span>
                             <span class="info-box-number cursor" ></span>
 
                             <div class="progress">
@@ -164,7 +164,7 @@
                         <span class="info-box-icon"><i class="fa fa-dot-circle-o"></i></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text">Mortalidad</span>
+                            <span class="info-box-text">???????</span>
                             <span class="info-box-number cursor" ></span>
 
                             <div class="progress">
@@ -184,14 +184,14 @@
                         <span class="info-box-icon"><i class="fa fa-user-md"></i></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text">Interconsultas sin contestar</span>
+                            <span class="info-box-text">???????</span>
                             <span class="info-box-number cursor" ></span>
 
                             <div class="progress">
                                 <div class="progress-bar" style="width: 100%"></div>
                             </div>
                             <span class="progress-description cursor" >
-                                sin contestar del mes
+                                ???????
                             </span>
                         </div>
                         <!-- /.info-box-content -->
@@ -204,7 +204,7 @@
                         <span class="info-box-icon"><i class="fa fa-battery-3"></i></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text"></span>
+                            <span class="info-box-text">???????</span>
                             <span class="info-box-number"></span>
 
                             <div class="progress">
@@ -224,7 +224,7 @@
                         <span class="info-box-icon"><i class="fa fa-ambulance"></i></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text">Origen: Emergencia</span>
+                            <span class="info-box-text">???????</span>
                             <span class="info-box-number cursor" ></span>
 
                             <div class="progress">
@@ -244,7 +244,7 @@
                         <span class="info-box-icon"><i class="fa fa-stethoscope"></i></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text">Origen: Ambulatorio</span>
+                            <span class="info-box-text">???????</span>
                             <span class="info-box-number cursor" ></span>
 
                             <div class="progress">
@@ -264,7 +264,7 @@
                         <span class="info-box-icon"><i class="fa fa-wheelchair"></i></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text">Altas (Casa)</span>
+                            <span class="info-box-text">???????</span>
                             <span class="info-box-number cursor"></span>
 
                             <div class="progress">
@@ -284,7 +284,7 @@
                         <span class="info-box-icon"><i class="fa fa-hospital-o"></i></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text">Referencias</span>
+                            <span class="info-box-text">???????</span>
                             <span class="info-box-number cursor" ></span>
 
                             <div class="progress">
@@ -304,8 +304,8 @@
                         <span class="info-box-icon"><i class="fa fa-money"></i></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text">Monto facturado</span>
-                            <span class="info-box-number">S/ 25,025.54</span>
+                            <span class="info-box-text">???????</span>
+                            <span class="info-box-number">???????</span>
 
                             <div class="progress">
                                 <div class="progress-bar" style="width: 100%"></div>
@@ -324,7 +324,7 @@
                         <span class="info-box-icon"><i class="fa fa-frown-o"></i></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text">Pacientes fuga</span>
+                            <span class="info-box-text">???????</span>
                             <span class="info-box-number cursor" >
 
                             </span>
