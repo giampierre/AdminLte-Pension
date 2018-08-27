@@ -10,7 +10,40 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <script type="text/javascript">
+            function buscarDatos() {
+                var tableReg = document.getElementById('datos');
+                var searchText = document.getElementById('buscar').value.toLowerCase();
+                var cellsOfRow = "";
+                var found = false;
+                var compareWith = "";
 
+                // Recorremos todas las filas con contenido de la tabla
+                for (var i = 0; i < tableReg.rows.length; i++)
+                {
+                    cellsOfRow = tableReg.rows[i].getElementsByTagName('td');
+                    found = false;
+                    // Recorremos todas las celdas
+                    for (var j = 0; j < cellsOfRow.length && !found; j++)
+                    {
+                        compareWith = cellsOfRow[j].innerHTML.toLowerCase();
+                        // Buscamos el texto en el contenido de la celda
+                        if (searchText.length === 0 || (compareWith.indexOf(searchText) > -1))
+                        {
+                            found = true;
+                        }
+                    }
+                    if (found)
+                    {
+                        tableReg.rows[i].style.display = '';
+                    } else {
+                        // si no ha encontrado ninguna coincidencia, esconde la
+                        // fila de la tabla
+                        tableReg.rows[i].style.display = 'none';
+                    }
+                }
+            }
+        </script>
     </head>
     <body>
         <div class="box-header">
@@ -24,7 +57,7 @@
 
             <div class="box-tools">
                 <div class="input-group input-group-sm" style="width: 150px;">
-                    <input type="text" name="table_search" class="form-control pull-right" placeholder="Buscar...">
+                    <input id="buscar"  type="text" onkeyup="buscarDatos()" class="form-control pull-right" placeholder="Buscar...">
 
                     <div class="input-group-btn">
                         <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
@@ -32,7 +65,7 @@
                 </div>
             </div>
         </div>
-        <div class="table-responsive">         
+        <div class="table-responsive">    
             <table class="table table-bordered table-hover table-striped" >
                 <thead> 
                     <tr>
@@ -46,7 +79,7 @@
                         <th>S/</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="datos">
                     <%
                         // Seleccionando los pacientes que actualmente se están atendiendo en emergencia
 
@@ -65,7 +98,7 @@
                                 + "WHERE p.idPERSONA = pe.idPERSONA "
                                 + "AND DATE_FORMAT(pe.fecha_ingreso,'%Y%m') = DATE_FORMAT(sysdate(), '%Y%m')";
                         rset = stmt.executeQuery(COMANDO);
-                        //out.println(rs);
+                        //out.println(COMANDO);
                         while (rset.next()) {
                             i++;
                             nombres = rset.getString("Nombres");
