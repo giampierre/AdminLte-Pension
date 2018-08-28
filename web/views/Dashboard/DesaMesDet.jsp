@@ -19,8 +19,8 @@
                         <th>N°</th>
                         <th>Nombres</th>
                         <th>Fecha</th>
-                        <th>Cantidad</th>
-                        <th>Monto</th>
+                        <!--th>Cantidad</th>
+                        <th>Monto</th-->
                     </tr>
                 </thead>
                 <tbody>
@@ -55,8 +55,8 @@
                         <td><%=i%></td>
                         <td><%=nombres%></td>
                         <td><%=fecha%></td> 
-                        <td><%=cantidad%></td> 
-                        <td><%=monto%></td> 
+                        <!--td><!--%=cantidad%></td> 
+                        <td><!--%=monto%></td--> 
 
                     </tr>
                     <%}%>

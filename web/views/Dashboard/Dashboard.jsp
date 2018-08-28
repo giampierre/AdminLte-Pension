@@ -10,16 +10,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="dist/js/modalDet.js" type="text/javascript"></script>
+        <link href="dist/css/styleDashboard.css" rel="stylesheet" type="text/css"/>
         <title>JSP Page</title>
-        <style>
-            a {
-                cursor: pointer;
-                color:#fff;
-            }
-            a:hover, a:focus {
-                color: #fff;
-            }
-        </style>
     </head>
     <body>
         <div>
@@ -28,10 +20,10 @@
                 <div class="col-md-4">
                     <!-- Info Boxes Style 2 -->
                     <div class="info-box bg-yellow">
-                        <span class="info-box-icon"><i class="fa fa-heartbeat"></i></span>         
+                        <span class="info-box-icon"><i class="fa fa-coffee"></i></span>         
                         <div class="info-box-content">
                             <span class="info-box-text">Desayunos</span>
-                            <%                                  String CantDesaDia = "";
+                            <%                                String CantDesaDia = "";
 
                                 COMANDO = "SELECT COUNT(idDESAYUNO) as CantDesaDia "
                                         + "FROM (SELECT d.idDESAYUNO, CONCAT(p.Nombres, ' ', p.Apellidos) as Nombres,"
@@ -72,7 +64,7 @@
                                     CantDesaMes = rset.getString("CantDesaMes");
                                 }
                             %>
-                            <span class="progress-description"><a id="modal_dos" data-toggle="modal" onclick="myModal()" data-target="#myModal"><%=CantDesaMes%></a></span>
+                            <span class="progress-description"><a id="modal_dos" data-toggle="modal" data-target="#myModal"><%=CantDesaMes%></a></span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -80,10 +72,10 @@
                 </div>
                 <div class="col-md-4">
                     <div class="info-box bg-yellow">
-                        <span class="info-box-icon"><i class="fa fa-plus"></i></span>
+                        <span class="info-box-icon"><i class="fa fa-cutlery"></i></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text">???????</span>
+                            <span class="info-box-text">Almuerzos</span>
                             <span class="info-box-number" ></span>
 
                             <div class="progress">
@@ -100,10 +92,10 @@
                 </div>
                 <div class="col-md-4">
                     <div class="info-box bg-yellow">
-                        <span class="info-box-icon"><i class="fa fa-minus"></i></span>
+                        <span class="info-box-icon"><i class="fa fa-glass"></i></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text">???????</span>
+                            <span class="info-box-text">Cenas</span>
                             <span  class="info-box-number"  ></span>
 
                             <div class="progress">
@@ -408,11 +400,10 @@
 
         </div>
         <!--Modal de detalles de comidas -->
-        <div id="myModal" class="modal fade" role="dialog" style="width: 100%">
+        <div id="myModal" class="modal fade" role="dialog">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-
                         <button type="button" class="close" data-dismiss="modal">&times;</button> 
                     </div>
                     <div class="modal-body">

@@ -14,7 +14,7 @@
     </head>
     <body>
         <div class="box-header">
-            <h3 class="box-title">Lista de Pensionistas <button class="btn btn-success btn-xs glyphicon glyphicon-plus"></button></h3>
+            <h3 class="box-title"><button class="btn btn-primary btn-xs fa fa-user-plus"></button>&nbsp; Lista de Pensionistas </h3>
 
             <div class="box-tools">
                 <div class="input-group input-group-sm" style="width: 150px;">

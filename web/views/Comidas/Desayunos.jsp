@@ -70,7 +70,7 @@
                                 + "WHERE p.idpersona = pp.idpersona "
                                 + "AND pp.idpensionista = d.idpensionista ";
                         rset = stmt.executeQuery(COMANDO);
-                        out.println(COMANDO);
+                        //out.println(COMANDO);
 
                         while (rset.next()) {
                             i++;
