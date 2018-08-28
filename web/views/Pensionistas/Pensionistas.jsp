@@ -11,6 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <script type="text/javascript">
+            //Script de Buscador
             function buscarDatos() {
                 var tableReg = document.getElementById('datos');
                 var searchText = document.getElementById('buscar').value.toLowerCase();
