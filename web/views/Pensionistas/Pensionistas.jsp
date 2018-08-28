@@ -38,6 +38,7 @@
                 <th>Nota</th>
                 <th>Registrado</th>
                 <th>S/</th>
+                <th>Actual</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -51,14 +52,25 @@
                         String nota = "";
                         String estado = "";
                         String fecha_ingreso = "";
+                        String mes_actual = "";
                         double monto = 0.0;
                         int i = 0;
+                        String color = "";
+                        String plomo = "#2E86C1";
                         
-                        COMANDO = "SELECT CONCAT(p.Nombres, ' ', p.Apellidos) as Nombres, p.dni, p.celular, p.direccion, p.observacion, IF(pe.estado=1, 'Activo', 'Inactivo') AS estado, pe.fecha_ingreso, pe.monto "
+                        COMANDO = "SELECT CONCAT(p.Nombres, ' ', p.Apellidos) as Nombres,"
+                                + "p.dni, p.celular, p.direccion, p.observacion,"
+                                + "IF(pe.estado=1, 'Activo', 'Inactivo') AS estado, pe.fecha_ingreso, pe.monto, "
+                                + "CASE " 
+                                + "WHEN DATE_FORMAT(pe.fecha_ingreso,'%Y%m') = DATE_FORMAT(sysdate(), '%Y%m') THEN '1' "
+                                + "WHEN DATE_FORMAT(pe.fecha_ingreso,'%Y%m') = DATE_FORMAT(pe.fecha_ingreso,'%Y%m') THEN '0' "
+                                + "ELSE '' "
+                                + "END as mes_actual "
                                 + "FROM persona p, pensionista pe "
-                                + "WHERE p.idPERSONA = pe.idPERSONA ";
+                                + "WHERE p.idPERSONA = pe.idPERSONA "
+                                + "order by DATE_FORMAT(pe.fecha_ingreso,'%Y%m') desc";
                         rset = stmt.executeQuery(COMANDO);
-                        //out.println(rs);
+                        out.println(COMANDO);
                         while (rset.next()) {
                             i++;
                             nombres = rset.getString("Nombres");
@@ -69,6 +81,9 @@
                             estado = rset.getString("estado");
                             fecha_ingreso = rset.getString("fecha_ingreso");
                             monto = rset.getDouble("monto");
+                            mes_actual = rset.getString("mes_actual");
+                            
+                            if(!mes_actual.equals("1")){color = plomo; }
 
                     %>
 
@@ -76,7 +91,7 @@
 
 
 
-                    <tr >        
+                    <tr bgcolor="<%=color%>" >        
                         <td><%=i%></td>
                         <td><%=nombres%></td>  
                         <td><%=dni%></td> 
@@ -86,6 +101,7 @@
                         <!--td><%=estado%></td--> 
                         <td><%=fecha_ingreso%></td> 
                         <td><%=monto%></td> 
+                        <td><%=mes_actual%></td> 
                     </tr>
                     <%}%>
                 </tbody>
