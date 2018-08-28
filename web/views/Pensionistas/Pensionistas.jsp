@@ -10,41 +10,40 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        
+
     </head>
     <body>
         <div class="box-header">
-              <h3 class="box-title">Lista de Pensionistas</h3>
+            <h3 class="box-title">Lista de Pensionistas <button class="btn btn-success btn-xs glyphicon glyphicon-plus"></button></h3>
 
-              <div class="box-tools">
+            <div class="box-tools">
                 <div class="input-group input-group-sm" style="width: 150px;">
-                  <input type="text" name="table_search" class="form-control pull-right" placeholder="Buscar...">
+                    <input type="text" name="table_search" class="form-control pull-right" placeholder="Buscar...">
 
-                  <div class="input-group-btn">
-                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                  </div>
+                    <div class="input-group-btn">
+                        <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                    </div>
                 </div>
-              </div>
+            </div>
         </div>
-         <div class="table-responsive">
-            <table class="table table-bordered table-hover " >
+        <div class="table-responsive">
+            <table class="table table-bordered table-condensed table-hover" >
                 <thead> 
-                <tr>
-                <th>N°</th>
-                <th>Nombres</th>
-                <th>DNI</th>
-                <th>Celular</th>
-                <th>Dirección</th>
-                <th>Nota</th>
-                <th>Registrado</th>
-                <th>S/</th>
-                <th>Actual</th>
-                </tr>
+                    <tr>
+                        <th>N°</th>
+                        <th>Nombres</th>
+                        <th>DNI</th>
+                        <th>Celular</th>
+                        <th>Dirección</th>
+                        <th>Nota</th>
+                        <th>Registrado</th>
+                        <th>S/</th>
+                        <!--th>Actual</th-->
+                        <th>Opciones</th>
+                    </tr>
                 </thead>
                 <tbody>
-                    <%
-                        // Seleccionando los pacientes que actualmente se están atendiendo en emergencia
-
+                    <%                        // Seleccionando los pacientes que actualmente se están atendiendo en emergencia
                         String nombres = "";
                         String dni = "";
                         String celular = "";
@@ -56,13 +55,13 @@
                         double monto = 0.0;
                         int i = 0;
                         String color = "";
-                        String azul = "#82E0AA";
+                        String azul = "#AED6F1";
                         String blanco = "#fff";
-                        
+
                         COMANDO = "SELECT CONCAT(p.Nombres, ' ', p.Apellidos) as Nombres,"
                                 + "p.dni, p.celular, p.direccion, p.observacion,"
                                 + "IF(pe.estado=1, 'Activo', 'Inactivo') AS estado, pe.fecha_ingreso, pe.monto, "
-                                + "CASE " 
+                                + "CASE "
                                 + "WHEN DATE_FORMAT(pe.fecha_ingreso,'%Y%m') = DATE_FORMAT(sysdate(), '%Y%m') THEN '1' "
                                 + "WHEN DATE_FORMAT(pe.fecha_ingreso,'%Y%m') = DATE_FORMAT(pe.fecha_ingreso,'%Y%m') THEN '0' "
                                 + "ELSE '' "
@@ -71,7 +70,7 @@
                                 + "WHERE p.idPERSONA = pe.idPERSONA "
                                 + "order by DATE_FORMAT(pe.fecha_ingreso,'%Y%m') desc";
                         rset = stmt.executeQuery(COMANDO);
-                        out.println(COMANDO);
+                        //out.println(COMANDO);
                         while (rset.next()) {
                             i++;
                             nombres = rset.getString("Nombres");
@@ -83,15 +82,15 @@
                             fecha_ingreso = rset.getString("fecha_ingreso");
                             monto = rset.getDouble("monto");
                             mes_actual = rset.getString("mes_actual");
-                            
-                            if(mes_actual.equals("1")){color = azul; }
-                             if(mes_actual.equals("0")){color = blanco; }
+
+                            if (mes_actual.equals("1")) {
+                                color = azul;
+                            }
+                            if (mes_actual.equals("0")) {
+                                color = blanco;
+                            }
 
                     %>
-
-
-
-
 
                     <tr bgcolor="<%=color%>" >        
                         <td><%=i%></td>
@@ -103,7 +102,13 @@
                         <!--td><%=estado%></td--> 
                         <td><%=fecha_ingreso%></td> 
                         <td><%=monto%></td> 
-                        <td><%=mes_actual%></td> 
+                        <!--td><%=mes_actual%></td--> 
+                        <td>
+                            <div class="btn-group">
+                                <button class="btn btn-warning btn-xs glyphicon glyphicon-edit"></button>
+                                <button class="btn btn-danger btn-xs glyphicon glyphicon-trash"></button>
+                            </div>
+                        </td>
                     </tr>
                     <%}%>
                 </tbody>

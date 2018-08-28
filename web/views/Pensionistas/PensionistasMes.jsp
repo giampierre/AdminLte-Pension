@@ -66,7 +66,7 @@
             </div>
         </div>
         <div class="table-responsive">    
-            <table class="table table-bordered table-hover table-striped" >
+            <table class="table table-bordered table-condensed table-hover">
                 <thead> 
                     <tr>
                         <th>N°</th>
