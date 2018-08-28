@@ -111,12 +111,7 @@
                             monto = rset.getDouble("monto");
 
                     %>
-
-
-
-
-
-                    <tr >        
+                    <tr>        
                         <td><%=i%></td>
                         <td><%=nombres%></td>  
                         <td><%=dni%></td> 
