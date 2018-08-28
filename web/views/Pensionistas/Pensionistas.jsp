@@ -27,7 +27,7 @@
               </div>
         </div>
          <div class="table-responsive">
-            <table class="table table-bordered table-hover table-striped" >
+            <table class="table table-bordered table-hover " >
                 <thead> 
                 <tr>
                 <th>N°</th>
@@ -56,7 +56,8 @@
                         double monto = 0.0;
                         int i = 0;
                         String color = "";
-                        String plomo = "#2E86C1";
+                        String azul = "#82E0AA";
+                        String blanco = "#fff";
                         
                         COMANDO = "SELECT CONCAT(p.Nombres, ' ', p.Apellidos) as Nombres,"
                                 + "p.dni, p.celular, p.direccion, p.observacion,"
@@ -83,7 +84,8 @@
                             monto = rset.getDouble("monto");
                             mes_actual = rset.getString("mes_actual");
                             
-                            if(!mes_actual.equals("1")){color = plomo; }
+                            if(mes_actual.equals("1")){color = azul; }
+                             if(mes_actual.equals("0")){color = blanco; }
 
                     %>
 
