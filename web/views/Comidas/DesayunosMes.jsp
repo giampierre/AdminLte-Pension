@@ -9,14 +9,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <script src="dist/js/modalDetDesaMes.js" type="text/javascript"></script>
         <script src="dist/js/buscador.js" type="text/javascript"></script>
         <title>JSP Page</title>
 
         <script>
 
             function myModal(s_id_pensionista) {
-                $('#detalle').html('<img src="../../../images/loading.gif" width="20px" height="20px"/>');
+                $('#detalle').html('<center><img src="dist/img/loader.gif" width="20px" height="20px"/></center>');
                 $('#detalle').load('views/Comidas/DesayunosMesDet.jsp?f_id_pensionista=' + s_id_pensionista);
 
             }
@@ -90,7 +89,7 @@
                                 + "AND DATE_FORMAT(d.fecha_d,'%m%Y') = DATE_FORMAT(sysdate(), '%m%Y') "
                                 + "GROUP BY pp.idPENSIONISTA ";
                         rset = stmt.executeQuery(COMANDO);
-                        out.println(COMANDO);
+                        //out.println(COMANDO);
 
                         while (rset.next()) {
                             i++;
@@ -124,24 +123,23 @@
                         <th><br></th>
                     </tr>
                 </tfoot>
-
-                <div id="myModal" class="modal fade" role="dialog">
-                    <div class="modal-dialog modal-lg" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button> 
-                            </div>
-                            <div class="modal-body">
-                                <div id="detalle">
-
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>    
-                </div>
-
             </table>
+        </div>
+
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button> 
+                    </div>
+                    <div class="modal-body">
+                        <div id="detalle">
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>    
         </div>
     </body>
 </html>

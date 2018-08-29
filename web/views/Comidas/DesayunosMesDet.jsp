@@ -39,7 +39,8 @@
                                 + "WHERE p.idpersona = pp.idpersona "  
                                 + "AND pp.idpensionista = d.idpensionista "  
                                 + "AND DATE_FORMAT(d.fecha_d,'%m%Y') = DATE_FORMAT(sysdate(), '%m%Y') " 
-                                + "AND pp.idPENSIONISTA = '"+id_pensionista+"' ";
+                                + "AND pp.idPENSIONISTA = '"+id_pensionista+"' "
+                                + "ORDER BY d.fecha_d DESC";
                         rset = stmt.executeQuery(COMANDO);
                         //out.println(COMANDO);
 
