@@ -11,6 +11,15 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="dist/js/buscador.js" type="text/javascript"></script>
         <title>JSP Page</title>
+        <script>
+
+            function myModal(s_id_pensionista) {
+                $('#detalle').html('<center><img src="dist/img/loader.gif" width="20px" height="20px"/></center>');
+                $('#detalle').load('views/Pensionistas/PensionistasMesDet.jsp?f_id_pensionista=' + s_id_pensionista);
+
+            }
+
+        </script>
     </head>
     <body>
         <div class="box-header">
@@ -44,6 +53,7 @@
                         <th>Nota</th>
                         <th>Registrado</th>
                         <th>S/</th>
+                        <th>Detalle</th>
                     </tr>
                 </thead>
                 <tbody id="datos">
@@ -57,10 +67,11 @@
                         String nota = "";
                         String estado = "";
                         String fecha_ingreso = "";
+                        String s_id_pensionista = "";
                         double monto = 0.0;
                         int i = 0;
 
-                        COMANDO = "SELECT CONCAT(p.Nombres, ' ', p.Apellidos) as Nombres, p.dni, p.celular, p.direccion, p.observacion, IF(pe.estado=1, 'Activo', 'Inactivo') AS estado, pe.fecha_ingreso, pe.monto "
+                        COMANDO = "SELECT pe.idPENSIONISTA, CONCAT(p.Nombres, ' ', p.Apellidos) as Nombres, p.dni, p.celular, p.direccion, p.observacion, IF(pe.estado=1, 'Activo', 'Inactivo') AS estado, pe.fecha_ingreso, pe.monto "
                                 + "FROM persona p, pensionista pe "
                                 + "WHERE p.idPERSONA = pe.idPERSONA "
                                 + "AND DATE_FORMAT(pe.fecha_ingreso,'%Y%m') = DATE_FORMAT(sysdate(), '%Y%m')";
@@ -76,6 +87,7 @@
                             estado = rset.getString("estado");
                             fecha_ingreso = rset.getString("fecha_ingreso");
                             monto = rset.getDouble("monto");
+                            s_id_pensionista = rset.getString("idPENSIONISTA");
 
                     %>
                     <tr>        
@@ -88,10 +100,28 @@
                         <!--td ><%=estado%></td--> 
                         <td><%=fecha_ingreso%></td> 
                         <td><%=monto%></td> 
+                        <td><a id="modal_desaUno" data-toggle="modal" onclick="myModal('<%=rset.getString("idPENSIONISTA")%>')" data-target="#myModal"><button class="btn btn-success btn-sm fa fa-eye"></button></a></td> 
+
                     </tr>
                     <%}%>
                 </tbody>
             </table>
+        </div>
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        Consumo del mes de <%=fecha%>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button> 
+                    </div>
+                    <div class="modal-body">
+                        <div id="detalle">
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>    
         </div>
     </body>
 </html>

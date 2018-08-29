@@ -23,8 +23,7 @@
                         <span class="info-box-icon"><i class="fa fa-coffee"></i></span>         
                         <div class="info-box-content">
                             <span class="info-box-text">Desayunos</span>
-                            <%                                
-                                String CantDesaDia = "";
+                            <%                                String CantDesaDia = "";
 
                                 COMANDO = "SELECT COUNT(idDESAYUNO) as CantDesaDia "
                                         + "FROM (SELECT d.idDESAYUNO, CONCAT(p.Nombres, ' ', p.Apellidos) as Nombres,"
@@ -77,14 +76,49 @@
 
                         <div class="info-box-content">
                             <span class="info-box-text">Almuerzos</span>
-                            <span class="info-box-number" ></span>
+                            <%
+                                String CantAlmuDia = "";
+
+                                COMANDO = "SELECT COUNT(idALMUERZO) as CantAlmuDia "
+                                        + "FROM (SELECT d.idALMUERZO, CONCAT(p.Nombres, ' ', p.Apellidos) as Nombres,"
+                                        + " pp.monto, pp.fecha_ingreso, d.titulo,"
+                                        + " if(d.estado=1,'Si Almorzó','No Almorzó') AS ESTADO, "
+                                        + " d.monto as monto_c, d.cantidad, d.fecha_a "
+                                        + " FROM persona p, pensionista pp, almuerzo d "
+                                        + " WHERE p.idpersona = pp.idpersona "
+                                        + " AND pp.idpensionista = d.idpensionista "
+                                        + " AND DATE_FORMAT(d.fecha_a,'%d%m%Y') = DATE_FORMAT(sysdate(), '%d%m%Y')) a ";
+
+                                rset = stmt.executeQuery(COMANDO);
+                                //out.println(COMANDO);
+                                while (rset.next()) {
+
+                                    CantAlmuDia = rset.getString("CantAlmuDia");
+                                }
+                            %> 
+                            <span class="info-box-number"><%=CantAlmuDia%></span>
 
                             <div class="progress">
                                 <div class="progress-bar" style="width: 100%"></div>
                             </div>
-                            <span class="progress-description" >
+                            <%
+                                String CantAlmuMes = "";
+                                COMANDO = "SELECT COUNT(idALMUERZO) as CantAlmuMes "
+                                        + "FROM (SELECT d.idALMUERZO, CONCAT(p.Nombres, ' ', p.Apellidos) as Nombres, "
+                                        + "pp.monto, pp.fecha_ingreso, d.titulo, if(d.estado=1,'Si Almorzó','No Almorzó') AS ESTADO, "
+                                        + "d.monto as monto_c, d.cantidad, d.fecha_a "
+                                        + "FROM persona p, pensionista pp, almuerzo d "
+                                        + "WHERE p.idpersona = pp.idpersona "
+                                        + "AND pp.idpensionista = d.idpensionista "
+                                        + "AND DATE_FORMAT(d.fecha_a,'%m%Y') = DATE_FORMAT(sysdate(), '%m%Y')) as a ";
 
-                            </span>
+                                rset = stmt.executeQuery(COMANDO);
+                                //out.println(COMANDO);
+                                while (rset.next()) {
+                                    CantAlmuMes = rset.getString("CantAlmuMes");
+                                }
+                            %>
+                            <span class="progress-description" ><%=CantAlmuMes%></span>
 
                         </div>
                         <!-- /.info-box-content -->

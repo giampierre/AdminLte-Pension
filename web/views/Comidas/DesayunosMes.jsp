@@ -89,7 +89,7 @@
                                 + "AND DATE_FORMAT(d.fecha_d,'%m%Y') = DATE_FORMAT(sysdate(), '%m%Y') "
                                 + "GROUP BY pp.idPENSIONISTA ";
                         rset = stmt.executeQuery(COMANDO);
-                        //out.println(COMANDO);
+                        out.println(COMANDO);
 
                         while (rset.next()) {
                             i++;
