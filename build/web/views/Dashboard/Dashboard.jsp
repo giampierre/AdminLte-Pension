@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <script src="dist/js/modalDet.js" type="text/javascript"></script>
+        <script src="dist/js/modalDetDashboard.js" type="text/javascript"></script>
         <link href="dist/css/styleDashboard.css" rel="stylesheet" type="text/css"/>
         <title>JSP Page</title>
     </head>
@@ -23,7 +23,8 @@
                         <span class="info-box-icon"><i class="fa fa-coffee"></i></span>         
                         <div class="info-box-content">
                             <span class="info-box-text">Desayunos</span>
-                            <%                                String CantDesaDia = "";
+                            <%                                
+                                String CantDesaDia = "";
 
                                 COMANDO = "SELECT COUNT(idDESAYUNO) as CantDesaDia "
                                         + "FROM (SELECT d.idDESAYUNO, CONCAT(p.Nombres, ' ', p.Apellidos) as Nombres,"

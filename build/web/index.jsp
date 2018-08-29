@@ -393,10 +393,10 @@
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a id="menu_nueve" href="#"><i class="fa fa-circle-o"></i>Desayunos</a></li>
-                                <li><a href="#"><i class="fa fa-circle-o"></i>Almuerzos</a></li>
-                                <li><a href="#"><i class="fa fa-circle-o"></i>Cenas</a></li>
-                                <li><a href="#"><i class="fa fa-circle-o"></i>Extras</a></li>
+                                <li><a id="menu_nueve" href="#"><i class="fa fa-circle-o"></i>Desayunos Mes</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i>Almuerzos Mes</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i>Cenas Mes</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i>Extras Mes</a></li>
                             </ul>
                         </li>
                         <li class="treeview">
