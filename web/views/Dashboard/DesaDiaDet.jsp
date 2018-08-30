@@ -67,7 +67,7 @@
 
 
             </table>
-                    
+                    <!--Si hay registros -->
             <p style="text-align: center;">
                 <%
                     if (i == 0) {
