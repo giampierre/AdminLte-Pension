@@ -3,6 +3,7 @@
     Created on : 28/08/2018, 12:33:28 PM
     Author     : TIC-32
 --%>
+<%@page import="javafx.scene.control.Alert"%>
 <%@include file="../../conectadb.jsp" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -24,8 +25,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <%                       
-                        String nombres = "";
+                    <%                        String nombres = "";
                         String cantidad = "";
                         String monto = "";
                         String fecha = "";
@@ -58,12 +58,25 @@
                         <td><%=nombres%></td>
                         <td><%=fecha%></td> 
                         <!--td><!--%=cantidad%></td> 
-                        <td><!--%=monto%></td--> 
-
+                        <td><!--%=monto%></td-->                       
                     </tr>
                     <%}%>
+
+
                 </tbody>
+
+
             </table>
+                    
+            <p style="text-align: center;">
+                <%
+                    if (i == 0) {
+                        out.println("No se registraron desayunos el día de hoy");
+                    }
+                %>
+
+            </p>
+
         </div>
     </body>
 </html>

@@ -76,7 +76,7 @@
                                 + "WHERE p.idPERSONA = pe.idPERSONA "
                                 + "AND DATE_FORMAT(pe.fecha_ingreso,'%Y%m') = DATE_FORMAT(sysdate(), '%Y%m')";
                         rset = stmt.executeQuery(COMANDO);
-                        //out.println(COMANDO);
+                        out.println(COMANDO);
                         while (rset.next()) {
                             i++;
                             s_nombre = rset.getString("Nombres");
