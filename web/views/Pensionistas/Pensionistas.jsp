@@ -11,6 +11,15 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="dist/js/buscador.js" type="text/javascript"></script>
         <title>JSP Page</title>
+          <script>
+
+            function myModal(s_id_pensionista) {
+                $('#detalle').html('<center><img src="dist/img/loader.gif" width="20px" height="20px"/></center>');
+                $('#detalle').load('views/Pensionistas/PensionistasDet.jsp?f_id_pensionista=' + s_id_pensionista);
+
+            }
+
+        </script>
     </head>
     <body>
         <div class="box-header">
@@ -55,7 +64,7 @@
                         double monto = 0.0;
                         int i = 0;
                         String color = "";
-                        String azul = "#AED6F1";
+                        String danger = "#f5c6cb";
                         String blanco = "#fff";
 
                         COMANDO = "SELECT CONCAT(p.Nombres, ' ', p.Apellidos) as Nombres,"
@@ -83,10 +92,10 @@
                             monto = rset.getDouble("monto");
                             mes_actual = rset.getString("mes_actual");
 
-                            if (mes_actual.equals("1")) {
-                                color = azul;
-                            }
                             if (mes_actual.equals("0")) {
+                                color = danger;
+                            }
+                            if (mes_actual.equals("1")) {
                                 color = blanco;
                             }
 

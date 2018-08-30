@@ -58,9 +58,9 @@
                 </thead>
                 <tbody id="datos">
                     <%
-                        // Seleccionando los pacientes que actualmente se están atendiendo en emergencia
+                        
 
-                        String nombres = "";
+                        String s_nombre = "";
                         String dni = "";
                         String celular = "";
                         String direccion = "";
@@ -79,7 +79,7 @@
                         //out.println(COMANDO);
                         while (rset.next()) {
                             i++;
-                            nombres = rset.getString("Nombres");
+                            s_nombre = rset.getString("Nombres");
                             dni = rset.getString("dni");
                             celular = rset.getString("celular");
                             direccion = rset.getString("direccion");
@@ -92,15 +92,14 @@
                     %>
                     <tr>        
                         <td><%=i%></td>
-                        <td><%=nombres%></td>  
+                        <td><%=s_nombre%></td>  
                         <td><%=dni%></td> 
                         <td><%=celular%></td> 
                         <td><%=direccion%></td> 
                         <td><%=nota%></td> 
-                        <!--td ><%=estado%></td--> 
                         <td><%=fecha_ingreso%></td> 
                         <td><%=monto%></td> 
-                        <td><a id="modal_desaUno" data-toggle="modal" onclick="myModal('<%=rset.getString("idPENSIONISTA")%>')" data-target="#myModal"><button class="btn btn-success btn-sm fa fa-eye"></button></a></td> 
+                        <td><a id="modal_desaUno" data-toggle="modal" onclick="myModal('<%=s_id_pensionista%>')" data-target="#myModal"><button class="btn btn-success btn-sm fa fa-eye"></button></a></td> 
 
                     </tr>
                     <%}%>
@@ -111,7 +110,7 @@
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        Consumo del mes de <%=fecha%>
+                        Detalle consumo del mes de <%=fecha%>
                         <button type="button" class="close" data-dismiss="modal">&times;</button> 
                     </div>
                     <div class="modal-body">

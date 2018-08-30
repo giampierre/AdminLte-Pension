@@ -41,7 +41,7 @@
                                 + " AND DATE_FORMAT(d.fecha_d,'%d%m%Y') = DATE_FORMAT(sysdate(), '%d%m%Y') "
                                 + "ORDER BY d.fecha_d DESC";
                         rset = stmt.executeQuery(COMANDO);
-                        out.println(COMANDO);
+                        //out.println(COMANDO);
 
                         while (rset.next()) {
                             i++;
