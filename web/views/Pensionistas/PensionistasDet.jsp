@@ -47,15 +47,14 @@
                                                 + "FROM pensionista p "
                                                 + "LEFT JOIN persona pe ON (p.idPERSONA = pe.idPERSONA) "
                                                 + "LEFT JOIN (SELECT idPENSIONISTA, SUM(cantidad) as cantDesa, SUM(monto) as consDesa FROM "
-                                                + "desayuno WHERE DATE_FORMAT(fecha_d,'%m%Y') = DATE_FORMAT(sysdate(), '%m%Y') GROUP BY idPENSIONISTA) d "
+                                                + "desayuno GROUP BY idPENSIONISTA) d "
                                                 + "ON p.idPENSIONISTA = d.idPENSIONISTA LEFT JOIN (SELECT idPENSIONISTA, "
                                                 + "SUM(cantidad) as cantAlmu, SUM(monto) as consAlmu FROM almuerzo "
-                                                + "WHERE DATE_FORMAT(fecha_a,'%m%Y') = DATE_FORMAT(sysdate(), '%m%Y') "
                                                 + "GROUP BY idPENSIONISTA) a ON p.idPENSIONISTA = a.idPENSIONISTA "
                                                 + "LEFT JOIN (SELECT idPENSIONISTA, SUM(cantidad) as cantCena, SUM(monto) as consCena "
-                                                + "FROM cena WHERE DATE_FORMAT(fecha_c,'%m%Y') = DATE_FORMAT(sysdate(), '%m%Y') "
+                                                + "FROM cena "
                                                 + "GROUP BY idPENSIONISTA) c ON p.idPENSIONISTA = c.idPENSIONISTA "
-                                                + "WHERE DATE_FORMAT(fecha_ingreso,'%m%Y') = DATE_FORMAT(sysdate(), '%m%Y') AND p.idPENSIONISTA = '" + id_pensionista + "' ";
+                                                + "WHERE p.idPENSIONISTA = '" + id_pensionista + "' ";
 
                                         rset = stmt.executeQuery(COMANDO);
                                         //out.print(COMANDO);
@@ -105,8 +104,7 @@
                                 COMANDO = "SELECT p.idPENSIONISTA, CONCAT(pe.Nombres, ' ', pe.Apellidos) as Nombres "
                                         + "FROM pensionista p "
                                         + "LEFT JOIN persona pe ON (p.idPERSONA = pe.idPERSONA) "
-                                        + "WHERE DATE_FORMAT(fecha_ingreso,'%m%Y') = DATE_FORMAT(sysdate(), '%m%Y') "
-                                        + "AND p.idPENSIONISTA = '" + id_pensionista + "' ";
+                                        + " WHERE p.idPENSIONISTA = '" + id_pensionista + "' ";
 
                                 rset = stmt.executeQuery(COMANDO);
                                 //out.print(COMANDO);
@@ -160,21 +158,20 @@
                                                     + "LEFT JOIN "
                                                     + "(SELECT idPENSIONISTA, SUM(cantidad) as cantDesa,"
                                                     + " SUM(monto) as   consDesa "
-                                                    + "FROM desayuno WHERE DATE_FORMAT(fecha_d,'%m%Y') = DATE_FORMAT(sysdate(), '%m%Y') "
+                                                    + "FROM desayuno "
                                                     + "GROUP BY idPENSIONISTA) d "
                                                     + "ON p.idPENSIONISTA = d.idPENSIONISTA "
                                                     + "LEFT JOIN "
                                                     + "(SELECT idPENSIONISTA, SUM(cantidad) as cantAlmu, SUM(monto) as consAlmu "
-                                                    + "FROM almuerzo WHERE DATE_FORMAT(fecha_a,'%m%Y') = DATE_FORMAT(sysdate(), '%m%Y') "
+                                                    + "FROM almuerzo "
                                                     + "GROUP BY idPENSIONISTA) a "
                                                     + "ON p.idPENSIONISTA = a.idPENSIONISTA "
                                                     + "LEFT JOIN "
                                                     + "(SELECT idPENSIONISTA, SUM(cantidad) as cantCena, SUM(monto) as consCena "
-                                                    + "FROM cena WHERE DATE_FORMAT(fecha_c,'%m%Y') = DATE_FORMAT(sysdate(), '%m%Y') "
+                                                    + "FROM cena "
                                                     + "GROUP BY idPENSIONISTA) c "
                                                     + "ON p.idPENSIONISTA = c.idPENSIONISTA "
-                                                    + "WHERE DATE_FORMAT(fecha_ingreso,'%m%Y') = DATE_FORMAT(sysdate(), '%m%Y') "
-                                                    + "AND p.idPENSIONISTA = '" + id_pensionista + "'";
+                                                    + "WHERE p.idPENSIONISTA = '" + id_pensionista + "'";
 
                                             rset = stmt.executeQuery(COMANDO);
                                             //out.println(COMANDO);

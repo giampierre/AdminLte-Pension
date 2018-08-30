@@ -14,7 +14,7 @@ $(document).ready(function () { // inicio ready.function
 
     $("#menu_dos").click(function () {
         $('#contenido').html('<center><img src="dist/img/loader.gif" width="20px" height="20px"/></center>');
-        $("#contenido").load("views/RegistrarComidas/RegistrarDesayunos/AddDesayuno.jsp");
+        $("#contenido").load("views/RegistrarComidas/RegistrarDesayunos/RegistrarDesayuno.jsp");
     });
 
     $("#menu_tres").click(function () {

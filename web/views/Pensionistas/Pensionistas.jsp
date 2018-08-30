@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="dist/js/buscador.js" type="text/javascript"></script>
         <title>JSP Page</title>
-          <script>
+        <script>
 
             function myModal(s_id_pensionista) {
                 $('#detalle').html('<center><img src="dist/img/loader.gif" width="20px" height="20px"/></center>');
@@ -61,13 +61,14 @@
                         String estado = "";
                         String fecha_ingreso = "";
                         String mes_actual = "";
+                        String s_id_pensionista = "";
                         double monto = 0.0;
                         int i = 0;
                         String color = "";
                         String danger = "#f5c6cb";
                         String blanco = "#fff";
 
-                        COMANDO = "SELECT CONCAT(p.Nombres, ' ', p.Apellidos) as Nombres,"
+                        COMANDO = "SELECT pe.idpensionista, CONCAT(p.Nombres, ' ', p.Apellidos) as Nombres,"
                                 + "p.dni, p.celular, p.direccion, p.observacion,"
                                 + "IF(pe.estado=1, 'Activo', 'Inactivo') AS estado, pe.fecha_ingreso, pe.monto, "
                                 + "CASE "
@@ -91,6 +92,7 @@
                             fecha_ingreso = rset.getString("fecha_ingreso");
                             monto = rset.getDouble("monto");
                             mes_actual = rset.getString("mes_actual");
+                            s_id_pensionista = rset.getString("idpensionista");
 
                             if (mes_actual.equals("0")) {
                                 color = danger;
@@ -114,14 +116,31 @@
                         <!--td><%=mes_actual%></td--> 
                         <td>
                             <div class="btn-group">
-                                <button class="btn btn-warning btn-xs glyphicon glyphicon-edit"></button>
-                                <button class="btn btn-danger btn-xs glyphicon glyphicon-trash"></button>
+                                <a><button class="btn btn-warning btn-xs glyphicon glyphicon-edit"></button></a>
+                                <a><button class="btn btn-danger btn-xs glyphicon glyphicon-trash"></button></a>
+                                <a id="modal_desaUno" data-toggle="modal" onclick="myModal('<%=s_id_pensionista%>')" data-target="#myModal"><button class="btn btn-success btn-xs glyphicon glyphicon-eye-open"></button></a>
                             </div>
                         </td>
                     </tr>
                     <%}%>
                 </tbody>
             </table>
+        </div>
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        Detalle consumo
+                        <button type="button" class="close" data-dismiss="modal">&times;</button> 
+                    </div>
+                    <div class="modal-body">
+                        <div id="detalle">
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>    
         </div>
     </body>
 </html>
