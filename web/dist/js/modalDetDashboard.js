@@ -16,6 +16,27 @@ $(document).ready(function () {
         $('#detalle').load('views/Dashboard/DesaMesDet.jsp');
     });
     
+      $("#modal_tres").click(function () {
+        $('#detalle').html('<center><img src="dist/img/loader.gif" width="20px" height="20px"/></center>');
+        $('#detalle').load('views/Dashboard/AlmuDiaDet.jsp');
+    });
+    
+      $("#modal_cuatro").click(function () {
+        $('#detalle').html('<center><img src="dist/img/loader.gif" width="20px" height="20px"/></center>');
+        $('#detalle').load('views/Dashboard/AlmuMesDet.jsp');
+    });
+    
+      $("#modal_cinco").click(function () {
+        $('#detalle').html('<center><img src="dist/img/loader.gif" width="20px" height="20px"/></center>');
+        $('#detalle').load('views/Dashboard/CenaDiaDet.jsp');
+    });
+    
+      $("#modal_seis").click(function () {
+        $('#detalle').html('<center><img src="dist/img/loader.gif" width="20px" height="20px"/></center>');
+        $('#detalle').load('views/Dashboard/CenaMesDet.jsp');
+    });
+    
+    
     
 });
 

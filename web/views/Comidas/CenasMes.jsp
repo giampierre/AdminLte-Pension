@@ -16,7 +16,7 @@
 
             function myModal(s_id_pensionista) {
                 $('#detalle').html('<center><img src="dist/img/loader.gif" width="20px" height="20px"/></center>');
-                $('#detalle').load('views/Comidas/DesayunosMesDet.jsp?f_id_pensionista=' + s_id_pensionista);
+                $('#detalle').load('views/Comidas/CenasMesDet.jsp?f_id_pensionista=' + s_id_pensionista);
 
             }
 
@@ -43,7 +43,7 @@
                 String fechaActual = ft.format(FechaActual);
             %>
 
-            <h3 class="box-title">Desayunos por pensionistas del mes de <%=fechaActual%></h3>
+            <h3 class="box-title">Cenas por pensionistas del mes de <%=fechaActual%></h3>
 
             <div class="box-tools">
                 <div class="input-group input-group-sm" style="width: 150px;">
@@ -61,7 +61,7 @@
                     <tr>
                         <th>N°</th>
                         <th>Nombres</th>
-                        <th>Desayunos</th>
+                        <th>Cenas</th>
                         <th>Fecha</th>
                         <th>Cantidad</th>
                         <th>Monto</th>
@@ -69,9 +69,9 @@
                     </tr>
                 </thead>
                 <tbody id="datos">
-                    <%                       
+                    <%                        
                         String nombres = "";
-                        String desayuno = "";
+                        String cena = "";
                         String cantidad = "";
                         String monto = "";
                         String fecha = "";
@@ -81,12 +81,12 @@
                         String s_id_pensionista = "";
 
                         COMANDO = "SELECT pp.idPENSIONISTA, CONCAT(p.Nombres, ' ', p.Apellidos) as Nombres, "
-                                + "pp.monto, pp.fecha_ingreso, d.titulo, if(d.estado=1,'Si Desayunó','No Desayunó') AS ESTADO, "
-                                + "SUM(d.monto) as monto_c, SUM(d.cantidad) as cantidad, d.fecha_d "
-                                + "FROM persona p, pensionista pp, desayuno d  "
+                                + "pp.monto, pp.fecha_ingreso, d.titulo, if(d.estado=1,'Si cenó','No cenó') AS ESTADO, "
+                                + "SUM(d.monto) as monto_c, SUM(d.cantidad) as cantidad, d.fecha_c "
+                                + "FROM persona p, pensionista pp, cena d  "
                                 + "WHERE p.idpersona = pp.idpersona "
                                 + "AND pp.idpensionista = d.idpensionista "
-                                + "AND DATE_FORMAT(d.fecha_d,'%m%Y') = DATE_FORMAT(sysdate(), '%m%Y') "
+                                + "AND DATE_FORMAT(d.fecha_c,'%m%Y') = DATE_FORMAT(sysdate(), '%m%Y') "
                                 + "GROUP BY pp.idPENSIONISTA ";
                         rset = stmt.executeQuery(COMANDO);
                         out.println(COMANDO);
@@ -94,8 +94,8 @@
                         while (rset.next()) {
                             i++;
                             nombres = rset.getString("Nombres");
-                            desayuno = rset.getString("ESTADO");
-                            fecha = rset.getString("fecha_d");
+                            cena = rset.getString("ESTADO");
+                            fecha = rset.getString("fecha_c");
                             cantidad = rset.getString("cantidad");
                             monto = rset.getString("monto_c");
                             s_id_pensionista = rset.getString("idPENSIONISTA");
@@ -108,7 +108,7 @@
                     <tr>        
                         <td><%=i%></td>
                         <td><%=nombres%></td>  
-                        <td><%=desayuno%></td> 
+                        <td><%=cena%></td> 
                         <td><%=fecha%></td> 
                         <td><%=cantidad%></td> 
                         <td><%=monto%></td> 
@@ -117,7 +117,7 @@
                     <%}%>
                 </tbody>
                 <tfoot>
-                    <tr><th colspan="4">Total Desayunos</th>
+                    <tr><th colspan="4">Total Cenas</th>
                         <th><%=sumar_cantidad%></th>
                         <th><%=sumar_monto%></th>
                         <th><br></th>

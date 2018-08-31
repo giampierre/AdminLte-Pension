@@ -54,7 +54,11 @@ $(document).ready(function () { // inicio ready.function
 
     $("#menu_diez").click(function () {
         $('#contenido').html('<center><img src="dist/img/loader.gif" width="20px" height="20px"/></center>');
-        $("#contenido").load("");
+        $("#contenido").load("views/Comidas/AlmuerzosMes.jsp");
+    });
+    $("#menu_once").click(function () {
+        $('#contenido').html('<center><img src="dist/img/loader.gif" width="20px" height="20px"/></center>');
+        $("#contenido").load("views/Comidas/CenasMes.jsp");
     });
 
 }); // fin ready.function
