@@ -42,7 +42,7 @@
                     if (ajax.status === 200)
                     {
                         // Escribimos el resultado en la pagina HTML mediante DHTML
-                        document.all.salida.innerHTML = "<b>" + ajax.responseText + "</b>";
+                        document.all.salida.innerHTML = "<p style='font-size: 20px; text-transform: uppercase;'><b>" + ajax.responseText + "</b></p>";
                     }
                 }
             }
@@ -68,58 +68,71 @@
             }
 
         </script>
+        <style>
+
+            table tr td {
+                border: inset 0pt !important;
+            }
+        </style>
     </head>
     <body onload="acceso.dni.focus()">
-        <br>
-        <br>
-        <div class="col-md-6 col-md-offset-3">
 
-            <div class="box box-solid box-warning">
-                <div class="box-header">
-                    <h2><p class="text-center"><b>DESAYUNOS</b>&nbsp;</p></h2>
-                    <center><h3 style="font-size: 100px;" class="fa fa-coffee"></h3></center>
-                </div>
+
+
+        <div class="col-lg-12 col-md-12">
+
+            <div>
+
                 <!-- /.box-header -->
-                <div class="box-body no-padding">
+                <div style="background-image: url('dist/img/desayuno3.jpg');  width: 100%; height: 82vh;" >
 
+                    <div class="table-responsive">
+                        <table class="table table-condensed">
 
-                    <table class="table table-condensed">
-
-                        <tr align="center">
-                            <td>
-                                <span style="font-size: 35px; color: #4d8a43;" id="salida"></span>
+                            <tr align="center">
+                                <td>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <div style="width: 50%;"  class="alert alert-warning">
+                                        <p style="text-align: center; font-size: 35px;" class="text-center fa fa-coffee"><b>&nbsp;&nbsp;DESAYUNOS</b>&nbsp;</p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr align="center">
+                                <td>
+                                    <div style="width: 50%; font-size: 20px;"  class="alert alert-success" id="salida">Ingrese su código para registrar su desayuno</div>
+                                </td>
+                            </tr>
+                            <!--tr align="center">
+                                <td>
+                                    <h1 style="color: #fff;">CODIGO:</h1>
+                                </td>
+                            </tr-->
+                            <tr>
+                                <td align="center">
+                            <center><h3 style="font-size: 100px; color: #D7DBDD;" class="fa fa-user"></h3></center>     
+                            <input class="form-control" style=" padding: 2%; width: 22%; text-align: center; font-size: 300%; font-weight: bold; color: #2E4053;" type="text" name="dni" id="entrada" size="400" maxlength="8" onkeypress="tufuncion(event);funLimpiar(event)" required><br>
+                            <!--div style="color: #fff;" class="help-block text-center">
+                                Ingrese su código para registrar su desayuno                        
+                            </div-->
                             </td>
-                        </tr>
-                        <tr align="center">
-                            <td>
-                                <h1>CODIGO:</h1>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="center">
-                                <input class="form-control" style=" padding: 4%; width: 35%; text-align: center; font-size: 250%;" type="text" name="dni" id="entrada" size="400" maxlength="8" onkeypress="tufuncion(event);funLimpiar(event)" required><br>
-                            </td>
-
-                        </tr>
-
-                    </table>
 
 
+
+                            </tr>
+
+                        </table>
+
+
+                    </div>
+                    <!-- /.box-body -->
                 </div>
-                <!-- /.box-body -->
+
             </div>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
+
         </div>
-
-
 
 
 

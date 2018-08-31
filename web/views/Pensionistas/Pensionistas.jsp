@@ -22,6 +22,12 @@
         </script>
     </head>
     <body>
+        <%            
+           
+            String s_mes_ini = request.getParameter("f_mes_ini");
+            String s_anio_ini = request.getParameter("f_anio_ini");
+
+        %>
         <div class="box-header">
             <h3 class="box-title"><button class="btn btn-primary btn-xs fa fa-user-plus"></button>&nbsp; Lista de Pensionistas </h3>
 
@@ -70,7 +76,7 @@
 
                         COMANDO = "SELECT pe.idpensionista, CONCAT(p.Nombres, ' ', p.Apellidos) as Nombres,"
                                 + "p.dni, p.celular, p.direccion, p.observacion,"
-                                + "IF(pe.estado=1, 'Activo', 'Inactivo') AS estado, pe.fecha_ingreso, pe.monto, "
+                                + "IF(pe.estado=1, 'Activo', 'Inactivo') AS estado, DATE_FORMAT(pe.fecha_ingreso,'%d/%m/%Y') as fecha_ingreso, pe.monto, "
                                 + "CASE "
                                 + "WHEN DATE_FORMAT(pe.fecha_ingreso,'%Y%m') = DATE_FORMAT(sysdate(), '%Y%m') THEN '1' "
                                 + "WHEN DATE_FORMAT(pe.fecha_ingreso,'%Y%m') = DATE_FORMAT(pe.fecha_ingreso,'%Y%m') THEN '0' "
@@ -78,9 +84,10 @@
                                 + "END as mes_actual "
                                 + "FROM persona p, pensionista pe "
                                 + "WHERE p.idPERSONA = pe.idPERSONA "
+                                + "AND DATE_FORMAT(pe.fecha_ingreso,'%Y%m') = '" + s_anio_ini + s_mes_ini + "' "
                                 + "order by DATE_FORMAT(pe.fecha_ingreso,'%Y%m') desc";
                         rset = stmt.executeQuery(COMANDO);
-                        //out.println(COMANDO);
+                        out.println(COMANDO);
                         while (rset.next()) {
                             i++;
                             nombres = rset.getString("Nombres");

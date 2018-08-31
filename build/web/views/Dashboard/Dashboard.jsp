@@ -96,7 +96,7 @@
                                     CantAlmuDia = rset.getString("CantAlmuDia");
                                 }
                             %> 
-                            <span class="info-box-number"><%=CantAlmuDia%></span>
+                            <span class="info-box-number"><a id="modal_tres" data-toggle="modal" data-target="#myModal"><%=CantAlmuDia%></a></span>
 
                             <div class="progress">
                                 <div class="progress-bar" style="width: 100%"></div>
@@ -118,7 +118,7 @@
                                     CantAlmuMes = rset.getString("CantAlmuMes");
                                 }
                             %>
-                            <span class="progress-description" ><%=CantAlmuMes%></span>
+                            <span class="progress-description" ><a id="modal_cuatro" data-toggle="modal" data-target="#myModal"><%=CantAlmuMes%></a></span>
 
                         </div>
                         <!-- /.info-box-content -->
@@ -131,14 +131,49 @@
 
                         <div class="info-box-content">
                             <span class="info-box-text">Cenas</span>
-                            <span  class="info-box-number"  ></span>
+                            <%
+                                String CantCenaDia = "";
+
+                                COMANDO = "SELECT COUNT(idCENA) as CantCenaDia "
+                                        + "FROM (SELECT d.idCENA, CONCAT(p.Nombres, ' ', p.Apellidos) as Nombres,"
+                                        + " pp.monto, pp.fecha_ingreso, d.titulo,"
+                                        + " if(d.estado=1,'Si Cenó','No Cenó') AS ESTADO, "
+                                        + " d.monto as monto_c, d.cantidad, d.fecha_c "
+                                        + " FROM persona p, pensionista pp, cena d "
+                                        + " WHERE p.idpersona = pp.idpersona "
+                                        + " AND pp.idpensionista = d.idpensionista "
+                                        + " AND DATE_FORMAT(d.fecha_c,'%d%m%Y') = DATE_FORMAT(sysdate(), '%d%m%Y')) a ";
+
+                                rset = stmt.executeQuery(COMANDO);
+                                //out.println(COMANDO);
+                                while (rset.next()) {
+
+                                    CantCenaDia = rset.getString("CantCenaDia");
+                                }
+                            %>  
+                            <span  class="info-box-number"><a id="modal_cinco" data-toggle="modal" data-target="#myModal"><%=CantCenaDia%></a></span>
 
                             <div class="progress">
                                 <div class="progress-bar" style="width: 100%"></div>
                             </div>
-                            <span class="progress-description" >
+                            <%
+                                String CantCenaMes = "";
+                                COMANDO = "SELECT COUNT(idCENA) as CantCenaMes "
+                                        + "FROM (SELECT d.idCENA, CONCAT(p.Nombres, ' ', p.Apellidos) as Nombres, "
+                                        + "pp.monto, pp.fecha_ingreso, d.titulo, if(d.estado=1,'Si Cenó','No Cenó') AS ESTADO, "
+                                        + "d.monto as monto_c, d.cantidad, d.fecha_c "
+                                        + "FROM persona p, pensionista pp, cena d "
+                                        + "WHERE p.idpersona = pp.idpersona "
+                                        + "AND pp.idpensionista = d.idpensionista "
+                                        + "AND DATE_FORMAT(d.fecha_c,'%m%Y') = DATE_FORMAT(sysdate(), '%m%Y')) as a ";
 
-                            </span>
+                                rset = stmt.executeQuery(COMANDO);
+                                //out.println(COMANDO);
+                                while (rset.next()) {
+                                    CantCenaMes = rset.getString("CantCenaMes");
+                                }
+                            %>
+                            <span class="progress-description" ><a id="modal_seis" data-toggle="modal" data-target="#myModal"><%=CantCenaMes%></a></span>
 
                         </div>
                         <!-- /.info-box-content -->

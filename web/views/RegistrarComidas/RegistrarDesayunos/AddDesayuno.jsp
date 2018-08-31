@@ -69,7 +69,7 @@
                
             } else {
                 //out.print("Desayuno no registrado<br />");
-                out.print("Codigo Incorrecto");
+                out.print("Código Incorrecto");
             }
         %>
         
