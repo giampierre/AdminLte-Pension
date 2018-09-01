@@ -36,7 +36,7 @@
                     <input id="buscar"  type="text" onkeyup="buscarDatos()" class="form-control pull-right" placeholder="Buscar...">
 
                     <div class="input-group-btn">
-                        <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                        <button type="#" class="btn btn-default"><i class="fa fa-search"></i></button>
                     </div>
                 </div>
             </div>
@@ -58,7 +58,7 @@
                     </tr>
                 </thead>
                 <tbody id="datos">
-                    <%                        // Seleccionando los pacientes que actualmente se están atendiendo en emergencia
+                    <%                        
                         String nombres = "";
                         String dni = "";
                         String celular = "";
@@ -87,7 +87,7 @@
                                 + "AND DATE_FORMAT(pe.fecha_ingreso,'%Y%m') = '" + s_anio_ini + s_mes_ini + "' "
                                 + "order by DATE_FORMAT(pe.fecha_ingreso,'%Y%m') desc";
                         rset = stmt.executeQuery(COMANDO);
-                        out.println(COMANDO);
+                        //out.println(COMANDO);
                         while (rset.next()) {
                             i++;
                             nombres = rset.getString("Nombres");
@@ -132,12 +132,21 @@
                     <%}%>
                 </tbody>
             </table>
+                  <!--Si hay registros -->
+            <p style="text-align: center;">
+                <%
+                    if (i == 0) {
+                        out.println("No se registraron pensionistas en este perido");
+                    }
+                %>
+
+            </p>
         </div>
         <div id="myModal" class="modal fade" role="dialog">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        Detalle consumo
+                        Detalle consumo 
                         <button type="button" class="close" data-dismiss="modal">&times;</button> 
                     </div>
                     <div class="modal-body">
