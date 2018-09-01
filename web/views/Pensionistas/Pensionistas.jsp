@@ -26,6 +26,7 @@
            
             String s_mes_ini = request.getParameter("f_mes_ini");
             String s_anio_ini = request.getParameter("f_anio_ini");
+            String s_tipo = request.getParameter("f_tipo");
 
         %>
         <div class="box-header">
@@ -85,6 +86,7 @@
                                 + "FROM persona p, pensionista pe "
                                 + "WHERE p.idPERSONA = pe.idPERSONA "
                                 + "AND DATE_FORMAT(pe.fecha_ingreso,'%Y%m') = '" + s_anio_ini + s_mes_ini + "' "
+                                + "AND pe.tipo = '" + s_tipo + "' "
                                 + "order by DATE_FORMAT(pe.fecha_ingreso,'%Y%m') desc";
                         rset = stmt.executeQuery(COMANDO);
                         //out.println(COMANDO);

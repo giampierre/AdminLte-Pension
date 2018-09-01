@@ -41,19 +41,32 @@
     <body>
         <%            String a_mes[][] = {{"01", "Enero"}, {"02", "Febrero"}, {"03", "Marzo"}, {"04", "Abril"}, {"05", "Mayo"}, {"06", "Junio"}, {"07", "Julio"}, {"08", "Agosto"}, {"09", "Setiembre"}, {"10", "Octubre"}, {"11", "Noviembre"}, {"12", "Diciembre"}};
             String s_mes = "";
-            COMANDO = "Select "
-                    + "date_format(sysdate(),'%M') mes "
+            COMANDO = 
+                    "Select "
+                    + "date_format(sysdate(),'%m') mes "
                     + "from dual ";
             rset = stmt.executeQuery(COMANDO);
             rset.next();
             s_mes = rset.getString("mes");
         %>
 
+        <%            
+            String a_tipo[][] = {{"0", "General"}, {"1", "Ejecutivo"}};
+            String s_tipo = "";
+            COMANDO = "Select "
+                    + "distinct tipo as  tipo "
+                    + "from pensionista "
+                    + "order by tipo asc ";
+            rset = stmt.executeQuery(COMANDO);
+            rset.next();
+            s_mes = rset.getString("tipo");
+        %>
+
         <form name="datoslist" target="view" id="datoslist" action="views/Pensionistas/Pensionistas.jsp">
 
             <table>
                 <tr>		
-                    <th align ="center" class="titulo" height="20" colspan="3">Periodo</th>
+                    <th align ="center" class="titulo" height="20" colspan="3">&nbsp;Seleccionar periodo y tipo de pensionista</th>
                 </tr>
                 <tr>
                     <td width="220px">
@@ -65,10 +78,10 @@
                                 }%>><%=a_mes[x][1]%></option>
                             <%						}	%>
                         </select>
-                       
+
                     </td>
                     <td>
-                         <select class="form-control" name="f_anio_ini" id="f_anio_ini">
+                        <select class="form-control" name="f_anio_ini" id="f_anio_ini">
                             <%COMANDO = "select distinct date_format(fecha_ingreso,'%Y') anio "
                                         + "from pensionista "
                                         + "order by anio desc ";
@@ -78,23 +91,32 @@
                             <%}%>
                         </select>
                     </td>
-                      <td><br><br></td>
+                    <td>
+                        <select class="form-control" name="f_tipo" id="f_tipo">
+                            <%
+                                for (int x = 0; x < a_tipo.length; x++) {%>
+                            <option value="<%=a_tipo[x][0]%>" <% if (a_tipo[x][0].equals(s_tipo)) {
+                                    out.print("selected");
+                                }%>><%=a_tipo[x][1]%></option>
+                            <%						}	%>
+                        </select>
+                    </td> 
                     <td>
                         <input class="btn btn-info" type="button" value="Visualizar" id="enviar" class="butoncito">                    
                     </td>
                 </tr>	
-               
+
             </table> 
-                        <br>
-                         <div>
-                            <div class="box-header with-border">
-                                <div id="detallelist"><br/>
+            <br>
+            <div>
+                <div class="box-header with-border">
+                    <div id="detallelist"><br/>
 
-                                    <center><p>No se selecionó ningún periodo</p></center>
+                        <center><p>No se selecionó ningún periodo</p></center>
 
-                                </div>
-                            </div>
-                        </div>
+                    </div>
+                </div>
+            </div>
         </form>
     </body>
 </html>
