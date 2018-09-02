@@ -9,31 +9,32 @@
 
 
 
-<%		
+<%
     //Inicio de la conexión a Mysql
-    
-	Statement   stmt = null;
-	Statement   stmt2 = null;
-	ResultSet   rset = null;
-	ResultSet   rset2 = null;
-	PreparedStatement pstmt = null;
-	
-	Date dt	= new Date();
-	
-	Class.forName("com.mysql.jdbc.Driver");
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/bd_pension", "root", "");
-		
-	stmt  = conn.createStatement();
-	stmt2 = conn.createStatement();
-	
-	String COMANDO   = "";
-	String COMANDO2  = "";
-	DecimalFormat formateador  = new DecimalFormat("##########0.00 ; (-###0.00)");
-	DecimalFormat formateador1 = new DecimalFormat("##########0.00"); 
-	DecimalFormat formateador2 = new DecimalFormat("#####,###,##0.00"); 
 
-	NumberFormat  nf = NumberFormat.getInstance();		
+    Statement stmt = null;
+    Statement stmt2 = null;
+    ResultSet rset = null;
+    ResultSet rset2 = null;
+    PreparedStatement pstmt = null;
 
-        //fin de la conexión
- 
+    Date dt = new Date();
+
+    Class.forName("com.mysql.jdbc.Driver");
+    Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/bd_pension", "root", "");
+
+    stmt = conn.createStatement();
+    stmt2 = conn.createStatement();
+
+    String COMANDO = "";
+    String COMANDO2 = "";
+    DecimalFormat formateador = new DecimalFormat("##########0.00 ; (-###0.00)");
+    DecimalFormat formateador1 = new DecimalFormat("##########0.00");
+    DecimalFormat formateador2 = new DecimalFormat("#####,###,##0.00");
+
+    NumberFormat nf = NumberFormat.getInstance();
+
+
+    //fin de la conexión
+
 %>

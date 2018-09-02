@@ -49,7 +49,7 @@ $(document).ready(function () { // inicio ready.function
 
     $("#menu_nueve").click(function () {
         $('#contenido').html('<center><img src="dist/img/loader.gif" width="20px" height="20px"/></center>');
-        $("#contenido").load("views/Comidas/DesayunosMes.jsp");
+        $("#contenido").load("views/Comidas/MainDesayunos.jsp");
     });
 
     $("#menu_diez").click(function () {

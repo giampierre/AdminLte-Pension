@@ -18,6 +18,7 @@
                     <tr>
                         <th>N°</th>
                         <th>Nombres</th>
+                        <th>Nota</th>
                         <th>Fecha</th>
                         <th>Cantidad</th>
                         <th>Monto</th>
@@ -27,14 +28,16 @@
                     <%      
                         String id_pensionista = request.getParameter("f_id_pensionista");
                         String nombres = "";
+                        String nota = "";
                         String cantidad = "";
                         String monto = "";
                         String fecha = "";
                         int i = 0;
                         
                         COMANDO = "SELECT pp.idPENSIONISTA, CONCAT(p.Nombres, ' ', p.Apellidos) as Nombres, "
-                                + "pp.monto, pp.fecha_ingreso, d.titulo, if(d.estado=1,'Si Desayunó','No Desayunó') AS ESTADO, " 
-                                + "d.monto as monto_c, d.cantidad as cantidad, d.fecha_d " 
+                                + "pp.monto, pp.fecha_ingreso, d.titulo, if(d.estado=1,'Para llevar','Desayunó') AS ESTADO, " 
+                                + "d.monto as monto_c, d.cantidad as cantidad, "
+                                + "DATE_FORMAT(d.fecha_d, '%d-%m-%Y %H:%i:%s') as fecha_d " 
                                 + "FROM persona p, pensionista pp, desayuno d "  
                                 + "WHERE p.idpersona = pp.idpersona "  
                                 + "AND pp.idpensionista = d.idpensionista "  
@@ -47,6 +50,7 @@
                         while (rset.next()) {
                             i++;
                             nombres = rset.getString("Nombres");
+                            nota = rset.getString("ESTADO");
                             fecha = rset.getString("fecha_d");
                             cantidad = rset.getString("cantidad");
                             monto = rset.getString("monto_c");
@@ -57,6 +61,7 @@
                     <tr>        
                         <td><%=i%></td>
                         <td><%=nombres%></td>
+                        <td><%=nota%></td>
                         <td><%=fecha%></td> 
                         <td><%=cantidad%></td> 
                         <td><%=monto%></td> 

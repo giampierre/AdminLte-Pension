@@ -379,9 +379,9 @@
                             </a>
                             <ul class="treeview-menu">
                                 <li><a id="menu_cinco" href="#"><i class="fa fa-circle-o"></i>Pensionistas</a></li>
-                                <li><a id="menu_seis" href="#"><i class="fa fa-circle-o"></i>Pensionistas Mes</a></li>
+                                <!--li><a id="menu_seis" href="#"><i class="fa fa-circle-o"></i>Pensionistas Mes</a></li>
                                 <li><a href="#"><i class="fa fa-circle-o"></i>Pensionistas Ejecutivos</a></li>
-                                <li><a href="#"><i class="fa fa-circle-o"></i>Pensionistas General</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i>Pensionistas General</a></li-->
                             </ul>
                         </li>
                         <li class="treeview">
@@ -393,9 +393,9 @@
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a id="menu_nueve" href="#"><i class="fa fa-circle-o"></i>Desayunos Mes</a></li>
-                                <li><a id="menu_diez" href="#"><i class="fa fa-circle-o"></i>Almuerzos Mes</a></li>
-                                <li><a id="menu_once" href="#"><i class="fa fa-circle-o"></i>Cenas Mes</a></li>
+                                <li><a id="menu_nueve" href="#"><i class="fa fa-circle-o"></i>Desayunos</a></li>
+                                <li><a id="menu_diez" href="#"><i class="fa fa-circle-o"></i>Almuerzos</a></li>
+                                <li><a id="menu_once" href="#"><i class="fa fa-circle-o"></i>Cenas</a></li>
                                 <li><a href="#"><i class="fa fa-circle-o"></i>Extras Mes</a></li>
                             </ul>
                         </li>

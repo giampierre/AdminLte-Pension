@@ -22,28 +22,9 @@
 
         </script>
     </head>
-    <%        String s_fecha_ini = "";
-        String s_fecha_fin = "";
-
-        COMANDO = "select DATE_FORMAT(sysdate(), '%d/%m/%Y') fecha_ini, DATE_FORMAT(sysdate(), '%d/%m/%Y') fecha_fin from dual ";
-        rset = stmt.executeQuery(COMANDO);
-        if (rset.next()) {
-
-            s_fecha_ini = rset.getString("fecha_ini");
-            s_fecha_fin = rset.getString("fecha_fin");
-
-        }
-
-    %>
     <body>
         <div class="box-header">
-            <%  Date FechaActual = new Date();
-                //SimpleDateFormat ft = new SimpleDateFormat("EEEEEEEEE dd 'de'   MMMMM 'de' yyyy"); //formato completo
-                SimpleDateFormat ft = new SimpleDateFormat("MMMMM");
-                String fechaActual = ft.format(FechaActual);
-            %>
-
-            <h3 class="box-title">Almuerzos por pensionistas del mes de <%=fechaActual%></h3>
+            <h3 class="box-title">Almuerzos por pensionistas</h3>
 
             <div class="box-tools">
                 <div class="input-group input-group-sm" style="width: 150px;">

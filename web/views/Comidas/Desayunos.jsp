@@ -16,17 +16,24 @@
 
             function myModal(s_id_pensionista) {
                 $('#detalle').html('<center><img src="dist/img/loader.gif" width="20px" height="20px"/></center>');
-                $('#detalle').load('views/Comidas/CenasMesDet.jsp?f_id_pensionista=' + s_id_pensionista);
+                $('#detalle').load('views/Comidas/DesayunosMesDet.jsp?f_id_pensionista=' + s_id_pensionista);
 
             }
 
         </script>
     </head>
- 
     <body>
-        <div class="box-header">       
+       
+         <%            
+           
+            String s_mes_ini = request.getParameter("f_mes_ini");
+            String s_anio_ini = request.getParameter("f_anio_ini");
+            String s_tipo = request.getParameter("f_tipo");
 
-            <h3 class="box-title">Cenas por pensionistas</h3>
+        %>
+        <div class="box-header">
+
+            <h3 class="box-title">Desayunos por pensionistas del mes de <%=s_mes_ini%></h3>
 
             <div class="box-tools">
                 <div class="input-group input-group-sm" style="width: 150px;">
@@ -44,7 +51,6 @@
                     <tr>
                         <th>N°</th>
                         <th>Nombres</th>
-                        <th>Cenas</th>
                         <th>Fecha</th>
                         <th>Cantidad</th>
                         <th>Monto</th>
@@ -52,46 +58,45 @@
                     </tr>
                 </thead>
                 <tbody id="datos">
-                    <%                        
+                    <%                       
                         String nombres = "";
-                        String cena = "";
                         String cantidad = "";
                         String monto = "";
                         String fecha = "";
                         int i = 0;
                         int sumar_cantidad = 0;
-                        int sumar_monto = 0;
+                        double sumar_monto = 0;
                         String s_id_pensionista = "";
 
                         COMANDO = "SELECT pp.idPENSIONISTA, CONCAT(p.Nombres, ' ', p.Apellidos) as Nombres, "
-                                + "pp.monto, pp.fecha_ingreso, d.titulo, if(d.estado=1,'Si cenó','No cenó') AS ESTADO, "
-                                + "SUM(d.monto) as monto_c, SUM(d.cantidad) as cantidad, d.fecha_c "
-                                + "FROM persona p, pensionista pp, cena d  "
+                                + "pp.monto, pp.fecha_ingreso, d.titulo,"
+                                + "SUM(d.monto) as monto_c, SUM(d.cantidad) as cantidad, "
+                                + "DATE_FORMAT(d.fecha_d, '%m-%Y' ) as fecha_d "
+                                + "FROM persona p, pensionista pp, desayuno d  "
                                 + "WHERE p.idpersona = pp.idpersona "
                                 + "AND pp.idpensionista = d.idpensionista "
-                                + "AND DATE_FORMAT(d.fecha_c,'%m%Y') = DATE_FORMAT(sysdate(), '%m%Y') "
+                                + "AND DATE_FORMAT(d.fecha_d,'%Y%m') = '" + s_anio_ini + s_mes_ini + "' "
+                                 + "AND pp.tipo = '" + s_tipo + "' "
                                 + "GROUP BY pp.idPENSIONISTA ";
                         rset = stmt.executeQuery(COMANDO);
-                        out.println(COMANDO);
+                        //out.println(COMANDO);
 
                         while (rset.next()) {
                             i++;
                             nombres = rset.getString("Nombres");
-                            cena = rset.getString("ESTADO");
-                            fecha = rset.getString("fecha_c");
+                            fecha = rset.getString("fecha_d");
                             cantidad = rset.getString("cantidad");
                             monto = rset.getString("monto_c");
                             s_id_pensionista = rset.getString("idPENSIONISTA");
                             sumar_cantidad += rset.getInt("cantidad");
-                            sumar_monto += rset.getInt("monto_c");
+                            sumar_monto += rset.getDouble("monto_c");
 
 
                     %>
 
                     <tr>        
                         <td><%=i%></td>
-                        <td><%=nombres%></td>  
-                        <td><%=cena%></td> 
+                        <td><%=nombres%></td>
                         <td><%=fecha%></td> 
                         <td><%=cantidad%></td> 
                         <td><%=monto%></td> 
@@ -100,7 +105,7 @@
                     <%}%>
                 </tbody>
                 <tfoot>
-                    <tr><th colspan="4">Total Cenas</th>
+                    <tr><th colspan="3">Total Desayunos</th>
                         <th><%=sumar_cantidad%></th>
                         <th><%=sumar_monto%></th>
                         <th><br></th>
