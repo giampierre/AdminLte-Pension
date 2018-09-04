@@ -396,7 +396,7 @@
                                 <li><a id="menu_nueve" href="#"><i class="fa fa-circle-o"></i>Desayunos</a></li>
                                 <li><a id="menu_diez" href="#"><i class="fa fa-circle-o"></i>Almuerzos</a></li>
                                 <li><a id="menu_once" href="#"><i class="fa fa-circle-o"></i>Cenas</a></li>
-                                <li><a href="#"><i class="fa fa-circle-o"></i>Extras Mes</a></li>
+                                <!--li><a href="#"><i class="fa fa-circle-o"></i>Extras Mes</a></li-->
                             </ul>
                         </li>
                         <li class="treeview">

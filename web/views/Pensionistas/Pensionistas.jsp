@@ -22,15 +22,13 @@
         </script>
     </head>
     <body>
-        <%            
-           
-            String s_mes_ini = request.getParameter("f_mes_ini");
+        <%            String s_mes_ini = request.getParameter("f_mes_ini");
             String s_anio_ini = request.getParameter("f_anio_ini");
             String s_tipo = request.getParameter("f_tipo");
 
         %>
         <div class="box-header">
-            <h3 class="box-title"><button class="btn btn-primary btn-xs fa fa-user-plus"></button>&nbsp; Lista de Pensionistas </h3>
+            <h3 class="box-title"><button class="btn btn-primary btn-xs fa fa-user-plus"></button>&nbsp;</h3>
 
             <div class="box-tools">
                 <div class="input-group input-group-sm" style="width: 150px;">
@@ -59,8 +57,7 @@
                     </tr>
                 </thead>
                 <tbody id="datos">
-                    <%                        
-                        String nombres = "";
+                    <%                        String nombres = "";
                         String dni = "";
                         String celular = "";
                         String direccion = "";
@@ -128,13 +125,15 @@
                                 <a><button class="btn btn-warning btn-xs glyphicon glyphicon-edit"></button></a>
                                 <a><button class="btn btn-danger btn-xs glyphicon glyphicon-trash"></button></a>
                                 <a id="modal_desaUno" data-toggle="modal" onclick="myModal('<%=s_id_pensionista%>')" data-target="#myModal"><button class="btn btn-success btn-xs glyphicon glyphicon-eye-open"></button></a>
+                               
                             </div>
+                            <button class="btn btn-success btn-xs glyphicon glyphicon-check "></button>
                         </td>
                     </tr>
                     <%}%>
                 </tbody>
             </table>
-                  <!--Si hay registros -->
+            <!--Si hay registros -->
             <p style="text-align: center;">
                 <%
                     if (i == 0) {

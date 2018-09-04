@@ -37,8 +37,8 @@
                                         String info = "#00c0ef";
 
                                         COMANDO = "SELECT p.idPENSIONISTA, CONCAT(pe.Nombres, ' ', pe.Apellidos) as Nombres,  p.monto, "
-                                                + "(consDesa+consAlmu+consCena) as ConsTotal, "
-                                                + "(p.monto-(consDesa+consAlmu+consCena)) as saldo, "
+                                                + "IFNULL((consDesa+consAlmu+consCena), 0) as ConsTotal, "
+                                                + "IFNULL((p.monto-(consDesa+consAlmu+consCena)), 0) as saldo, "
                                                 + "CASE "
                                                 + "WHEN (p.monto-(consDesa+consAlmu+consCena)) < 0 THEN 'Deuda' "
                                                 + "WHEN (p.monto-(consDesa+consAlmu+consCena)) >= 0 THEN 'Activo' "
@@ -150,9 +150,10 @@
                                             String totalConsumo = "";
                                             int i = 0;
 
-                                            COMANDO = "SELECT p.idPENSIONISTA, CONCAT(pe.Nombres, ' ', pe.Apellidos) as Nombres,"
-                                                    + "cantDesa, consDesa, cantAlmu, consAlmu, cantCena, consCena, "
-                                                    + "(cantDesa+cantAlmu+cantCena) as CantTotal, (consDesa+consAlmu+consCena) as ConsTotal "
+                                            COMANDO = "SELECT p.idPENSIONISTA, CONCAT(pe.Nombres, ' ', pe.Apellidos) as Nombres, "
+                                                    + "IFNULL(cantDesa, 0) as cantDesa,IFNULL(consDesa, 0) as consDesa,IFNULL(cantAlmu, 0) as cantAlmu, "
+                                                    + "IFNULL(consAlmu, 0) as consAlmu, IFNULL(cantCena, 0) as cantCena,IFNULL(consCena, 0) as consCena, "
+                                                    + "IFNULL((cantDesa+cantAlmu+cantCena), 0) as CantTotal, IFNULL((consDesa+consAlmu+consCena), 0) as ConsTotal "
                                                     + "FROM pensionista p "
                                                     + "LEFT JOIN persona pe ON (p.idPERSONA = pe.idPERSONA) "
                                                     + "LEFT JOIN "

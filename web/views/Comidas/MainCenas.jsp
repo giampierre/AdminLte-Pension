@@ -20,7 +20,7 @@
             })
             function enviar() {
                 $("iframe").remove();
-                var url = 'views/Pensionistas/Pensionistas.jsp';
+                var url = 'views/Comidas/Cenas.jsp';
 
 
                 if ($(this).hasClass("disabled"))
@@ -37,15 +37,9 @@
             }
 
         </script>
-        <style>
-            select {
-                cursor: pointer;
-            }
-        </style>
     </head>
     <body>
-        <%            
-            String a_mes[][] = {{"01", "Enero"}, {"02", "Febrero"}, {"03", "Marzo"}, {"04", "Abril"}, {"05", "Mayo"}, {"06", "Junio"}, {"07", "Julio"}, {"08", "Agosto"}, {"09", "Setiembre"}, {"10", "Octubre"}, {"11", "Noviembre"}, {"12", "Diciembre"}};
+        <%            String a_mes[][] = {{"01", "Enero"}, {"02", "Febrero"}, {"03", "Marzo"}, {"04", "Abril"}, {"05", "Mayo"}, {"06", "Junio"}, {"07", "Julio"}, {"08", "Agosto"}, {"09", "Setiembre"}, {"10", "Octubre"}, {"11", "Noviembre"}, {"12", "Diciembre"}};
             String s_mes = "";
             COMANDO
                     = "Select "
@@ -65,13 +59,15 @@
                     + "order by tipo asc ";
             rset = stmt.executeQuery(COMANDO);
             rset.next();
-            s_tipo= rset.getString("tipo");
+            s_tipo = rset.getString("tipo");
         %>
 
-        <form name="datoslist" target="view" id="datoslist" action="views/Pensionistas/Pensionistas.jsp">
+        <form name="datoslist" target="view" id="datoslist" action="views/Comidas/Cenas.jsp">
+
+
             <div class="container" style="max-width:750px">
                 <div class="panel panel-info">
-                    <div class="panel-heading" style="color:#0D5458"> <h5>Lista de Pensionistas por periodo y tipo.</h5></div>
+                    <div class="panel-heading" style="color:#0D5458"> <h5>Lista de Cenas por periodo y tipo.</h5></div>
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-4">
@@ -82,7 +78,7 @@
                                     <select class="form-control" name="f_mes_ini" id="f_mes_ini">
                                          <%for (int x = 0; x < a_mes.length; x++) {%>
                                         <option value="<%=a_mes[x][0]%>" <% if (a_mes[x][0].equals(s_mes)) out.print("selected");%>><%=a_mes[x][1]%></option>
-                                        <%}%>
+                                        <%}%>					}	%>
                                     </select>
                                 </div><!-- /input-group -->
                             </div><!-- /.col-lg-6 -->
@@ -105,11 +101,11 @@
                             <div class="col-lg-3">
                                 <div class="input-group input-group-sm">
                                     <span class="input-group-addon" style="color:#0d5458; background: #eeeeee;">
-                                         <li class="fa fa-user">&nbsp;Tipo:</li>
+                                        <li class="fa fa-user">&nbsp;Tipo:</li>
                                     </span>
                                     <select class="form-control" name="f_tipo" id="f_tipo">
                                         <%
-                                        for (int x = 0; x < a_tipo.length; x++) {%>
+                                            for (int x = 0; x < a_tipo.length; x++) {%>
                                         <option value="<%=a_tipo[x][0]%>" <% if (a_tipo[x][0].equals(s_tipo)) {
                                                 out.print("selected");
                                             }%>><%=a_tipo[x][1]%></option>
@@ -125,7 +121,7 @@
                     </div>
                 </div>
             </div>
-                                    <!-- muestra la lista de pensionistas -->
+            <!-- muestra la lista de desayunos -->
             <div>
                 <div class="box-header with-border">
                     <div id="detallelist"><br/>

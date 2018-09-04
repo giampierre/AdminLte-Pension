@@ -50,7 +50,7 @@
                //Insert 
               Statement Estamento = con.createStatement();
               int rs2 = Estamento.executeUpdate("INSERT INTO desayuno (idDESAYUNO, idPENSIONISTA, titulo, estado, fecha_d, monto, cantidad) VALUES "
-                    + "(NULL, '" + idpensionista + "', 'DESAYUNO', '1'"
+                    + "(NULL, '" + idpensionista + "', 'DESAYUNO', '0'"
                             + ", sysdate(), '3', '1');");
               
                    if( s_dni.equals(s_dni) )

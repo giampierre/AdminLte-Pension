@@ -54,11 +54,11 @@ $(document).ready(function () { // inicio ready.function
 
     $("#menu_diez").click(function () {
         $('#contenido').html('<center><img src="dist/img/loader.gif" width="20px" height="20px"/></center>');
-        $("#contenido").load("views/Comidas/AlmuerzosMes.jsp");
+        $("#contenido").load("views/Comidas/MainAlmuerzos.jsp");
     });
     $("#menu_once").click(function () {
         $('#contenido').html('<center><img src="dist/img/loader.gif" width="20px" height="20px"/></center>');
-        $("#contenido").load("views/Comidas/CenasMes.jsp");
+        $("#contenido").load("views/Comidas/MainCenas.jsp");
     });
 
 }); // fin ready.function

@@ -41,8 +41,8 @@
     <body>
         <%            String a_mes[][] = {{"01", "Enero"}, {"02", "Febrero"}, {"03", "Marzo"}, {"04", "Abril"}, {"05", "Mayo"}, {"06", "Junio"}, {"07", "Julio"}, {"08", "Agosto"}, {"09", "Setiembre"}, {"10", "Octubre"}, {"11", "Noviembre"}, {"12", "Diciembre"}};
             String s_mes = "";
-            COMANDO = 
-                    "Select "
+            COMANDO
+                    = "Select "
                     + "date_format(sysdate(),'%m') mes "
                     + "from dual ";
             rset = stmt.executeQuery(COMANDO);
@@ -50,7 +50,7 @@
             s_mes = rset.getString("mes");
         %>
 
-        <%            
+        <%
             String a_tipo[][] = {{"0", "General"}, {"1", "Ejecutivo"}};
             String s_tipo = "";
             COMANDO = "Select "
@@ -59,55 +59,69 @@
                     + "order by tipo asc ";
             rset = stmt.executeQuery(COMANDO);
             rset.next();
-            s_mes = rset.getString("tipo");
+            s_tipo = rset.getString("tipo");
         %>
 
         <form name="datoslist" target="view" id="datoslist" action="views/Comidas/Desayunos.jsp">
 
-            <table>
-                <tr>		
-                    <th align ="center" class="titulo" height="20" colspan="3">&nbsp;Seleccionar periodo y tipo de pensionista</th>
-                </tr>
-                <tr>
-                    <td width="220px">
-                        <select class="form-control" name="f_mes_ini" id="f_mes_ini">
-                            <%
-                                for (int x = 0; x < a_mes.length; x++) {%>
-                            <option value="<%=a_mes[x][0]%>" <% if (a_mes[x][0].equals(s_mes)) {
-                                    out.print("selected");
-                                }%>><%=a_mes[x][1]%></option>
-                            <%						}	%>
-                        </select>
 
-                    </td>
-                    <td>
-                        <select class="form-control" name="f_anio_ini" id="f_anio_ini">
-                            <%COMANDO = "select distinct date_format(fecha_d,'%Y') anio "
-                                        + "from desayuno "
-                                        + "order by anio desc ";
-                                rset = stmt.executeQuery(COMANDO);
-                                while (rset.next()) {%>
-                            <option value="<%=rset.getString("anio")%>"><%=rset.getString("anio")%></option>
-                            <%}%>
-                        </select>
-                    </td>
-                    <td>
-                        <select class="form-control" name="f_tipo" id="f_tipo">
-                            <%
-                                for (int x = 0; x < a_tipo.length; x++) {%>
-                            <option value="<%=a_tipo[x][0]%>" <% if (a_tipo[x][0].equals(s_tipo)) {
-                                    out.print("selected");
-                                }%>><%=a_tipo[x][1]%></option>
-                            <%						}	%>
-                        </select>
-                    </td> 
-                    <td>
-                        <input class="btn btn-info" type="button" value="Visualizar" id="enviar" class="butoncito">                    
-                    </td>
-                </tr>	
+            <div class="container" style="max-width:750px">
+                <div class="panel panel-info">
+                    <div class="panel-heading" style="color:#0D5458"> <h5>Lista de Desayunos por periodo y tipo.</h5></div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="input-group input-group-sm">
+                                    <span class="input-group-addon" style="color:#0d5458; background: #eeeeee;">
+                                        <li class="fa fa-calendar">&nbsp;Mes:</li>
+                                    </span>
+                                    <select class="form-control" name="f_mes_ini" id="f_mes_ini">
+                                         <%for (int x = 0; x < a_mes.length; x++) {%>
+                                        <option value="<%=a_mes[x][0]%>" <% if (a_mes[x][0].equals(s_mes)) out.print("selected");%>><%=a_mes[x][1]%></option>
+                                        <%}%>					}	%>
+                                    </select>
+                                </div><!-- /input-group -->
+                            </div><!-- /.col-lg-6 -->
+                            <div class="col-md-3">
+                                <div class="input-group input-group-sm">
+                                    <span class="input-group-addon" style="color:#0d5458; background: #eeeeee;">
+                                        <li class="fa fa-calendar">&nbsp;Año:</li>
+                                    </span>
+                                    <select class="form-control" name="f_anio_ini" id="f_anio_ini">
+                                        <%COMANDO = "select distinct date_format(fecha_ingreso,'%Y') anio "
+                                                    + "from pensionista "
+                                                    + "order by anio desc ";
+                                            rset = stmt.executeQuery(COMANDO);
+                                            while (rset.next()) {%>
+                                        <option value="<%=rset.getString("anio")%>"><%=rset.getString("anio")%></option>
+                                        <%}%>
+                                    </select> 
+                                </div><!-- /input-group -->
+                            </div><!-- /.col-lg-6 -->
+                            <div class="col-lg-3">
+                                <div class="input-group input-group-sm">
+                                    <span class="input-group-addon" style="color:#0d5458; background: #eeeeee;">
+                                        <li class="fa fa-user">&nbsp;Tipo:</li>
+                                    </span>
+                                    <select class="form-control" name="f_tipo" id="f_tipo">
+                                        <%
+                                            for (int x = 0; x < a_tipo.length; x++) {%>
+                                        <option value="<%=a_tipo[x][0]%>" <% if (a_tipo[x][0].equals(s_tipo)) {
+                                                out.print("selected");
+                                            }%>><%=a_tipo[x][1]%></option>
+                                        <%						}%>
+                                    </select>
+                                </div><!-- /input-group -->
+                            </div><!-- /.col-lg-6 -->
+                            <div class="col-md-2">
+                                <input class="btn btn-info" type="button" value="Visualizar" id="enviar" class="butoncito"> 
+                            </div>
 
-            </table> 
-            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- muestra la lista de desayunos -->
             <div>
                 <div class="box-header with-border">
                     <div id="detallelist"><br/>

@@ -16,7 +16,7 @@
 
             function myModal(s_id_pensionista) {
                 $('#detalle').html('<center><img src="dist/img/loader.gif" width="20px" height="20px"/></center>');
-                $('#detalle').load('views/Comidas/DesayunosMesDet.jsp?f_id_pensionista=' + s_id_pensionista);
+                $('#detalle').load('views/Comidas/DesayunosDet.jsp?f_id_pensionista=' + s_id_pensionista);
 
             }
 
