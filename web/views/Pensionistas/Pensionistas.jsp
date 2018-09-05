@@ -22,7 +22,8 @@
         </script>
     </head>
     <body>
-        <%            String s_mes_ini = request.getParameter("f_mes_ini");
+        <%            
+            String s_mes_ini = request.getParameter("f_mes_ini");
             String s_anio_ini = request.getParameter("f_anio_ini");
             String s_tipo = request.getParameter("f_tipo");
 
@@ -35,7 +36,7 @@
                     <input id="buscar"  type="text" onkeyup="buscarDatos()" class="form-control pull-right" placeholder="Buscar...">
 
                     <div class="input-group-btn">
-                        <button type="#" class="btn btn-default"><i class="fa fa-search"></i></button>
+                        <button  class="btn btn-default"><i class="fa fa-search"></i></button>
                     </div>
                 </div>
             </div>
@@ -57,7 +58,8 @@
                     </tr>
                 </thead>
                 <tbody id="datos">
-                    <%                        String nombres = "";
+                    <%                        
+                        String nombres = "";
                         String dni = "";
                         String celular = "";
                         String direccion = "";
@@ -65,16 +67,17 @@
                         String estado = "";
                         String fecha_ingreso = "";
                         String mes_actual = "";
-                        String s_id_pensionista = "";
+                        int s_id_pensionista = 0;
                         double monto = 0.0;
                         int i = 0;
                         String color = "";
                         String danger = "#f5c6cb";
                         String blanco = "#fff";
+                        String verde = "#c3e6cb";
 
                         COMANDO = "SELECT pe.idpensionista, CONCAT(p.Nombres, ' ', p.Apellidos) as Nombres,"
                                 + "p.dni, p.celular, p.direccion, p.observacion,"
-                                + "IF(pe.estado=1, 'Activo', 'Inactivo') AS estado, DATE_FORMAT(pe.fecha_ingreso,'%d/%m/%Y') as fecha_ingreso, pe.monto, "
+                                + "pe.estado, DATE_FORMAT(pe.fecha_ingreso,'%d/%m/%Y') as fecha_ingreso, pe.monto, "
                                 + "CASE "
                                 + "WHEN DATE_FORMAT(pe.fecha_ingreso,'%Y%m') = DATE_FORMAT(sysdate(), '%Y%m') THEN '1' "
                                 + "WHEN DATE_FORMAT(pe.fecha_ingreso,'%Y%m') = DATE_FORMAT(pe.fecha_ingreso,'%Y%m') THEN '0' "
@@ -98,13 +101,16 @@
                             fecha_ingreso = rset.getString("fecha_ingreso");
                             monto = rset.getDouble("monto");
                             mes_actual = rset.getString("mes_actual");
-                            s_id_pensionista = rset.getString("idpensionista");
+                            s_id_pensionista = rset.getInt("idpensionista");
 
                             if (mes_actual.equals("0")) {
                                 color = danger;
                             }
                             if (mes_actual.equals("1")) {
                                 color = blanco;
+                            }
+                            if (estado.equals("1")) {
+                                color = verde;
                             }
 
                     %>
@@ -124,10 +130,14 @@
                             <div class="btn-group">
                                 <a><button class="btn btn-warning btn-xs glyphicon glyphicon-edit"></button></a>
                                 <a><button class="btn btn-danger btn-xs glyphicon glyphicon-trash"></button></a>
-                                <a id="modal_desaUno" data-toggle="modal" onclick="myModal('<%=s_id_pensionista%>')" data-target="#myModal"><button class="btn btn-success btn-xs glyphicon glyphicon-eye-open"></button></a>
-                               
+                                <a id="modal_desaUno" data-toggle="modal" onclick="myModal('<%=s_id_pensionista%>')" data-target="#myModal"><button class="btn btn-info btn-xs glyphicon glyphicon-eye-open"></button></a>
+                                <a href="views/Pensionistas/CambiarEstadoPago.jsp?f_idpensionista=<%=s_id_pensionista%>"><button class="btn btn-success btn-xs glyphicon glyphicon-refresh"></button></a>
+                                <%if(estado.equals("1")){%>
+                                 <a class=" glyphicon glyphicon-ok"></a>
+                                <%}else{%>
+                                 <a class=" glyphicon glyphicon-remove"></a>
+                                 <%}%>
                             </div>
-                            <button class="btn btn-success btn-xs glyphicon glyphicon-check "></button>
                         </td>
                     </tr>
                     <%}%>

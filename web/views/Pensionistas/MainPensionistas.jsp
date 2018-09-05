@@ -69,7 +69,7 @@
         %>
 
         <form name="datoslist" target="view" id="datoslist" action="views/Pensionistas/Pensionistas.jsp">
-            <div class="container" style="max-width:750px">
+           
                 <div class="panel panel-info">
                     <div class="panel-heading" style="color:#0D5458"> <h5>Lista de Pensionistas por periodo y tipo.</h5></div>
                     <div class="panel-body">
@@ -123,7 +123,7 @@
 
                         </div>
                     </div>
-                </div>
+             
             </div>
                                     <!-- muestra la lista de pensionistas -->
             <div>
