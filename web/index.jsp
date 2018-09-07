@@ -50,11 +50,16 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
+        <%
+        String usuario = request.getParameter("f_usuario");  
+        String nota = request.getParameter("f_nota");  
+        String dni = request.getParameter("f_dni");  
+        %>
         <div class="wrapper">
 
             <header class="main-header">
                 <!-- Logo -->
-                <a href="index2.html" class="logo">
+                <a href="#" class="logo">
                     <!-- mini logo for sidebar mini 50x50 pixels -->
                     <span class="logo-mini"><b>A</b>LT</span>
                     <!-- logo for regular state and mobile devices -->
@@ -270,20 +275,21 @@
                             <li class="dropdown user user-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <!--img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image"-->
-                                    <span class="hidden-xs">ANDY VEGA</span>
+                                    <span class="hidden-xs"><%=usuario%></span>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <!-- User image -->
                                     <li class="user-header">
-                                        <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                        <img src="dist/img/user_info.png" class="img-circle" alt="User Image">
 
                                         <p>
-                                            Alexander Pierce - Web Developer
-                                            <small>Member since Nov. 2012</small>
+                                                <%=usuario%>
+                                            <small><%=nota%></small>
+                                            <small><b>DNI:</b> <%=dni%></small>
                                         </p>
                                     </li>
                                     <!-- Menu Body -->
-                                    <li class="user-body">
+                                    <!--li class="user-body">
                                         <div class="row">
                                             <div class="col-xs-4 text-center">
                                                 <a href="#">Followers</a>
@@ -295,15 +301,15 @@
                                                 <a href="#">Friends</a>
                                             </div>
                                         </div>
-                                        <!-- /.row -->
-                                    </li>
+                                       
+                                    </li-->
                                     <!-- Menu Footer-->
                                     <li class="user-footer">
-                                        <div class="pull-left">
+                                        <!--div class="pull-left">
                                             <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                        </div>
-                                        <div class="pull-right">
-                                            <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                        </div-->
+                                        <div  class="pull-right text-center">
+                                            <a href="login.html" class="btn btn-default btn-flat">Salir</a>
                                         </div>
                                     </li>
                                 </ul>

@@ -15,6 +15,9 @@
     </head>
     <body>
         <%
+    String nombres = "";
+    String nota = "";
+    String dni = "";
     String userid = request.getParameter("usuario");    
     String pwd = request.getParameter("pass");
     Class.forName("com.mysql.jdbc.Driver");
@@ -22,12 +25,20 @@
             "root", "");
     Statement st = con.createStatement();
     ResultSet rs;
-    rs = st.executeQuery("select * from usuario where usuario='" + userid + "' and pass='" + pwd + "'");
+    
+    rs = st.executeQuery("select u.idusuario, CONCAT(p.Nombres, ' ', p.Apellidos) as Nombres, p.observacion, p.dni, u.usuario, u.pass "
+            + "from usuario u "
+            + "INNER JOIN persona p ON u.idPERSONA = p.idPERSONA "
+            + "where u.usuario='" + userid + "' "
+            + "and u.pass='" + pwd + "'");
     if (rs.next()) {
      
         session.setAttribute("usuario", rs.getString("usuario"));
+        nombres = rs.getString("Nombres");
+        nota = rs.getString("observacion");
+        dni = rs.getString("dni");
         
-         response.sendRedirect("index.jsp");
+         response.sendRedirect("index.jsp?f_usuario=" + nombres + "&f_nota=" + nota + "&f_dni=" + dni);
     } else {
        response.sendRedirect("falla_Login.jsp");
     }

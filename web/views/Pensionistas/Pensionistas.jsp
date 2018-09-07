@@ -10,7 +10,13 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="dist/js/buscador.js" type="text/javascript"></script>
+        <script src="dist/js/bootbox.min.js" type="text/javascript"></script>
+        <!--script src="dist/js/checked.js" type="text/javascript"></script-->
         <title>JSP Page</title>
+        <!--style>
+            table {border-color:#fff;}
+            .selected {background-color:#c3e6cb;}
+        </style-->
         <script>
 
             function myModal(s_id_pensionista) {
@@ -20,13 +26,56 @@
             }
 
         </script>
+        <!--script>
+        $(document).on("click", ".ejecuta", function () {
+            var id = $(this).data("id");
+            bootbox.confirm({
+                message: "Desea Cambiar tipo?",
+                buttons: {
+                    cancel: {
+                        label: 'Si',
+                        className: 'btn-success'
+                    },
+                    confirm: {
+                        label: 'No',
+                        className: 'btn-danger'
+                    }
+
+                },
+                callback: function (result) {
+                    if (result === false) {
+                        $.get("views/Pensionistas/CambiarEstadoPago.jsp", "f_id_pensionista=" +id, function () {
+                             var dialog = bootbox.dialog({
+                                message: '<p class="text-center">Se Actualizo con Exito</p>',
+                                closeButton: false
+                            });
+                            setTimeout(function () {
+                                dialog.modal('hide');
+                               //location.reload();
+                            }, 3000);
+                            //location.reload();
+                        });
+                    }else{
+                        var dialog = bootbox.dialog({
+                                message: '<p class="text-center">Se cancelo la solicitud</p>',
+                                closeButton: false
+                            });
+                            setTimeout(function () {
+                                dialog.modal('hide');
+                               /* location.reload();*/
+                            }, 3000);
+                    }
+                }
+            });
+
+        });
+    </script-->
     </head>
     <body>
         <%            
             String s_mes_ini = request.getParameter("f_mes_ini");
             String s_anio_ini = request.getParameter("f_anio_ini");
             String s_tipo = request.getParameter("f_tipo");
-
         %>
         <div class="box-header">
             <h3 class="box-title"><button class="btn btn-primary btn-xs fa fa-user-plus"></button>&nbsp;</h3>
@@ -45,6 +94,7 @@
             <table class="table table-bordered table-condensed table-hover" >
                 <thead> 
                     <tr>
+                        <!--th>Pago?</th-->
                         <th>N°</th>
                         <th>Nombres</th>
                         <th>DNI</th>
@@ -58,7 +108,7 @@
                     </tr>
                 </thead>
                 <tbody id="datos">
-                    <%                        
+                    <%
                         String nombres = "";
                         String dni = "";
                         String celular = "";
@@ -116,6 +166,7 @@
                     %>
 
                     <tr bgcolor="<%=color%>" >        
+                        <!--td><input type="checkbox"></td-->
                         <td><%=i%></td>
                         <td><%=nombres%></td>  
                         <td><%=dni%></td> 
@@ -131,12 +182,12 @@
                                 <a><button class="btn btn-warning btn-xs glyphicon glyphicon-edit"></button></a>
                                 <a><button class="btn btn-danger btn-xs glyphicon glyphicon-trash"></button></a>
                                 <a id="modal_desaUno" data-toggle="modal" onclick="myModal('<%=s_id_pensionista%>')" data-target="#myModal"><button class="btn btn-info btn-xs glyphicon glyphicon-eye-open"></button></a>
-                                <a href="views/Pensionistas/CambiarEstadoPago.jsp?f_idpensionista=<%=s_id_pensionista%>"><button class="btn btn-success btn-xs glyphicon glyphicon-refresh"></button></a>
-                                <%if(estado.equals("1")){%>
-                                 <a class=" glyphicon glyphicon-ok"></a>
-                                <%}else{%>
-                                 <a class=" glyphicon glyphicon-remove"></a>
-                                 <%}%>
+                                <a class="ejecuta" data-id="<%=s_id_pensionista%>"><button class="btn btn-success btn-xs glyphicon glyphicon-refresh"></button></a>
+                                    <%if (estado.equals("1")) {%>
+                                <a class=" glyphicon glyphicon-ok"></a>
+                                <%} else {%>
+                                <a class=" glyphicon glyphicon-remove"></a>
+                                <%}%>
                             </div>
                         </td>
                     </tr>
