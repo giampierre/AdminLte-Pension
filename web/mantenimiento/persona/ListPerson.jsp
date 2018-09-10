@@ -4,124 +4,176 @@
     Author     : Elvis
 --%>
 
-<%@page import="java.sql.Date"%>
-<%@page import="java.sql.ResultSet"%>
-<%@page import="java.sql.DriverManager"%>
-<%@page import="java.sql.Statement"%>
-<%@page import="java.sql.Connection"%>
+<%@ include file="../../conectadb.jsp" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="../../css1/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link href="../../css1/dataTables.bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <script src="../../css1/dataTables.bootstrap.min.js" type="text/javascript"></script>
-        <script src="../../css1/jquery-3.3.1.js" type="text/javascript"></script>
-        <script src="../../css1/jquery.dataTables.min.js" type="text/javascript"></script>
-        <title>Lista de Personas</title>
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $('#example').DataTable();
-            });
+        <script src="dist/js/buscador.js" type="text/javascript"></script>
+        <script src="dist/js/bootbox.min.js" type="text/javascript"></script>
+        <!--script src="dist/js/checked.js" type="text/javascript"></script-->
+        <title>JSP Page</title>
+        <script>
+
+            function myModalAdd() {
+                $('#detalle').html('<center><img src="dist/img/loader.gif" width="20px" height="20px"/></center>');
+                $('#detalle').load('mantenimiento/persona/AddFormPerson.jsp');
+
+            }
+            function myModalEdit() {
+                $('#EditPerson').html('<center><img src="dist/img/loader.gif" width="20px" height="20px"/></center>');
+                $('#EditPerson').load('AddFormPerson.jsp');
+
+            }
 
         </script>
     </head>
     <body>
-        <div >
-            <h2><b>TABLE PERSONA</b></h2>
-            <br>
-            <br>
-            <div align="center">
-                <a href="AddFormPerson.jsp" title="Nuevo">
-                    <img src="../../images/add.png" alt="" width="25" height="25"/>
-                </a> 
-            </div>
-            <table  id="example" class="table table-striped table-bordered" style="width:100%">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>ID</th>
-                        <th>Nombres</th>
-                        <th>Apellidos</th>
-                        <th>DNI</th>
-                        <th>Dirección</th>
-                        <th>Celular</th>
-                        <th>Estado</th>
-                        <th>Fecha Ing.</th>
-                        <th>Codigo</th>
-                        <th>Observación</th>
-                        <th colspan="2">Options</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <%
-                        // Seleccionando los pacientes que actualmente se están atendiendo en emergencia
+        <div class="panel panel-info">
+            <div class="panel-heading" style="color:#0D5458"> <h5>Lista de Personas</h5></div>
+            <div class="panel-body">
+                <div class="box-header">
+                    <h3 class="box-title">
+                        <a id="modal_desaUno" data-toggle="modal" onclick="myModalAdd()" data-target="#myModalAdd">
+                            <button class="btn btn-primary btn-xs fa fa-user-plus"></button>&nbsp;
+                        </a></h3>
 
-                        int id = 0;
-                        String nombres = "";
-                        String apellidos = "";
-                        String dni = "";
-                        String direccion = "";
-                        String celular = "";
-                        String estado = "";
-                        String fecha_ingreso = "";
-                        String codigo = "";
-                        String observacion = "";
-                        int i = 0;
+                    <div class="box-tools">
+                        <div class="input-group input-group-sm" style="width: 150px;">
+                            <input id="buscar"  type="text" onkeyup="buscarDatos()" class="form-control pull-right" placeholder="Buscar...">
 
-                        Class.forName("com.mysql.jdbc.Driver");
-                        Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/bd_pension", "root", "");
+                            <div class="input-group-btn">
+                                <button  class="btn btn-default"><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-condensed table-hover" >
+                        <thead> 
+                            <tr style="background-color: #EBF5FB;">
+                                <th>#</th>
+                                <!--<th>ID</th>-->
+                                <th>Nombres</th>
+                                <th>DNI</th>
+                                <th>Dirección</th>
+                                <th>Celular</th>
+                                <th>Estado</th>
+                                <th>Fecha Ing.</th>
+                                <th>Codigo</th>
+                                <th>Observación</th>
+                                <th>Options</th>
+                            </tr>
+                        </thead>
+                        <tbody id="datos">
+                            <%                                // Seleccionando los pacientes que actualmente se están atendiendo en emergencia
+                                int id = 0;
+                                String nombres = "";
+                                String apellidos = "";
+                                String dni = "";
+                                String direccion = "";
+                                String celular = "";
+                                String estado = "";
+                                String fecha_ingreso = "";
+                                String codigo = "";
+                                String observacion = "";
+                                int i = 0;
+                                String color = "";
+                                String activa = "#E8F8F5";
+                                String inactiva = "#FDEDEC";
 
-                        Statement Estamento = conexion.createStatement();
-                        ResultSet rs = Estamento.executeQuery(" SELECT * FROM PERSONA ");
-                        //out.println(rs);
-                        while (rs.next()) {
-                            i++;
-                            id = rs.getInt("idPersona");
-                            nombres = rs.getString("Nombres");
-                            apellidos = rs.getString("Apellidos");
-                            dni = rs.getString("dni");
-                            direccion = rs.getString("direccion");
-                            celular = rs.getString("celular");
-                            estado = rs.getString("estado");
-                            fecha_ingreso = rs.getString("fecha_ingres");
-                            codigo = rs.getString("codigo");
-                            observacion = rs.getString("observacion");
+                                COMANDO = " SELECT idPERSONA, CONCAT(Nombres, ' ', Apellidos)nombres, dni, "
+                                        + " direccion, celular, CASE estado WHEN 1 THEN 'Activo' ELSE 'Inactivo' END estado, "
+                                        + " DATE_FORMAT(fecha_ingres, '%d-%m-%Y')fecha_inges, codigo, observacion "
+                                        + " FROM PERSONA  ";
+                                rset = stmt.executeQuery(COMANDO);
+                                //out.println(COMANDO);
+                                while (rset.next()) {
+                                    i++;
+                                    id = rset.getInt("idPersona");
+                                    nombres = rset.getString("nombres");
+                                    dni = rset.getString("dni");
+                                    direccion = rset.getString("direccion");
+                                    celular = rset.getString("celular");
+                                    estado = rset.getString("estado");
+                                    fecha_ingreso = rset.getString("fecha_inges");
+                                    codigo = rset.getString("codigo");
+                                    observacion = rset.getString("observacion");
+                                    
+                                    if (estado.equals("Activo")) {
+                                            color = activa;
+                                        }else{
+                                        color = inactiva;
+                                    }
+                            %>
 
-                    %>
-                    <tr>
-                        <td><%=i%></td>
-                        <td><%=id%></td>
-                        <td><%=nombres%></td>                    
-                        <td><%=apellidos%></td>                    
-                        <td><%=dni%></td>                    
-                        <td><%=direccion%></td>                    
-                        <td><%=celular%></td>                    
-                        <td><%=estado%></td>                    
-                        <td><%=fecha_ingreso%></td>                    
-                        <td><%=codigo%></td>                    
-                        <td><%=observacion%></td>                    
+                            <tr bgcolor="<%=color%>" >        
+                                <!--<td><%=i%></td>-->
+                                <td><%=id%></td>
+                                <td><%=nombres%></td>                 
+                                <td><%=dni%></td>                    
+                                <td><%=direccion%></td>                    
+                                <td><%=celular%></td>                    
+                                <td><%=estado%></td>                    
+                                <td><%=fecha_ingreso%></td>                    
+                                <td><%=codigo%></td>                    
+                                <td><%=observacion%></td> 
+                                <td>
+                                    <div class="btn-group">
+                                        <a title="Editar" id="modal_desaUno" data-toggle="modal" onclick="myModalEdit()" data-target="#myModalEdit"><button class="btn btn-warning btn-xs glyphicon glyphicon-edit"></button></a>
+                                        <a href="mantenimiento/persona/DeletePerson.jsp?idPersona=<%=id%>" onclick="return confirm('Esta Seguro de Eliminar el Registro...?')"><button class="btn btn-danger btn-xs glyphicon glyphicon-trash"></button></a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <%}%>
+                        </tbody>
+                    </table>
+                    <!--Si hay registros -->
+                    <p style="text-align: center;">
+                        <%
+                            if (i == 0) {
+                                out.println("No existes Registros");
+                            }
+                        %>
 
-                        <td>
-                            <a href="EditFormPerson.jsp?idPersona=<%=id%>">
-                                <img src="../../images/edit.png" alt=""  width="13" height="13"/>
-                            </a>
-                        </td>                    
-                        <td>
-                            <a href="DeletePerson.jsp?idPersona=<%=id%>"><img src="../../images/delete04.png" alt=""  width="13" height="13" onclick="return confirm('Esta Seguro de Eliminar el Registro...?')"/></a>
-                        </td>                    
-                    </tr>
-                    <%}%>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <th colspan="12"></th>
-                    </tr>
-                </tfoot>
-            </table>
-        </div>
+                    </p>
+                </div>
+                <div id="myModalAdd" class="modal fade" role="dialog">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                Registrar Persona
+                                <button type="button" class="close" data-dismiss="modal">&times;</button> 
+                            </div>
+                            <div class="modal-body">
+                                <div id="detalle">
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+                        <div id="myModalEdit" class="modal fade" role="dialog">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                Editar
+                                <button type="button" class="close" data-dismiss="modal">&times;</button> 
+                            </div>
+                            <div class="modal-body">
+                                <div id="EditPerson">
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+            </div></div>
     </body>
 </html>
+
 
 

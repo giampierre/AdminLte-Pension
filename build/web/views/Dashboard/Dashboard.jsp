@@ -23,8 +23,7 @@
                         <span class="info-box-icon"><i class="fa fa-coffee"></i></span>         
                         <div class="info-box-content">
                             <span class="info-box-text">Desayunos</span>
-                            <%                                
-                                String CantDesaDia = "";
+                            <%                                String CantDesaDia = "";
 
                                 COMANDO = "SELECT COUNT(idDESAYUNO) as CantDesaDia "
                                         + "FROM (SELECT d.idDESAYUNO, CONCAT(p.Nombres, ' ', p.Apellidos) as Nombres,"
@@ -246,7 +245,7 @@
 
                         <div class="info-box-content">
                             <span class="info-box-text">Almuerzos General</span>
-                                 <%
+                            <%
                                 String CantAlmuDiaGene = "";
 
                                 COMANDO = "SELECT COUNT(idALMUERZO) as CantAlmuDia "
@@ -388,7 +387,7 @@
                             <div class="progress">
                                 <div class="progress-bar" style="width: 100%"></div>
                             </div>
-                             <%
+                            <%
                                 String CantDesaMesEjec = "";
                                 COMANDO = "SELECT COUNT(idDESAYUNO) as CantDesaMes "
                                         + "FROM (SELECT d.idDESAYUNO, CONCAT(p.Nombres, ' ', p.Apellidos) as Nombres, "
@@ -532,7 +531,7 @@
                         <span class="info-box-icon"><i class="fa fa-battery-3"></i></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text">???????</span>
+                            <span class="info-box-text">----</span>
                             <span class="info-box-number"></span>
 
                             <div class="progress">
@@ -552,7 +551,7 @@
                         <span class="info-box-icon"><i class="fa fa-ambulance"></i></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text">???????</span>
+                            <span class="info-box-text">-----</span>
                             <span class="info-box-number" ></span>
 
                             <div class="progress">
@@ -572,7 +571,7 @@
                         <span class="info-box-icon"><i class="fa fa-stethoscope"></i></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text">???????</span>
+                            <span class="info-box-text">----</span>
                             <span class="info-box-number" ></span>
 
                             <div class="progress">
@@ -586,21 +585,44 @@
                     </div>
                     <!-- /.info-box -->
                 </div>
-
                 <div class="col-md-4">
                     <div class="info-box bg-red-active">
-                        <span class="info-box-icon"><i class="fa fa-wheelchair"></i></span>
+                        <span class="info-box-icon"><i class="fa fa-user-circle"><span style="font-size: 25px;">P</span></i></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text">???????</span>
-                            <span class="info-box-number"></span>
+                            <span class="info-box-text">Personas</span>
+                            <%
+                                String CantPersonaActivas = "";
+
+                                COMANDO = "SELECT COUNT(idPersona) as CantPersonaA "
+                                        + "FROM persona "
+                                        + "WHERE estado = 1 ";
+
+                                rset = stmt.executeQuery(COMANDO);
+                                //out.println(COMANDO);
+                                while (rset.next()) {
+
+                                    CantPersonaActivas = rset.getString("CantPersonaA");
+                                }
+                            %>  
+                            <span class="info-box-number" >Activos:&nbsp;<%=CantPersonaActivas%></span>
 
                             <div class="progress">
                                 <div class="progress-bar" style="width: 100%"></div>
                             </div>
-                            <span class="progress-description">
+                            <%
+                                String CantPersonaDesactiva = "";
+                                COMANDO = "SELECT COUNT(idPersona) as CantPersonaD "
+                                        + "FROM persona "
+                                        + "WHERE estado = 0 ";
 
-                            </span>
+                                rset = stmt.executeQuery(COMANDO);
+                                //out.println(COMANDO);
+                                while (rset.next()) {
+                                    CantPersonaDesactiva = rset.getString("CantPersonaD");
+                                }
+                            %>
+                            <span class="progress-description" >Desactivos: &nbsp;<%=CantPersonaDesactiva%></span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -612,7 +634,7 @@
                         <span class="info-box-icon"><i class="fa fa-hospital-o"></i></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text">???????</span>
+                            <span class="info-box-text">Usuarios</span>
                             <span class="info-box-number" ></span>
 
                             <div class="progress">
@@ -632,8 +654,8 @@
                         <span class="info-box-icon"><i class="fa fa-money"></i></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text">???????</span>
-                            <span class="info-box-number">???????</span>
+                            <span class="info-box-text">-----</span>
+                            <span class="info-box-number">12</span>
 
                             <div class="progress">
                                 <div class="progress-bar" style="width: 100%"></div>
@@ -652,7 +674,7 @@
                         <span class="info-box-icon"><i class="fa fa-frown-o"></i></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text">???????</span>
+                            <span class="info-box-text">Pensionistas</span>
                             <span class="info-box-number" >
 
                             </span>
