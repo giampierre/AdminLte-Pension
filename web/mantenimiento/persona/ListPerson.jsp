@@ -37,7 +37,6 @@
                     <img src="../../images/add.png" alt="" width="25" height="25"/>
                 </a> 
             </div>
-            <br>
             <table  id="example" class="table table-striped table-bordered" style="width:100%">
                 <thead>
                     <tr>
