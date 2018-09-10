@@ -414,8 +414,8 @@
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="#"><i class="fa fa-circle-o"></i>Usuarios</a></li>
-                                <li><a href="#"><i class="fa fa-circle-o"></i>Persona</a></li>
+                                <li><a id="listPersons" href="#"><i class="fa fa-circle-o"></i>Persona</a></li>
+                                <li><a id="listUsuario" href="#"><i class="fa fa-circle-o"></i>Usuarios</a></li>
                                 <li><a href="#"><i class="fa fa-circle-o"></i>Pensionistas</a></li>
                                 <li><a href="#"><i class="fa fa-circle-o"></i>Desayunos</a></li>
                                 <li><a href="#"><i class="fa fa-circle-o"></i>Almuerzos</a></li>
