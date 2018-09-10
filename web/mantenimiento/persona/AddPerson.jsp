@@ -14,7 +14,7 @@
     Class.forName("com.mysql.jdbc.Driver");
     Connection conexion = null;
     String sql = "";
-    conexion = DriverManager.getConnection("jdbc:mysql://localhost/bd_pension", "root", "root");
+    conexion = DriverManager.getConnection("jdbc:mysql://localhost/bd_pension", "root", "");
     Statement s = null;
     String nomb = request.getParameter("nombres");
     String apell = request.getParameter("apellidos");

@@ -71,7 +71,7 @@
                         int i = 0;
 
                         Class.forName("com.mysql.jdbc.Driver");
-                        Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/bd_pension", "root", "root");
+                        Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/bd_pension", "root", "");
 
                         Statement Estamento = conexion.createStatement();
                         ResultSet rs = Estamento.executeQuery(" SELECT * FROM PERSONA ");
