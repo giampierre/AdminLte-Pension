@@ -25,7 +25,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <%                        String nombres = "";
+                    <%                        
+                        String nombres = "";
                         String cantidad = "";
                         String monto = "";
                         String fecha = "";
