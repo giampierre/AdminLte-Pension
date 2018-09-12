@@ -19,7 +19,7 @@
 
             })
             function enviar() {
-                var url = 'views/Pensionistas/Pensionistas.jsp';
+                var url = 'mantenimiento/persona/ListPerson.jsp';
                 if ($(this).hasClass("disabled"))
                 {
                     $(this).removeClass("disabled in-progress").attr('value', 'Visualizar')
@@ -63,26 +63,13 @@
             rset.next();
             s_mes = rset.getString("mes");
         %>
-
-        <%
-            String a_tipo[][] = {{"0", "General"}, {"1", "Ejecutivo"}};
-            String s_tipo = "";
-            COMANDO = "Select "
-                    + "distinct tipo as  tipo "
-                    + "from pensionista "
-                    + "order by tipo asc ";
-            rset = stmt.executeQuery(COMANDO);
-            rset.next();
-            s_tipo = rset.getString("tipo");
-        %>
-
         <form name="datoslist" target="view" id="datoslist" action="#" >
 
-            <div class="panel panel-info">
-                <div class="panel-heading" style="color:#0D5458"> <h5>Lista de Pensionistas por periodo y tipo.</h5></div>
+            <div class="panel panel-info" style="width: 60%; margin: 0 auto;">
+                <div class="panel-heading" style="color:#0D5458"> <h5>Lista de Personas por periodo.</h5></div>
                 <div class="panel-body">
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-5">
                             <div class="input-group input-group-sm">
                                 <span class="input-group-addon" style="color:#0d5458; background: #eeeeee;">
                                     <li class="fa fa-calendar">&nbsp;Mes:</li>
@@ -96,7 +83,7 @@
                                 </select>
                             </div><!-- /input-group -->
                         </div><!-- /.col-lg-6 -->
-                        <div class="col-md-3">
+                        <div class="col-md-5">
                             <div class="input-group input-group-sm">
                                 <span class="input-group-addon" style="color:#0d5458; background: #eeeeee;">
                                     <li class="fa fa-calendar">&nbsp;Año:</li>
@@ -111,24 +98,9 @@
                                     <%}%>
                                 </select> 
                             </div><!-- /input-group -->
-                        </div><!-- /.col-lg-6 -->
-                        <div class="col-lg-3">
-                            <div class="input-group input-group-sm">
-                                <span class="input-group-addon" style="color:#0d5458; background: #eeeeee;">
-                                    <li class="fa fa-user">&nbsp;Tipo:</li>
-                                </span>
-                                <select class="form-control" name="f_tipo" id="f_tipo">
-                                    <%
-                                        for (int x = 0; x < a_tipo.length; x++) {%>
-                                    <option value="<%=a_tipo[x][0]%>" <% if (a_tipo[x][0].equals(s_tipo)) {
-                                            out.print("selected");
-                                        }%>><%=a_tipo[x][1]%></option>
-                                    <%						}%>
-                                </select>
-                            </div><!-- /input-group -->
-                        </div><!-- /.col-lg-6 -->
+                        </div><!-- /.col-lg-6 -->                       
                         <div class="col-md-2">
-                            <input class="btn btn-info" type="button" value="Visualizar" id="enviar" class="butoncito"> 
+                            <input class="btn btn-info btn-sm" type="button" value="Visualizar" id="enviar" class="butoncito"> 
                         </div>
 
                     </div>

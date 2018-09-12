@@ -21,18 +21,20 @@
                 $('#detalle').load('mantenimiento/persona/AddFormPerson.jsp');
 
             }
-            function myModalEdit() {
+            function myModalEdit(id) {
                 $('#EditPerson').html('<center><img src="dist/img/loader.gif" width="20px" height="20px"/></center>');
-                $('#EditPerson').load('AddFormPerson.jsp');
+                $('#EditPerson').load('mantenimiento/persona/EditFormPerson.jsp?f_id=' + id);
 
             }
 
         </script>
     </head>
     <body>
-        <div class="panel panel-info">
-            <div class="panel-heading" style="color:#0D5458"> <h5>Lista de Personas</h5></div>
-            <div class="panel-body">
+        <%            
+            String s_mes_ini = request.getParameter("f_mes_ini");
+            String s_anio_ini = request.getParameter("f_anio_ini");
+        %>
+            <!--div class="panel-heading" style="color:#0D5458"> <h5>Lista de Personas</h5></div-->
                 <div class="box-header">
                     <h3 class="box-title">
                         <a id="modal_desaUno" data-toggle="modal" onclick="myModalAdd()" data-target="#myModalAdd">
@@ -52,7 +54,7 @@
                 <div class="table-responsive">
                     <table class="table table-bordered table-condensed table-hover" >
                         <thead> 
-                            <tr style="background-color: #EBF5FB;">
+                            <tr>
                                 <th>#</th>
                                 <!--<th>ID</th>-->
                                 <th>Nombres</th>
@@ -86,7 +88,8 @@
                                 COMANDO = " SELECT idPERSONA, CONCAT(Nombres, ' ', Apellidos)nombres, dni, "
                                         + " direccion, celular, CASE estado WHEN 1 THEN 'Activo' ELSE 'Inactivo' END estado, "
                                         + " DATE_FORMAT(fecha_ingres, '%d-%m-%Y')fecha_inges, codigo, observacion "
-                                        + " FROM PERSONA  ";
+                                        + " FROM PERSONA ";
+                                        //+ " WHERE DATE_FORMAT(fecha_ingres,'%Y%m') = '" + s_anio_ini + s_mes_ini + "' ";
                                 rset = stmt.executeQuery(COMANDO);
                                 //out.println(COMANDO);
                                 while (rset.next()) {
@@ -100,15 +103,11 @@
                                     fecha_ingreso = rset.getString("fecha_inges");
                                     codigo = rset.getString("codigo");
                                     observacion = rset.getString("observacion");
-                                    
-                                    if (estado.equals("Activo")) {
-                                            color = activa;
-                                        }else{
-                                        color = inactiva;
-                                    }
+
+                                 
                             %>
 
-                            <tr bgcolor="<%=color%>" >        
+                            <tr>        
                                 <!--<td><%=i%></td>-->
                                 <td><%=id%></td>
                                 <td><%=nombres%></td>                 
@@ -121,7 +120,7 @@
                                 <td><%=observacion%></td> 
                                 <td>
                                     <div class="btn-group">
-                                        <a title="Editar" id="modal_desaUno" data-toggle="modal" onclick="myModalEdit()" data-target="#myModalEdit"><button class="btn btn-warning btn-xs glyphicon glyphicon-edit"></button></a>
+                                        <a title="Editar" id="modal_desaUno" data-toggle="modal" onclick="myModalEdit('<%=id%>')" data-target="#myModalEdit"><button class="btn btn-warning btn-xs glyphicon glyphicon-edit"></button></a>
                                         <a href="mantenimiento/persona/DeletePerson.jsp?idPersona=<%=id%>" onclick="return confirm('Esta Seguro de Eliminar el Registro...?')"><button class="btn btn-danger btn-xs glyphicon glyphicon-trash"></button></a>
                                     </div>
                                 </td>
@@ -155,7 +154,7 @@
                         </div>
                     </div>    
                 </div>
-                        <div id="myModalEdit" class="modal fade" role="dialog">
+                <div id="myModalEdit" class="modal fade" role="dialog">
                     <div class="modal-dialog modal-lg" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -171,7 +170,6 @@
                         </div>
                     </div>    
                 </div>
-            </div></div>
     </body>
 </html>
 

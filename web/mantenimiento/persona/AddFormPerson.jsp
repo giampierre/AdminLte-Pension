@@ -9,15 +9,16 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="../../css1/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link href="../../css1/dataTables.bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <script src="../../css1/dataTables.bootstrap.min.js" type="text/javascript"></script>
-        <script src="../../css1/jquery-3.3.1.js" type="text/javascript"></script>
-        <script src="../../css1/jquery.dataTables.min.js" type="text/javascript"></script>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">       
         <title>AddPerson</title>
     </head>
     <body>
+        <%            
+            Date dNow = new Date();
+            SimpleDateFormat ft = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
+            String fechaActual = ft.format(dNow);
+        %>
+
         <form action="mantenimiento/persona/AddPerson.jsp" method="POST">
             <div class="panel-body">
                 <div class="form-row">
@@ -35,7 +36,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="dni">DNI</label>
-                        <input type="text" class="form-control" id="dni" name="dni" placeholder="Ingese DNI" required>
+                        <input type="text" class="form-control" id="dni" name="dni" placeholder="Ingrese DNI" required>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="celular">Celular</label>
@@ -59,9 +60,8 @@
                         <!--<input type="text" class="form-control" id="estado" name="estado" placeholder="Ingese Estado" required>-->
                     </div>
                     <div class="form-group col-md-4">
-                        <%   %>
-                        <label for="fechaingreso">FechaIng</label>
-                        <input type="datetime-local" value="" class="form-control" id="fechaingreso" name="fechaingreso">
+                        <label for="fechaingreso">Fecha de registro</label>
+                        <input type="text" value="<%=fechaActual%>" class="form-control" id="fechaingreso" name="fechaingreso" readonly="">
                         <!--<input type="datetime-local"  placeholder="Ingrese Fecha">-->
                     </div>
                     <div class="form-group col-md-4">
@@ -77,8 +77,7 @@
                 </div>
                 <div class="form-row" align="center">
                     <div class="form-group col-md-12">
-                        <input type="submit"  class="btn btn-primary" value="Registrar">
-
+                        <input type="submit" class="btn btn-primary" value="Registrar">
                     </div>
                 </div>
             </div>
