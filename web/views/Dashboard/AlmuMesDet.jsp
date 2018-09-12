@@ -68,12 +68,12 @@
                     </tr>
                     <%}%>
                 </tbody>
-                <tfoot>
+                <!--tfoot>
                     <tr>
                         <th align="center" colspan="3">cantidad de almuerzos del mes</th>
-                        <th><%=totalCantidad%></th>
+                        <th><!--%=totalCantidad%></th>
                     </tr>
-                </tfoot>
+                </tfoot-->
 
             </table>
             <!--Si hay registros -->

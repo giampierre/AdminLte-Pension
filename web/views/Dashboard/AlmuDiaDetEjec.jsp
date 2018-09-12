@@ -1,8 +1,9 @@
 <%-- 
-    Document   : DesaDiaDet
-    Created on : 28/08/2018, 12:33:28 PM
+    Document   : AlmuDiaDetEjec
+    Created on : 11/09/2018, 08:15:35 AM
     Author     : TIC-32
 --%>
+
 <%@include file="../../conectadb.jsp" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -19,8 +20,8 @@
                         <th>N°</th>
                         <th>Nombres</th>
                         <th>Fecha</th>
-                        <th>Cantidad</th>
-                        <!--th>Monto</th-->
+                        <!--th>Cantidad</th>
+                        <th>Monto</th-->
                     </tr>
                 </thead>
                 <tbody>
@@ -29,31 +30,26 @@
                         String cantidad = "";
                         String monto = "";
                         String fecha = "";
-                        int totalCantidad = 0;
                         int i = 0;
 
-                        COMANDO = "SELECT pp.idpensionista, CONCAT(p.Nombres, ' ', p.Apellidos) as Nombres, "
-                                + "pp.monto,pp.fecha_ingreso, d.titulo,  "
-                                + "if(d.estado=1,'Si Cenó','No Cenó') AS ESTADO,  "
-                                + "SUM(d.monto) as monto_c, SUM(d.cantidad) as cantidad,  "
-                                + "DATE_FORMAT(d.fecha_c,'%m-%Y') as fecha_c  "
-                                + "FROM persona p, pensionista pp, cena d  "
-                                + "WHERE p.idpersona = pp.idpersona  "
-                                + "AND pp.idpensionista = d.idpensionista  "
-                                + "AND DATE_FORMAT(d.fecha_c,'%m%Y') = DATE_FORMAT(sysdate(), '%m%Y')  "
-                                + "GROUP BY pp.idpensionista, DATE_FORMAT(d.fecha_c,'%m%Y')  "
-                                + "ORDER BY d.fecha_c DESC ";
-
+                        COMANDO = "SELECT d.idALMUERZO, CONCAT(p.Nombres, ' ', p.Apellidos) as Nombres,"
+                                        + " pp.monto, pp.fecha_ingreso, d.titulo,"
+                                        + " if(d.estado=1,'Si Almorzó','No Almorzó') AS ESTADO, "
+                                        + " d.monto as monto_c, d.cantidad, d.fecha_a "
+                                        + " FROM persona p, pensionista pp, almuerzo d "
+                                        + " WHERE p.idpersona = pp.idpersona "
+                                        + " AND pp.idpensionista = d.idpensionista "
+                                        + " AND pp.tipo = '1' "
+                                        + " AND DATE_FORMAT(d.fecha_a,'%d%m%Y') = DATE_FORMAT(sysdate(), '%d%m%Y') ";
                         rset = stmt.executeQuery(COMANDO);
                         //out.println(COMANDO);
 
                         while (rset.next()) {
                             i++;
                             nombres = rset.getString("Nombres");
-                            fecha = rset.getString("fecha_c");
+                            fecha = rset.getString("fecha_a");
                             cantidad = rset.getString("cantidad");
                             monto = rset.getString("monto_c");
-                            totalCantidad += rset.getInt("cantidad");
 
 
                     %>
@@ -62,29 +58,27 @@
                         <td><%=i%></td>
                         <td><%=nombres%></td>
                         <td><%=fecha%></td> 
-                        <td><%=cantidad%></td> 
-                        <!--td><!--%=monto%></td--> 
-
+                        <!--td><!--%=cantidad%></td> 
+                        <td><!--%=monto%></td-->                       
                     </tr>
                     <%}%>
+
+
                 </tbody>
-                <!--tfoot>
-                    <tr>
-                        <th align="center" colspan="3">cantidad de cenas del mes</th>
-                        <th><!--%=totalCantidad%></th>
-                    </tr>
-                </tfoot-->
+
 
             </table>
-            <!--Si hay registros -->
+                    <!--Si hay registros -->
             <p style="text-align: center;">
                 <%
                     if (i == 0) {
-                        out.println("No se registraron cenas en el mes");
+                        out.println("No se registraron almuerzos ejecutivos el día de hoy");
                     }
                 %>
 
             </p>
+
         </div>
     </body>
 </html>
+

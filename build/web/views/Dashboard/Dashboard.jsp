@@ -208,7 +208,7 @@
                                     CantDesaDiaGene = rset.getString("CantDesaDia");
                                 }
                             %> 
-                            <span  class="info-box-number" data ><%=CantDesaDiaGene%></span>
+                            <span  class="info-box-number" data ><a id="modal_siete" data-toggle="modal" data-target="#myModal"><%=CantDesaDiaGene%></a></span>
 
 
                             <div class="progress">
@@ -232,7 +232,7 @@
                                     CantDesaMesGene = rset.getString("CantDesaMes");
                                 }
                             %>
-                            <span class="progress-description"><%=CantDesaMesGene%></span>
+                            <span class="progress-description"><a id="modal_ocho" data-toggle="modal" data-target="#myModal"><%=CantDesaMesGene%></a></span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -266,7 +266,7 @@
                                     CantAlmuDiaGene = rset.getString("CantAlmuDia");
                                 }
                             %> 
-                            <span class="info-box-number" ><%=CantAlmuDiaGene%></span>
+                            <span class="info-box-number" ><a id="modal_nueve" data-toggle="modal" data-target="#myModal"><%=CantAlmuDiaGene%></a></span>
 
 
                             <div class="progress">
@@ -290,7 +290,7 @@
                                     CantAlmuMesGene = rset.getString("CantAlmuMes");
                                 }
                             %>
-                            <span class="progress-description"><%=CantAlmuMesGene%></span>
+                            <span class="progress-description"><a id="modal_diez" data-toggle="modal" data-target="#myModal"><%=CantAlmuMesGene%></a></span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -324,7 +324,7 @@
                                     CantCenaDiaGene = rset.getString("CantCenaDia");
                                 }
                             %>  
-                            <span  class="info-box-number" ><%=CantCenaDiaGene%></span>
+                            <span  class="info-box-number" ><a id="modal_once" data-toggle="modal" data-target="#myModal"><%=CantCenaDiaGene%></a></span>
 
 
                             <div class="progress">
@@ -348,7 +348,7 @@
                                     CantCenaMesGene = rset.getString("CantCenaMes");
                                 }
                             %>
-                            <span class="progress-description"><%=CantCenaMesGene%></span>
+                            <span class="progress-description"><a id="modal_doce" data-toggle="modal" data-target="#myModal"><%=CantCenaMesGene%></a></span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -382,7 +382,7 @@
                                     CantDesaDiaEjec = rset.getString("CantDesaDia");
                                 }
                             %> 
-                            <span class="info-box-number" ><%=CantDesaDiaEjec%></span>
+                            <span class="info-box-number" ><a id="modal_trece" data-toggle="modal" data-target="#myModal"><%=CantDesaDiaEjec%></a></span>
 
                             <div class="progress">
                                 <div class="progress-bar" style="width: 100%"></div>
@@ -405,7 +405,7 @@
                                     CantDesaMesEjec = rset.getString("CantDesaMes");
                                 }
                             %>
-                            <span class="progress-description" ><%=CantDesaMesEjec%></span>
+                            <span class="progress-description" ><a id="modal_catorce" data-toggle="modal" data-target="#myModal"><%=CantDesaMesEjec%></a></span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -439,7 +439,7 @@
                                     CantAlmuDiaEjec = rset.getString("CantAlmuDia");
                                 }
                             %> 
-                            <span class="info-box-number" ><%=CantAlmuDiaEjec%></span>
+                            <span class="info-box-number" ><a id="modal_quince" data-toggle="modal" data-target="#myModal"><%=CantAlmuDiaEjec%></a></span>
 
                             <div class="progress">
                                 <div class="progress-bar" style="width: 100%"></div>
@@ -462,7 +462,7 @@
                                     CantAlmuMesEjec = rset.getString("CantAlmuMes");
                                 }
                             %>
-                            <span class="progress-description"><%=CantAlmuMesEjec%></span>
+                            <span class="progress-description"><a id="modal_dieciseis" data-toggle="modal" data-target="#myModal"><%=CantAlmuMesEjec%></a></span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -496,7 +496,7 @@
                                     CantCenaDiaEjec = rset.getString("CantCenaDia");
                                 }
                             %>  
-                            <span class="info-box-number" ><%=CantCenaDiaEjec%></span>
+                            <span class="info-box-number" ><a id="modal_diecisiete" data-toggle="modal" data-target="#myModal"><%=CantCenaDiaEjec%></a></span>
 
                             <div class="progress">
                                 <div class="progress-bar" style="width: 100%"></div>
@@ -519,7 +519,7 @@
                                     CantCenaMesEjec = rset.getString("CantCenaMes");
                                 }
                             %>
-                            <span class="progress-description" ><%=CantCenaMesEjec%></span>
+                            <span class="progress-description" ><a id="modal_dieciocho" data-toggle="modal" data-target="#myModal"><%=CantCenaMesEjec%></a></span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>

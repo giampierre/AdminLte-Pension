@@ -1,8 +1,9 @@
 <%-- 
-    Document   : DesaDiaDet
-    Created on : 28/08/2018, 12:33:28 PM
+    Document   : CenaMesDetEjec
+    Created on : 11/09/2018, 11:37:32 AM
     Author     : TIC-32
 --%>
+
 <%@include file="../../conectadb.jsp" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -31,17 +32,14 @@
                         int totalCantidad = 0;
                         int i = 0;
 
-                        COMANDO = "SELECT pp.idpensionista, CONCAT(p.Nombres, ' ', p.Apellidos) as Nombres, "
-                                + "pp.monto,pp.fecha_ingreso, d.titulo,  "
-                                + "if(d.estado=1,'Si Desayunó','No Desayunó') AS ESTADO,  "
-                                + "SUM(d.monto) as monto_c, SUM(d.cantidad) as cantidad,  "
-                                + "DATE_FORMAT(d.fecha_d,'%m-%Y') as fecha_d  "
-                                + "FROM persona p, pensionista pp, desayuno d  "
-                                + "WHERE p.idpersona = pp.idpersona  "
-                                + "AND pp.idpensionista = d.idpensionista  "
-                                + "AND DATE_FORMAT(d.fecha_d,'%m%Y') = DATE_FORMAT(sysdate(), '%m%Y')  "
-                                + "GROUP BY pp.idpensionista, DATE_FORMAT(d.fecha_d,'%m%Y')  "
-                                + "ORDER BY d.fecha_d DESC ";
+                        COMANDO = "SELECT d.idCENA, CONCAT(p.Nombres, ' ', p.Apellidos) as Nombres, "
+                                        + "pp.monto, pp.fecha_ingreso, d.titulo, if(d.estado=1,'Si Cenó','No Cenó') AS ESTADO, "
+                                        + "d.monto as monto_c, d.cantidad, d.fecha_c "
+                                        + "FROM persona p, pensionista pp, cena d "
+                                        + "WHERE p.idpersona = pp.idpersona "
+                                        + "AND pp.idpensionista = d.idpensionista "
+                                        + "AND pp.tipo = '1' "
+                                        + "AND DATE_FORMAT(d.fecha_c,'%m%Y') = DATE_FORMAT(sysdate(), '%m%Y') ";
 
                         rset = stmt.executeQuery(COMANDO);
                         //out.println(COMANDO);
@@ -49,7 +47,7 @@
                         while (rset.next()) {
                             i++;
                             nombres = rset.getString("Nombres");
-                            fecha = rset.getString("fecha_d");
+                            fecha = rset.getString("fecha_c");
                             cantidad = rset.getString("cantidad");
                             monto = rset.getString("monto_c");
                             totalCantidad += rset.getInt("cantidad");
@@ -79,7 +77,7 @@
             <p style="text-align: center;">
                 <%
                     if (i == 0) {
-                        out.println("No se registraron desayunos en el mes");
+                        out.println("No se registraron cenas ejecutivas en el mes");
                     }
                 %>
 

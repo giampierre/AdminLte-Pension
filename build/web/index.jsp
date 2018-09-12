@@ -316,7 +316,7 @@
                             </li>
                             <!-- Control Sidebar Toggle Button -->
                             <li>
-                                <a href="login.html"><i class="fa fa-power-off"></i></a>
+                                <a href="login.html" title="Salir" ><i class="fa fa-power-off"></i></a>
                                
                             </li>
                         </ul>
