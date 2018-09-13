@@ -99,9 +99,9 @@
                         <textarea class="form-control" id="observacion" name="observ"><%=observ%></textarea>
                     </div>
                 </div>
-                <div class="form-row" align="center">
+                <div class="form-row" align="right">
                     <div class="form-group col-md-12">
-                        <input type="submit" name="" id="" class="btn btn-success" value="Editar">
+                        <input type="submit" name="" id="" class="btn btn-warning btn-lg btn-block" value="Editar">
                         <input type="hidden" name="idper" value="<%=idPerson%>">
                     </div>
                 </div>

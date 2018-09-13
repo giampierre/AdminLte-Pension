@@ -9,13 +9,21 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">       
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  
+        <script src="dist/js/jquery-1.12.4.js" type="text/javascript"></script>
         <title>AddPerson</title>
+
+        <script>
+            $(document).ready(function () {
+                $("#btnclose").click(function () {
+                  
+                    //alert("funciona");
+            });
+        </script>
     </head>
     <body>
-        <%            
-            Date dNow = new Date();
-            SimpleDateFormat ft = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
+        <%            Date dNow = new Date();
+            SimpleDateFormat ft = new SimpleDateFormat("dd/MM/yyyy");
             String fechaActual = ft.format(dNow);
         %>
 
@@ -75,9 +83,9 @@
                         <textarea class="form-control" id="observacion" name="observacion" placeholder="Ingrese Observación" ></textarea>
                     </div>
                 </div>
-                <div class="form-row" align="center">
+                <div class="form-row" align="right">
                     <div class="form-group col-md-12">
-                        <input type="submit" class="btn btn-primary" value="Registrar">
+                        <input type="submit" class="btn btn-primary btn-lg btn-block" value="Registrar">
                     </div>
                 </div>
             </div>
