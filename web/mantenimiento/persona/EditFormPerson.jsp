@@ -3,12 +3,7 @@
     Created on : 15-jul-2018, 22:20:59
     Author     : Elvis
 --%>
-
-<%@page import="java.sql.Date"%>
-<%@page import="java.sql.ResultSet"%>
-<%@page import="java.sql.Statement"%>
-<%@page import="java.sql.DriverManager"%>
-<%@page import="java.sql.Connection"%>
+<%@ include file="../../conectadb.jsp" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,11 +12,8 @@
         <title>JSP Page</title>
     </head>
     <body>
+    
         <%
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection conexion = null;
-            String sql = "";
-            conexion = DriverManager.getConnection("jdbc:mysql://localhost/bd_pension", "root", "");
             int i = 0;
             String idPerson = request.getParameter("f_id");
             String nomb = "";
@@ -33,25 +25,26 @@
             String fecha_ing = "";
             String cod = "";
             String observ = "";
-
-            Statement Estamento = conexion.createStatement();
-            sql = "SELECT Nombres, Apellidos, dni, direccion, "
+            
+            COMANDO = "SELECT Nombres, Apellidos, dni, direccion, "
                     + " celular, estado, fecha_ingres, codigo, observacion "
                     + " FROM PERSONA WHERE idPersona = '" + idPerson + "' ";
-            ResultSet rs = Estamento.executeQuery(sql);
-            //out.println(sql);
-            while (rs.next()) {
+            
+            //out.print(COMANDO);
+            rset = stmt.executeQuery(COMANDO);
+            while  (rset.next()) {
                 i++;
-                nomb = rs.getString("Nombres");
-                apell = rs.getString("Apellidos");
-                dn = rs.getString("dni");
-                direc = rs.getString("direccion");
-                cel = rs.getString("celular");
-                est = rs.getString("estado");
-                fecha_ing = rs.getString("fecha_ingres");
-                cod = rs.getString("codigo");
-                observ = rs.getString("observacion");
+                nomb = rset.getString("Nombres");
+                apell = rset.getString("Apellidos");
+                dn = rset.getString("dni");
+                direc = rset.getString("direccion");
+                cel = rset.getString("celular");
+                est = rset.getString("estado");
+                fecha_ing = rset.getString("fecha_ingres");
+                cod = rset.getString("codigo");
+                observ = rset.getString("observacion");
             }
+
         %>
 
         <form action="mantenimiento/persona/EditPerson.jsp" method="POST">

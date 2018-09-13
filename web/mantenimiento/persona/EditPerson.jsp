@@ -3,19 +3,11 @@
     Created on : 15-jul-2018, 22:21:37
     Author     : Elvis
 --%>
-
-<%@page import="java.sql.Statement"%>
-<%@page import="java.sql.DriverManager"%>
-<%@page import="java.sql.Connection"%>
+<%@ include file="../../conectadb.jsp" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<%
-    Class.forName("com.mysql.jdbc.Driver");
-    Connection conexion = null;
-    String sql = "";
-    conexion = DriverManager.getConnection("jdbc:mysql://localhost/bd_pension", "root", "");
-    Statement s = null;
-    String idPerson = request.getParameter("idper");
+
+<%      String idPerson = request.getParameter("idper");
     String nombres = request.getParameter("nombres");
     String apellidos = request.getParameter("apell");
     String dni = request.getParameter("dn");
@@ -26,11 +18,13 @@
     String codigo = request.getParameter("cod");
     String observacion = request.getParameter("observ");
 
-    s = conexion.createStatement();
-    sql = "UPDATE persona SET Nombres = '"+nombres+"', Apellidos = '"+apellidos+"', "
-            + " dni = '"+dni+"', celular = '"+celular+"', direccion = '"+direccion+"', estado = '"+estado+"', "
-            + " fecha_ingres = '"+fecha+"', codigo = '"+codigo+"', observacion = '"+observacion+"' WHERE idPersona = '"+idPerson+"'";
-    s.executeUpdate(sql);
-    out.println(sql);
-    response.sendRedirect("ListPerson.jsp");
+    int rsetx = 0;
+    COMANDO = "UPDATE persona SET Nombres = '" + nombres + "', Apellidos = '" + apellidos + "', "
+            + " dni = '" + dni + "', celular = '" + celular + "', direccion = '" + direccion + "', estado = '" + estado + "', "
+            + " fecha_ingres = '" + fecha + "', codigo = '" + codigo + "', observacion = '" + observacion + "' WHERE idPersona = '" + idPerson + "'";
+       //out.print(COMANDO);
+    rsetx = stmt.executeUpdate(COMANDO);
+
+//response.sendRedirect("ListPerson.jsp");
+
 %>

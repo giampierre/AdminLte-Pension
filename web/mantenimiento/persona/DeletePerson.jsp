@@ -15,12 +15,13 @@
     String sql = "";
     conexion = DriverManager.getConnection("jdbc:mysql://localhost/bd_pension", "root", "");
     Statement s = null;
-    String idPerson = "";
-    idPerson = request.getParameter("idPersona");
+    String idPerson = ""; 
+    idPerson = request.getParameter("f_idpersona");
 
     s = conexion.createStatement();
     sql = "DELETE FROM persona WHERE idPersona = '"+idPerson+"' ";
     s.executeUpdate(sql);
-    //out.println(sql);
-    response.sendRedirect("ListPerson.jsp");
+    
+    out.println(sql);
+    //response.sendRedirect("ListPerson.jsp");
 %>
