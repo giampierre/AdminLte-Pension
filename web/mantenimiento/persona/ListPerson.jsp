@@ -186,7 +186,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         Registrar Persona
-                        <button type="button" class="close" data-dismiss="modal">&times;</button> 
+                        <button style="opacity: 10!important;" class="close glyphicon glyphicon-remove-sign text-red" data-dismiss="modal"></button> 
                     </div>
                     <div class="modal-body">
                         <div id="detalle">
@@ -202,7 +202,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         Editar
-                        <button type="button" class="close" data-dismiss="modal">&times;</button> 
+                        <button style="opacity: 10!important;" class="close glyphicon glyphicon-remove-sign text-red" data-dismiss="modal"></button> 
                     </div>
                     <div class="modal-body">
                         <div id="EditPerson">
