@@ -10,51 +10,37 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css"/>        
+        <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css"/> 
+        <link href="bower_components/bootstrap/dist/css/stylelogin.css" rel="stylesheet" type="text/css"/>
+        <script src="dist/js/jquery-1.12.4.js" type="text/javascript"></script>
+        <script src="bower_components/bootstrap/dist/js/jslogin.js" type="text/javascript"></script>
+
     </head>
-    <body>
-            <div class="container">    
-        <div id="loginbox" style="margin-top:50px;" class="col-md-6 col-md-offset-3">                    
-            <div class="panel panel-info" >
-                    <div class="panel-heading" style=" color:#ffffff;background-color: #2daf96; border-color: #2daf96;">
-                        <div class="panel-title">Iniciar Sessión</div>
-                        <!--div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#">Forgot password?</a></div-->
-                    </div>     
+    <body style="background: #EBF5FB;">
+        <form action="ValidateUser.jsp" method="post">
+        <div id="formWrapper">
 
-                    <div style="padding-top:30px; background: #F8F9F9;" class="panel-body" >
-
-                        <div style="display:none" id="login-alert" class="col-md-6 col-md-offset-3"></div>
-                            
-                        <form id="loginform" action="ValidateUser.jsp" method="post" class="form-horizontal" role="form">
-                                    
-                            <div style="margin-bottom: 25px" class="input-group">
-                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                        <input id="login-username" type="text" class="form-control" name="usuario" value="" placeholder="Ingresar usuario" required>                                        
-                                    </div>
-                                
-                            <div style="margin-bottom: 25px" class="input-group">
-                                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                        <input id="login-password" type="password" class="form-control" name="pass" placeholder="Ingresar contraseña" required>
-                                    </div>
-                                    
-
-                                <div style="margin-top:10px" class="form-group">
-                                    <!-- Button -->
-
-                                    <div  style="text-align: center" class="col-sm-12 controls">
-                                        <input class="btn btn-info" style="background:#2daf96; border-color: #2daf96; " type="submit" value="Ingresar">
-                                    </div>
-                                </div>
-   
-                            </form>     
-
-
-
-                        </div>                     
-                    </div>  
+            <div id="form">
+                <div class="logo">
+                    <h1 class="text-center head">Iniciar Sesión</h1>
+                </div>
+                <div class="form-item">
+                    <p class="formLabel">Usuario</p>
+                    <input type="text" name="usuario" id="email" class="form-style" autocomplete="off"/>
+                </div>
+                <div class="form-item">
+                    <p class="formLabel">Password</p>
+                    <input type="password" name="pass" id="password" class="form-style" />
+                    <!-- <div class="pw-view"><i class="fa fa-eye"></i></div> -->
+                    <p><a href="#" ><small>Olvidó Contraseña ?</small></a></p>	
+                </div>
+                <div class="form-item">
+                    <p class="pull-left"><a href="#"><small>Registrarse</small></a></p>
+                    <input type="submit" class="login pull-right" value="Ingresar">
+                    <div class="clear-fix"></div>
+                </div>
+            </div>
         </div>
-     
-    </div>
-    
+            </form>
     </body>
 </html>

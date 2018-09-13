@@ -16,8 +16,7 @@
 
     <body>
 
-        <%    
-            String nomb = request.getParameter("nombres");
+        <%            String nomb = request.getParameter("nombres");
             String apell = request.getParameter("apellidos");
             String dni = request.getParameter("dni");
             String cell = request.getParameter("celular");
@@ -35,7 +34,9 @@
                     + " '" + dir + "', '" + estad + "', sysdate(), '" + codig + "', '" + observ + "') ";
             out.print(COMANDO);
             rset01 = stmt.executeUpdate(COMANDO);
-                                           
+
+            //response.sendRedirect("ListPerson.jsp");
+
         %>	 
     </body>
 </html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css"/>        
+    </head>
+    <body>
+            <div class="container">    
+        <div id="loginbox" style="margin-top:50px;" class="col-md-6 col-md-offset-3">                    
+            <div class="panel panel-info" >
+                    <div class="panel-heading" style=" color:#ffffff;background-color: #2daf96; border-color: #2daf96;">
+                        <div class="panel-title">Iniciar Sessión</div>
+                        <!--div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#">Forgot password?</a></div-->
+                    </div>     
+
+                    <div style="padding-top:30px; background: #F8F9F9;" class="panel-body" >
+
+                        <div style="display:none" id="login-alert" class="col-md-6 col-md-offset-3"></div>
+                            
+                        <form id="loginform" action="ValidateUser.jsp" method="post" class="form-horizontal" role="form">
+                                    
+                            <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <input id="login-username" type="text" class="form-control" name="usuario" value="" placeholder="Ingresar usuario" required>                                        
+                                    </div>
+                                
+                            <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                        <input id="login-password" type="password" class="form-control" name="pass" placeholder="Ingresar contraseña" required>
+                                    </div>
+                                    
+
+                                <div style="margin-top:10px" class="form-group">
+                                    <!-- Button -->
+
+                                    <div  style="text-align: center" class="col-sm-12 controls">
+                                        <input class="btn btn-info" style="background:#2daf96; border-color: #2daf96; " type="submit" value="Ingresar">
+                                    </div>
+                                </div>
+   
+                            </form>     
+
+
+
+                        </div>                     
+                    </div>  
+        </div>
+     
+    </div>
+    
+    </body>
+</html>

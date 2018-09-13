@@ -15,9 +15,9 @@
 
         <script>
             $(document).ready(function () {
-                $("#btnclose").click(function () {
-                  
-                    //alert("funciona");
+                $("#btnclose").click(function () {     
+                    //alert("funciona"); 
+                    });
             });
         </script>
     </head>

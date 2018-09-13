@@ -80,7 +80,7 @@
         <!--div class="panel-heading" style="color:#0D5458"> <h5>Lista de Personas</h5></div-->
         <div class="box-header">
             <h3 class="box-title">
-                <a id="modal_desaUno" data-toggle="modal" onclick="myModalAdd()" data-target="#myModalAdd">
+                <a data-toggle="modal" onclick="myModalAdd()" data-target="#myModalAdd">
                     <button class="btn btn-primary btn-xs fa fa-user-plus"></button>&nbsp;
                 </a></h3>
 
