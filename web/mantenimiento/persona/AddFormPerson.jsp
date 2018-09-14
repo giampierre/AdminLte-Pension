@@ -11,6 +11,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  
         <script src="dist/js/jquery-1.12.4.js" type="text/javascript"></script>
+        <script src="dist/js/ValidarNumeric.js" type="text/javascript"></script>
         <title>AddPerson</title>
 
         <script>
@@ -44,11 +45,11 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="dni">DNI</label>
-                        <input type="text" class="form-control" id="dni" name="dni" placeholder="Ingrese DNI" required>
+                        <input type="text" class="form-control input-number" id="dni" name="dni" placeholder="Ingrese DNI" maxlength="8" required>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="celular">Celular</label>
-                        <input type="text" class="form-control" id="celular" name="celular" placeholder="Ingrese Celular" required>
+                        <input type="text" class="form-control input-number" id="celular" name="celular" placeholder="Ingrese Celular" maxlength="9" required>
                     </div>
                 </div>
                 <div class="form-row">
@@ -74,13 +75,13 @@
                     </div>
                     <div class="form-group col-md-4">
                         <label for="codigo">Codigo</label>
-                        <input type="text" class="form-control" id="codigo" name="codigo" placeholder="Ingrese Codigo" required>
+                        <input type="text" class="form-control input-number" id="codigo" name="codigo" placeholder="Ingrese Codigo" maxlength="4" required>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-12">
                         <label for="observacion">Observación</label>
-                        <textarea class="form-control" id="observacion" name="observacion" placeholder="Ingrese Observación" ></textarea>
+                        <textarea class="form-control" id="observacion" name="observacion" placeholder="Ingrese Observación" maxlength="450" ></textarea>
                     </div>
                 </div>
                 <div class="form-row" align="right">

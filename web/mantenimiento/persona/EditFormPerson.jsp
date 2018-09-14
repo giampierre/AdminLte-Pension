@@ -9,6 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="dist/js/ValidarNumeric.js" type="text/javascript"></script>
         <title>JSP Page</title>
     </head>
     <body>
@@ -64,11 +65,11 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="dni">DNI</label>
-                        <input type="text" class="form-control" id="dni" name="dn" value="<%=dn%>" required>
+                        <input type="text" class="form-control input-number" id="dni" name="dn" value="<%=dn%>" maxlength="8" required>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="celular">Celular</label>
-                        <input type="text" class="form-control" id="cel" name="cel" value="<%=cel%>" required>
+                        <input type="text" class="form-control input-number" id="cel" name="cel" value="<%=cel%>" maxlength="9" required>
                     </div>
                 </div>
                 <div class="form-row">
@@ -90,13 +91,13 @@
                     </div>
                     <div class="form-group col-md-4">
                         <label for="codigo">Codigo</label>
-                        <input type="text" class="form-control" id="codigo" name="cod" value="<%=cod%>" required>
+                        <input type="text" class="form-control input-number" id="codigo" name="cod" value="<%=cod%>" maxlength="4" required>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-12">
                         <label for="observacion">Observación</label>
-                        <textarea class="form-control" id="observacion" name="observ"><%=observ%></textarea>
+                        <textarea class="form-control" id="observacion" name="observ"  maxlength="450"><%=observ%></textarea>
                     </div>
                 </div>
                 <div class="form-row" align="right">

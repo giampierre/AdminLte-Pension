@@ -26,7 +26,7 @@
 
             }
         </script>
-        <script>
+        <!--script>
             $(document).ready(function () { 
             $(document).on("click", ".ejecuta", function () {
                 var id = $(this).data("id");
@@ -71,7 +71,7 @@
 
             });
             });
-        </script>
+        </script-->
     </head>
     <body>
         <%            String s_mes_ini = request.getParameter("f_mes_ini");
