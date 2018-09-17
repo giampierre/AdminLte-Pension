@@ -28,46 +28,52 @@
                             <div class="box-body no-padding">
                                 <table class="table table-condensed">
                                     <%
-                                        String monto_pensionista = "";
-                                        String consumo_pensionista = "";
-                                        String saldo_pensionista = "";
+                                        double monto_pensionista = 0.0;
+                                        double consumo_pensionista = 0.0;
+                                        double saldo_pensionista = 0.0;
                                         String deuda = "";
                                         String color = "";
                                         String danger = "#E74C3C";
                                         String info = "#00c0ef";
 
-                                        COMANDO = "SELECT p.idPENSIONISTA, CONCAT(pe.Nombres, ' ', pe.Apellidos) as Nombres,  p.monto, "
-                                                + "IFNULL((consDesa+consAlmu+consCena), 0) as ConsTotal, "
-                                                + "IFNULL((p.monto-(consDesa+consAlmu+consCena)), 0) as saldo, "
-                                                + "CASE "
-                                                + "WHEN (p.monto-(consDesa+consAlmu+consCena)) < 0 THEN 'Deuda' "
-                                                + "WHEN (p.monto-(consDesa+consAlmu+consCena)) >= 0 THEN 'Activo' "
-                                                + "ELSE '' "
-                                                + "END as deuda  "
-                                                + "FROM pensionista p "
-                                                + "LEFT JOIN persona pe ON (p.idPERSONA = pe.idPERSONA) "
-                                                + "LEFT JOIN (SELECT idPENSIONISTA, SUM(cantidad) as cantDesa, SUM(monto) as consDesa FROM "
-                                                + "desayuno GROUP BY idPENSIONISTA) d "
-                                                + "ON p.idPENSIONISTA = d.idPENSIONISTA LEFT JOIN (SELECT idPENSIONISTA, "
-                                                + "SUM(cantidad) as cantAlmu, SUM(monto) as consAlmu FROM almuerzo "
-                                                + "GROUP BY idPENSIONISTA) a ON p.idPENSIONISTA = a.idPENSIONISTA "
-                                                + "LEFT JOIN (SELECT idPENSIONISTA, SUM(cantidad) as cantCena, SUM(monto) as consCena "
-                                                + "FROM cena "
-                                                + "GROUP BY idPENSIONISTA) c ON p.idPENSIONISTA = c.idPENSIONISTA "
-                                                + "WHERE p.idPENSIONISTA = '" + id_pensionista + "' ";
+                                         COMANDO = "SELECT p.idPENSIONISTA, CONCAT(pe.Nombres, ' ', pe.Apellidos) as Nombres, p.monto, "
+                                                    + "IFNULL(consDesa, 0) as consDesa, "
+                                                    + "IFNULL(consAlmu, 0) as consAlmu, "
+                                                    + "IFNULL(consCena, 0) as consCena "
+                                                    + "FROM pensionista p "
+                                                    + "LEFT JOIN persona pe ON (p.idPERSONA = pe.idPERSONA) "
+                                                    + "LEFT JOIN "
+                                                    + "(SELECT idPENSIONISTA, SUM(cantidad) as cantDesa,"
+                                                    + " SUM(monto) as   consDesa "
+                                                    + "FROM desayuno "
+                                                    + "GROUP BY idPENSIONISTA) d "
+                                                    + "ON p.idPENSIONISTA = d.idPENSIONISTA "
+                                                    + "LEFT JOIN "
+                                                    + "(SELECT idPENSIONISTA, SUM(cantidad) as cantAlmu, SUM(monto) as consAlmu "
+                                                    + "FROM almuerzo "
+                                                    + "GROUP BY idPENSIONISTA) a "
+                                                    + "ON p.idPENSIONISTA = a.idPENSIONISTA "
+                                                    + "LEFT JOIN "
+                                                    + "(SELECT idPENSIONISTA, SUM(cantidad) as cantCena, SUM(monto) as consCena "
+                                                    + "FROM cena "
+                                                    + "GROUP BY idPENSIONISTA) c "
+                                                    + "ON p.idPENSIONISTA = c.idPENSIONISTA "
+                                                    + "WHERE p.idPENSIONISTA = '" + id_pensionista + "'";
+                                         
 
                                         rset = stmt.executeQuery(COMANDO);
                                         //out.print(COMANDO);
                                         if (rset.next()) {
-                                            monto_pensionista = rset.getString("monto");
-                                            consumo_pensionista = rset.getString("ConsTotal");
-                                            saldo_pensionista = rset.getString("saldo");
-                                            deuda = rset.getString("deuda");
-
-                                            if (deuda.equals("Deuda")) {
+                                            monto_pensionista = rset.getDouble("monto");
+                                            consumo_pensionista = rset.getDouble("consDesa") + rset.getDouble("consAlmu") + rset.getDouble("consCena");
+                                            saldo_pensionista = monto_pensionista - consumo_pensionista;
+                
+                                            if (saldo_pensionista < 0) {
+                                                //out.println("deuda");
                                                 color = danger;
                                             }
-                                            if (deuda.equals("Activo")) {
+                                            if (saldo_pensionista >= 0) {
+                                                //out.println("Activo");
                                                 color = info;
                                             }
 
@@ -87,7 +93,7 @@
                                             <th><span style="font-size: 15px; text-align: center;" class="badge bg-aqua-active">S/&nbsp;<%=saldo_pensionista%></span></th> 
                                         </tr>
                                         <tr bgcolor="<%=color%>">
-                                            <th style="text-align: center; color: #FFF;" colspan="2"><%=deuda%></th>
+                                            <th style="text-align: center; color: #FFF;" colspan="2"><% if(saldo_pensionista < 0){out.println("Deuda");} else { out.println("Activo"); }%></th>
                                         </tr>
                                     </thead>
 
@@ -140,20 +146,19 @@
                                     <tbody>
                                         <%
 
-                                            String cantDesa = "";
-                                            String consDesa = "";
-                                            String cantAlmu = "";
-                                            String consAlmu = "";
-                                            String cantCena = "";
-                                            String consCena = "";
-                                            String totalCantidad = "";
-                                            String totalConsumo = "";
+                                            int cantDesa = 0;
+                                            double consDesa = 0.0;
+                                            int cantAlmu = 0;
+                                            double consAlmu = 0.0;
+                                            int cantCena = 0;
+                                            double consCena = 0.0;
+                                            int totalCantidad = 0;
+                                            double totalConsumo = 0.0;
                                             int i = 0;
 
                                             COMANDO = "SELECT p.idPENSIONISTA, CONCAT(pe.Nombres, ' ', pe.Apellidos) as Nombres, "
                                                     + "IFNULL(cantDesa, 0) as cantDesa,IFNULL(consDesa, 0) as consDesa,IFNULL(cantAlmu, 0) as cantAlmu, "
-                                                    + "IFNULL(consAlmu, 0) as consAlmu, IFNULL(cantCena, 0) as cantCena,IFNULL(consCena, 0) as consCena, "
-                                                    + "IFNULL((cantDesa+cantAlmu+cantCena), 0) as CantTotal, IFNULL((consDesa+consAlmu+consCena), 0) as ConsTotal "
+                                                    + "IFNULL(consAlmu, 0) as consAlmu, IFNULL(cantCena, 0) as cantCena,IFNULL(consCena, 0) as consCena "
                                                     + "FROM pensionista p "
                                                     + "LEFT JOIN persona pe ON (p.idPERSONA = pe.idPERSONA) "
                                                     + "LEFT JOIN "
@@ -179,15 +184,14 @@
 
                                             while (rset.next()) {
                                                 i++;
-
-                                                cantDesa = rset.getString("cantDesa");
-                                                consDesa = rset.getString("consDesa");
-                                                cantAlmu = rset.getString("cantAlmu");
-                                                consAlmu = rset.getString("consAlmu");
-                                                cantCena = rset.getString("cantCena");
-                                                consCena = rset.getString("consCena");
-                                                totalCantidad = rset.getString("CantTotal");
-                                                totalConsumo = rset.getString("ConsTotal");
+                                                cantDesa = rset.getInt("cantDesa");
+                                                consDesa = rset.getDouble("consDesa");
+                                                cantAlmu = rset.getInt("cantAlmu");
+                                                consAlmu = rset.getDouble("consAlmu");
+                                                cantCena = rset.getInt("cantCena");
+                                                consCena = rset.getDouble("consCena");
+                                                totalCantidad = rset.getInt("cantDesa") + rset.getInt("cantAlmu") + rset.getInt("cantCena");
+                                                totalConsumo = rset.getDouble("consDesa") + rset.getDouble("consAlmu") + rset.getDouble("consCena");
 
 
                                         %>
