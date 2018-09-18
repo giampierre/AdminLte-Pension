@@ -421,6 +421,7 @@
                                 <li><a href="#"><i class="fa fa-circle-o"></i>Almuerzos</a></li>
                                 <li><a href="#"><i class="fa fa-circle-o"></i>Cenas</a></li>
                                 <li><a href="#"><i class="fa fa-circle-o"></i>Extras</a></li>
+                                <li><a id="personas" href="#"><i class="fa fa-circle-o"></i>Personas</a></li>
                             </ul>
                         </li>
                         <li class="treeview">

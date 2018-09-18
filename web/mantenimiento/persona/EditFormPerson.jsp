@@ -102,7 +102,8 @@
                 </div>
                 <div class="form-row" align="right">
                     <div class="form-group col-md-12">
-                        <input type="submit" name="" id="" class="btn btn-warning btn-lg btn-block" value="Editar">
+                        <input type="submit" name="" id="" class="btn btn-warning" value="Editar">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                         <input type="hidden" name="idper" value="<%=idPerson%>">
                     </div>
                 </div>

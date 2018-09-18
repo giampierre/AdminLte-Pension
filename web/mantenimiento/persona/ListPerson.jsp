@@ -10,8 +10,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="dist/js/jquery-1.12.4.js" type="text/javascript"></script>
         <script src="dist/js/buscador.js" type="text/javascript"></script>      
-        <script src="dist/js/bootbox.min.js" type="text/javascript"></script>
+        <!--script src="dist/js/bootbox.min.js" type="text/javascript"></script-->
         <title>JSP Page</title>
         <script>
 
@@ -186,7 +187,8 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         Registrar Persona
-                        <button style="opacity: 10!important;" class="close glyphicon glyphicon-remove-sign text-red" data-dismiss="modal"></button> 
+                        <!--button style="opacity: 10!important;" class="close glyphicon glyphicon-remove-sign text-red" data-dismiss="modal"></button-->
+                        <button type="button" class="close" data-dismiss="modal">&times;</button> 
                     </div>
                     <div class="modal-body">
                         <div id="detalle">
@@ -202,7 +204,8 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         Editar
-                        <button style="opacity: 10!important;" class="close glyphicon glyphicon-remove-sign text-red" data-dismiss="modal"></button> 
+                        <!--button style="opacity: 10!important;" class="close glyphicon glyphicon-remove-sign text-red" data-dismiss="modal"></button--> 
+                        <button type="button" class="close" data-dismiss="modal">&times;</button> 
                     </div>
                     <div class="modal-body">
                         <div id="EditPerson">
