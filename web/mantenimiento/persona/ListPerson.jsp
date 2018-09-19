@@ -12,7 +12,6 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="dist/js/jquery-1.12.4.js" type="text/javascript"></script>
         <script src="dist/js/buscador.js" type="text/javascript"></script>      
-        <!--script src="dist/js/bootbox.min.js" type="text/javascript"></script-->
         <title>JSP Page</title>
         <script>
 
@@ -26,53 +25,12 @@
                 $('#EditPerson').load('mantenimiento/persona/EditFormPerson.jsp?f_id=' + id);
 
             }
+            function myModalElim(id) {
+                $('#ElimPerson').html('<center><img src="dist/img/loader.gif" width="20px" height="20px"/></center>');
+                $('#ElimPerson').load('mantenimiento/persona/ElimFormPerson.jsp?f_id=' + id);
+
+            }
         </script>
-        <!--script>
-            $(document).ready(function () { 
-            $(document).on("click", ".ejecuta", function () {
-                var id = $(this).data("id");
-                bootbox.confirm({
-                    message: "¿Seguro que desea eliminar?",
-                    buttons: {
-                        cancel: {
-                            label: 'Si',
-                            className: 'btn-success'
-                        },
-                        confirm: {
-                            label: 'No',
-                            className: 'btn-danger'
-                        }
-
-                    },
-                    callback: function (result) {
-                        if (result === false) {
-                            $.get("mantenimiento/persona/DeletePerson.jsp", "f_idpersona=" + id, function () {
-                                var dialog = bootbox.dialog({
-                                    message: '<p class="text-center">Se Actualizo con Exito</p>',
-                                    closeButton: false
-                                });
-                                setTimeout(function () {
-                                    dialog.modal('hide');
-                                    //location.reload();
-                                }, 3000);
-                                //location.reload();
-                            });
-                        } else {
-                            var dialog = bootbox.dialog({
-                                message: '<p class="text-center">Se cancelo la solicitud</p>',
-                                closeButton: false
-                            });
-                            setTimeout(function () {
-                                dialog.modal('hide');
-                                /* location.reload();*/
-                            }, 3000);
-                        }
-                    }
-                });
-
-            });
-            });
-        </script-->
     </head>
     <body>
         <%            String s_mes_ini = request.getParameter("f_mes_ini");
@@ -132,8 +90,8 @@
                         COMANDO = " SELECT idPERSONA, CONCAT(Nombres, ' ', Apellidos)nombres, dni, "
                                 + " direccion, celular, CASE estado WHEN 1 THEN 'Activo' ELSE 'Inactivo' END estado, "
                                 + " DATE_FORMAT(fecha_ingres, '%d-%m-%Y')fecha_inges, codigo, observacion "
-                                + " FROM PERSONA ";
-                        //+ " WHERE DATE_FORMAT(fecha_ingres,'%Y%m') = '" + s_anio_ini + s_mes_ini + "' ";
+                                + " FROM PERSONA "
+                        + " WHERE DATE_FORMAT(fecha_ingres,'%Y%m') = '" + s_anio_ini + s_mes_ini + "' ";
                         rset = stmt.executeQuery(COMANDO);
                         //out.println(COMANDO);
                         while (rset.next()) {
@@ -152,8 +110,8 @@
                     %>
 
                     <tr>        
-                        <!--<td><%=i%></td>-->
-                        <td><%=id%></td>
+                        <td><%=i%></td>
+                        <!--td><%=id%></td-->
                         <td><%=nombres%></td>                 
                         <td><%=dni%></td>                    
                         <td><%=direccion%></td>                    
@@ -165,7 +123,7 @@
                         <td>
                             <div class="btn-group">
                                 <a title="Editar"  data-toggle="modal" onclick="myModalEdit('<%=id%>')" data-target="#myModalEdit"><button class="btn btn-warning btn-xs glyphicon glyphicon-edit"></button></a>
-                                <a title="Eliminar" class="ejecuta" data-id="<%=id%>" ><button class="btn btn-danger btn-xs glyphicon glyphicon-trash"></button></a>
+                                <a title="Eliminar"  data-toggle="modal" onclick="myModalElim('<%=id%>')" data-target="#myModalElim"><button class="btn btn-danger btn-xs glyphicon glyphicon-trash"></button></a>
                             </div>
                         </td>
                     </tr>
@@ -216,6 +174,24 @@
                 </div>
             </div>    
         </div>
+        <div id="myModalElim" class="modal fade" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                            ¿Seguro que desea eliminar el registro?
+                        <!--button style="opacity: 10!important;" class="close glyphicon glyphicon-remove-sign text-red" data-dismiss="modal"></button--> 
+                        <button type="button" class="close" data-dismiss="modal">&times;</button> 
+                    </div>
+                    <div class="modal-body">
+                        <div id="ElimPerson">
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>    
+        </div>
+
     </body>
 </html>
 

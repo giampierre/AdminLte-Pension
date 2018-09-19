@@ -9,13 +9,48 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="dist/js/jquery-1.12.4.js" type="text/javascript"></script>
+        <script src="dist/js/Ajaxjquery.min.js" type="text/javascript"></script>
         <script src="dist/js/ValidarNumeric.js" type="text/javascript"></script>
         <title>JSP Page</title>
+        <script>
+            $(document).ready(function () {
+                $("#save_data").click(function () {
+                    //alert("succeess");
+                    $.ajax({
+                        url: "mantenimiento/persona/EditPerson.jsp",
+                        type: "post",
+                        data: {
+                            nombres: $('#nombres').val(),
+                            apellidos: $('#apellidos').val(),
+                            dni: $('#dni').val(),
+                            celular: $('#celular').val(),
+                            direccion: $('#direccion').val(),
+                            estado: $('#estado').val(),
+                            fecha_ingres: $('#fecha_ingres').val(),
+                            codigo: $('#codigo').val(),
+                            observacion: $('#observacion').val(),
+                            idpersona: $('#idpersona').val(),
+                            success: function (data) {
+                                //alert("Registro Exitoso");
+                                //location.reload("");
+                                //document.location.reload();
+                            }
+
+                        }
+                    });
+                    $('#contenido').html('<center><img src="dist/img/loader.gif" width="20px" height="20px"/></center>');
+                    $("#contenido").load("mantenimiento/persona/MainPersona.jsp");
+                });
+
+
+
+            });
+        </script>
     </head>
     <body>
-    
-        <%
-            int i = 0;
+
+        <%            int i = 0;
             String idPerson = request.getParameter("f_id");
             String nomb = "";
             String apell = "";
@@ -26,14 +61,14 @@
             String fecha_ing = "";
             String cod = "";
             String observ = "";
-            
+
             COMANDO = "SELECT Nombres, Apellidos, dni, direccion, "
                     + " celular, estado, fecha_ingres, codigo, observacion "
                     + " FROM PERSONA WHERE idPersona = '" + idPerson + "' ";
-            
+
             //out.print(COMANDO);
             rset = stmt.executeQuery(COMANDO);
-            while  (rset.next()) {
+            while (rset.next()) {
                 i++;
                 nomb = rset.getString("Nombres");
                 apell = rset.getString("Apellidos");
@@ -47,8 +82,19 @@
             }
 
         %>
+          <%
+            String a_tipo[][] = {{"0", "Inactivo"}, {"1", "Activo"}};
+            String s_estado = "";
+            COMANDO = "Select "
+                    + "distinct estado as  estado "
+                    + "from persona "
+                    + "order by estado desc ";
+            rset = stmt.executeQuery(COMANDO);
+            rset.next();
+            s_estado = rset.getString("estado");
+        %>
 
-        <form action="mantenimiento/persona/EditPerson.jsp" method="POST">
+        <form>
             <div class="panel-body">
                 <div class="form-row">
                     <div class="form-group col-md-12">
@@ -59,52 +105,59 @@
                 <div class="form-row">
                     <div class="form-group col-md-12">
                         <label for="apellidos">Apellidos</label>
-                        <input type="text" class="form-control"  id="apellidos" name="apell" value="<%=apell%>" required>
+                        <input type="text" class="form-control"  id="apellidos" name="apellidos" value="<%=apell%>" required>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="dni">DNI</label>
-                        <input type="text" class="form-control input-number" id="dni" name="dn" value="<%=dn%>" maxlength="8" required>
+                        <input type="text" class="form-control input-number" id="dni" name="dni" value="<%=dn%>" maxlength="8" required>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="celular">Celular</label>
-                        <input type="text" class="form-control input-number" id="cel" name="cel" value="<%=cel%>" maxlength="9" required>
+                        <input type="text" class="form-control input-number" id="celular" name="celular" value="<%=cel%>" maxlength="9" required>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-12">
                         <label for="direccion">Dirección</label>
-                        <input type="text" class="form-control" id="direccion" name="direc" value="<%=direc%>" required>
+                        <input type="text" class="form-control" id="direccion" name="direccion" value="<%=direc%>" required>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label for="estado">Estado</label>
-                        <input type="text" class="form-control" id="estado" name="est" value="<%=est%>">
-                        <!--<input type="text" class="form-control" id="estado" name="estado" placeholder="Ingese Estado" required>-->
+                        <select class="form-control" id="estado" name="estado">
+                            <%
+                                        for (int x = 0; x < a_tipo.length; x++) {%>
+                            <option value="<%=a_tipo[x][0]%>" <% if (a_tipo[x][0].equals(s_estado)) {
+                                    out.print("selected");
+                                }%>><%=a_tipo[x][1]%></option>
+                            <%						}%>
+                        </select>
                     </div>
                     <div class="form-group col-md-4">
                         <label for="fechaingreso">Fecha de registro</label>
-                        <input type="text" class="form-control" id="fechaingreso" name="fecha_ing" value="<%=fecha_ing%>">
+                        <input type="text" class="form-control" id="fecha_ingres" name="fecha_ingres" value="<%=fecha_ing%>">
                         <!--<input type="datetime-local"  placeholder="Ingrese Fecha">-->
                     </div>
                     <div class="form-group col-md-4">
                         <label for="codigo">Codigo</label>
-                        <input type="text" class="form-control input-number" id="codigo" name="cod" value="<%=cod%>" maxlength="4" required>
+                        <input type="text" class="form-control input-number" id="codigo" name="codigo" value="<%=cod%>" maxlength="4" required>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-12">
                         <label for="observacion">Observación</label>
-                        <textarea class="form-control" id="observacion" name="observ"  maxlength="450"><%=observ%></textarea>
+                        <textarea class="form-control" id="observacion" name="observacion"  maxlength="450"><%=observ%></textarea>
                     </div>
                 </div>
                 <div class="form-row" align="right">
                     <div class="form-group col-md-12">
-                        <input type="submit" name="" id="" class="btn btn-warning" value="Editar">
+
+                        <button type="button" class="btn btn-warning" id="save_data" data-dismiss="modal">Editar</button>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-                        <input type="hidden" name="idper" value="<%=idPerson%>">
+                        <input type="hidden" id="idpersona" name="idpersona" value="<%=idPerson%>">
                     </div>
                 </div>
             </div>

@@ -62,7 +62,7 @@ $(document).ready(function () { // inicio ready.function
     });
     $("#listPersons").click(function () {
         $('#contenido').html('<center><img src="dist/img/loader.gif" width="20px" height="20px"/></center>');
-        $("#contenido").load("mantenimiento/persona/ListPerson.jsp");
+        $("#contenido").load("mantenimiento/persona/MainPersona.jsp");
     });
     $("#listUsuario").click(function () {
         $('#contenido').html('<center><img src="dist/img/loader.gif" width="20px" height="20px"/></center>');

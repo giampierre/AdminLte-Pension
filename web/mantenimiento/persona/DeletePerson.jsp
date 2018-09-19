@@ -3,25 +3,19 @@
     Created on : 15-jul-2018, 21:46:23
     Author     : Elvis
 --%>
-
-<%@page import="java.sql.Statement"%>
-<%@page import="java.sql.DriverManager"%>
-<%@page import="java.sql.Connection"%>
+<%@ include file="../../conectadb.jsp" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<%
-    Class.forName("com.mysql.jdbc.Driver");
-    Connection conexion = null;
-    String sql = "";
-    conexion = DriverManager.getConnection("jdbc:mysql://localhost/bd_pension", "root", "");
-    Statement s = null;
-    String idPerson = ""; 
-    idPerson = request.getParameter("f_idpersona");
 
-    s = conexion.createStatement();
-    sql = "DELETE FROM persona WHERE idPersona = '"+idPerson+"' ";
-    s.executeUpdate(sql);
-    
-    out.println(sql);
-    //response.sendRedirect("ListPerson.jsp");
+
+
+<%    
+    String idPerson = request.getParameter("idpersona");
+
+    int rsetx = 0;
+    COMANDO = "DELETE FROM persona WHERE idPersona = '" + idPerson + "' ";
+    //out.print(COMANDO);
+    rsetx = stmt.executeUpdate(COMANDO);
+
+//response.sendRedirect("ListPerson.jsp");
+
 %>

@@ -41,8 +41,8 @@
 
                         }
                     });
-                    //$('#contenido').html('<center><img src="dist/img/loader.gif" width="20px" height="20px"/></center>');
-                    $("#contenido").load("mantenimiento/persona/ListPerson.jsp");
+                    $('#contenido').html('<center><img src="dist/img/loader.gif" width="20px" height="20px"/></center>');
+                    $("#contenido").load("mantenimiento/persona/MainPersona.jsp");
                 });
 
 
@@ -91,7 +91,6 @@
                     <div class="form-group col-md-4">
                         <label for="estado">Estado</label>
                         <select name="estado" id="estado" class="form-control" maxlength="1">
-                            <option value="" selected>Seleccione Estado</option>
                             <option value="1" selected>Activo</option>
                             <option value="0">Inactivo</option>
                         </select>
@@ -114,8 +113,8 @@
                     </div>
                 </div>
                 <div class="form-row" align="right">
-                    <div class="form-group col-md-12">
-                        <input type="button" class="btn btn-primary" id="save_data" value="Registrar" data-dismiss="modal">
+                    <div class="form-group col-md-12">          
+                        <button type="button" class="btn btn-primary" id="save_data" data-dismiss="modal">Guardar</button>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                     </div>
                 </div>

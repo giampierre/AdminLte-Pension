@@ -7,21 +7,22 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
-<%      String idPerson = request.getParameter("idper");
+<%      
+    String idPerson = request.getParameter("idpersona");
     String nombres = request.getParameter("nombres");
-    String apellidos = request.getParameter("apell");
-    String dni = request.getParameter("dn");
-    String celular = request.getParameter("cel");
-    String direccion = request.getParameter("direc");
-    String estado = request.getParameter("est");
-    String fecha = request.getParameter("fecha_ing");
-    String codigo = request.getParameter("cod");
-    String observacion = request.getParameter("observ");
+    String apellidos = request.getParameter("apellidos");
+    String dni = request.getParameter("dni");
+    String celular = request.getParameter("celular");
+    String direccion = request.getParameter("direccion");
+    String estado = request.getParameter("estado");
+    String fecha_ingres = request.getParameter("fecha_ingres");
+    String codigo = request.getParameter("codigo");
+    String observacion = request.getParameter("observacion");
 
     int rsetx = 0;
     COMANDO = "UPDATE persona SET Nombres = '" + nombres + "', Apellidos = '" + apellidos + "', "
             + " dni = '" + dni + "', celular = '" + celular + "', direccion = '" + direccion + "', estado = '" + estado + "', "
-            + " fecha_ingres = '" + fecha + "', codigo = '" + codigo + "', observacion = '" + observacion + "' WHERE idPersona = '" + idPerson + "'";
+            + " fecha_ingres = '" + fecha_ingres + "', codigo = '" + codigo + "', observacion = '" + observacion + "' WHERE idPersona = '" + idPerson + "'";
        //out.print(COMANDO);
     rsetx = stmt.executeUpdate(COMANDO);
 

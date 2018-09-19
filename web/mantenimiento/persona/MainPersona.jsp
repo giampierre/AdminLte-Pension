@@ -37,7 +37,7 @@
                 $("#datoslist").submit(function () {
                     var x = $("#f_mes_ini").val();
                     if (x !== "enviar") {
-                        alert("Valor introducido no válido");
+                        //alert("Valor introducido no válido");
                         return false;
                     } else
                         return true;
@@ -89,8 +89,8 @@
                                     <li class="fa fa-calendar">&nbsp;Año:</li>
                                 </span>
                                 <select class="form-control" name="f_anio_ini" id="f_anio_ini">
-                                    <%COMANDO = "select distinct date_format(fecha_ingreso,'%Y') anio "
-                                                + "from pensionista "
+                                    <%COMANDO = "select distinct date_format(fecha_ingres,'%Y') anio "
+                                                + "from persona "
                                                 + "order by anio desc ";
                                         rset = stmt.executeQuery(COMANDO);
                                         while (rset.next()) {%>

@@ -25,9 +25,9 @@
              folder instead of downloading all of them to reduce the load. -->
         <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
         <!-- Morris chart -->
-        <link rel="stylesheet" href="bower_components/morris.js/morris.css">
+        <!--link rel="stylesheet" href="bower_components/morris.js/morris.css"-->
         <!-- jvectormap -->
-        <link rel="stylesheet" href="bower_components/jvectormap/jquery-jvectormap.css">
+        <!--link rel="stylesheet" href="bower_components/jvectormap/jquery-jvectormap.css"-->
         <!-- Date Picker -->
         <link rel="stylesheet" href="bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
         <!-- Daterange picker -->
@@ -551,13 +551,13 @@
             <!-- Bootstrap 3.3.7 -->
             <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
             <!-- Morris.js charts -->
-            <script src="bower_components/raphael/raphael.min.js"></script>
-            <script src="bower_components/morris.js/morris.min.js"></script>
+            <!--script src="bower_components/raphael/raphael.min.js"></script-->
+            <!--script src="bower_components/morris.js/morris.min.js"></script-->
             <!-- Sparkline -->
             <script src="bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
             <!-- jvectormap -->
-            <script src="plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
-            <script src="plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+            <!--script src="plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+            <script src="plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script-->
             <!-- jQuery Knob Chart -->
             <script src="bower_components/jquery-knob/dist/jquery.knob.min.js"></script>
             <!-- daterangepicker -->
