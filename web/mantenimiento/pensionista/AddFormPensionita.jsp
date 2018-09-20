@@ -76,8 +76,8 @@
                         <label for="estado">Estado</label>
                         <select name="estado" id="estado" class="form-control" maxlength="1">
                             <!--option value="" selected>seleccionar</option-->
-                            <option value="1" selected>Activo</option>
-                            <option value="0">Inactivo</option>
+                            <option value="0" selected>Sin cancelar</option>
+                            <option value="1">Cancelado</option>
                         </select>
                         <!--<input type="text" class="form-control" id="estado" name="estado" placeholder="Ingese Estado" required>-->
                     </div>

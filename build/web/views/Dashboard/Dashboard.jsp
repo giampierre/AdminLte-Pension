@@ -19,8 +19,8 @@
 
                 <div class="col-md-4">
                     <!-- Info Boxes Style 2 -->
-                    <div class="info-box bg-yellow-active">
-                        <span class="info-box-icon"><i class="fa fa-coffee"></i></span>         
+                    <div class="info-box bg-gray">
+                        <span class="info-box-icon bg-green"><i class="fa fa-coffee "></i></span>         
                         <div class="info-box-content">
                             <span class="info-box-text">Desayunos</span>
                             <%                                String CantDesaDia = "";
@@ -42,7 +42,7 @@
                                     CantDesaDia = rset.getString("CantDesaDia");
                                 }
                             %>  
-                            <span class="info-box-number"><a id="modal_uno" data-toggle="modal" data-target="#myModal"><%=CantDesaDia%></a></span>
+                            <span class="info-box-number"><a class="label bg-yellow" id="modal_uno" data-toggle="modal" data-target="#myModal"><%=CantDesaDia%></a></span>
 
                             <div class="progress">
                                 <div class="progress-bar" style="width: 100%"></div>
@@ -64,15 +64,15 @@
                                     CantDesaMes = rset.getString("CantDesaMes");
                                 }
                             %>
-                            <span class="progress-description"><a id="modal_dos" data-toggle="modal" data-target="#myModal"><%=CantDesaMes%></a></span>
+                            <span class="progress-description"><a class="label bg-red" id="modal_dos" data-toggle="modal" data-target="#myModal"><%=CantDesaMes%></a></span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
                     <!-- /.info-box -->
                 </div>
                 <div class="col-md-4">
-                    <div class="info-box bg-yellow-active">
-                        <span class="info-box-icon"><i class="fa fa-cutlery"></i></span>
+                    <div class="info-box bg-gray">
+                        <span class="info-box-icon bg-green"><i class="fa fa-cutlery"></i></span>
 
                         <div class="info-box-content">
                             <span class="info-box-text">Almuerzos</span>
@@ -96,7 +96,7 @@
                                     CantAlmuDia = rset.getString("CantAlmuDia");
                                 }
                             %> 
-                            <span class="info-box-number"><a id="modal_tres" data-toggle="modal" data-target="#myModal"><%=CantAlmuDia%></a></span>
+                            <span class="info-box-number"><a class="label bg-yellow" id="modal_tres" data-toggle="modal" data-target="#myModal"><%=CantAlmuDia%></a></span>
 
                             <div class="progress">
                                 <div class="progress-bar" style="width: 100%"></div>
@@ -118,7 +118,7 @@
                                     CantAlmuMes = rset.getString("CantAlmuMes");
                                 }
                             %>
-                            <span class="progress-description" ><a id="modal_cuatro" data-toggle="modal" data-target="#myModal"><%=CantAlmuMes%></a></span>
+                            <span class="progress-description" ><a class="label bg-red" id="modal_cuatro" data-toggle="modal" data-target="#myModal"><%=CantAlmuMes%></a></span>
 
                         </div>
                         <!-- /.info-box-content -->
@@ -126,8 +126,8 @@
                     <!-- /.info-box -->
                 </div>
                 <div class="col-md-4">
-                    <div class="info-box bg-yellow-active">
-                        <span class="info-box-icon"><i class="fa fa-glass"></i></span>
+                    <div class="info-box bg-gray">
+                        <span class="info-box-icon bg-green"><i class="fa fa-glass"></i></span>
 
                         <div class="info-box-content">
                             <span class="info-box-text">Cenas</span>
@@ -151,7 +151,7 @@
                                     CantCenaDia = rset.getString("CantCenaDia");
                                 }
                             %>  
-                            <span  class="info-box-number"><a id="modal_cinco" data-toggle="modal" data-target="#myModal"><%=CantCenaDia%></a></span>
+                            <span  class="info-box-number"><a class="label bg-yellow" id="modal_cinco" data-toggle="modal" data-target="#myModal"><%=CantCenaDia%></a></span>
 
                             <div class="progress">
                                 <div class="progress-bar" style="width: 100%"></div>
@@ -173,7 +173,7 @@
                                     CantCenaMes = rset.getString("CantCenaMes");
                                 }
                             %>
-                            <span class="progress-description" ><a id="modal_seis" data-toggle="modal" data-target="#myModal"><%=CantCenaMes%></a></span>
+                            <span class="progress-description" ><a class="label bg-red" id="modal_seis" data-toggle="modal" data-target="#myModal"><%=CantCenaMes%></a></span>
 
                         </div>
                         <!-- /.info-box-content -->
@@ -182,8 +182,8 @@
                 </div>
 
                 <div class="col-md-4">
-                    <div class="info-box bg-green">
-                        <span class="info-box-icon"><i class="fa fa-coffee"><span style="font-size: 25px;">G</span></i></span>
+                    <div class="info-box bg-gray">
+                        <span class="info-box-icon bg-green"><i class="fa fa-coffee"><span style="font-size: 25px;">G</span></i></span>
 
                         <div class="info-box-content">
                             <span class="info-box-text">Desayunos General</span>
@@ -208,7 +208,7 @@
                                     CantDesaDiaGene = rset.getString("CantDesaDia");
                                 }
                             %> 
-                            <span  class="info-box-number" data ><a id="modal_siete" data-toggle="modal" data-target="#myModal"><%=CantDesaDiaGene%></a></span>
+                            <span  class="info-box-number" data ><a class="label bg-yellow" id="modal_siete" data-toggle="modal" data-target="#myModal"><%=CantDesaDiaGene%></a></span>
 
 
                             <div class="progress">
@@ -232,7 +232,7 @@
                                     CantDesaMesGene = rset.getString("CantDesaMes");
                                 }
                             %>
-                            <span class="progress-description"><a id="modal_ocho" data-toggle="modal" data-target="#myModal"><%=CantDesaMesGene%></a></span>
+                            <span class="progress-description"><a class="label bg-red" id="modal_ocho" data-toggle="modal" data-target="#myModal"><%=CantDesaMesGene%></a></span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -240,8 +240,8 @@
                 </div>
 
                 <div class="col-md-4">
-                    <div class="info-box bg-green">
-                        <span class="info-box-icon"><i class="fa fa-cutlery"><span style="font-size: 25px;">&nbsp;G</span></i></i></span>
+                    <div class="info-box bg-gray">
+                        <span class="info-box-icon bg-green"><i class="fa fa-cutlery"><span style="font-size: 25px;">&nbsp;G</span></i></i></span>
 
                         <div class="info-box-content">
                             <span class="info-box-text">Almuerzos General</span>
@@ -266,7 +266,7 @@
                                     CantAlmuDiaGene = rset.getString("CantAlmuDia");
                                 }
                             %> 
-                            <span class="info-box-number" ><a id="modal_nueve" data-toggle="modal" data-target="#myModal"><%=CantAlmuDiaGene%></a></span>
+                            <span class="info-box-number" ><a class="label bg-yellow" id="modal_nueve" data-toggle="modal" data-target="#myModal"><%=CantAlmuDiaGene%></a></span>
 
 
                             <div class="progress">
@@ -290,7 +290,7 @@
                                     CantAlmuMesGene = rset.getString("CantAlmuMes");
                                 }
                             %>
-                            <span class="progress-description"><a id="modal_diez" data-toggle="modal" data-target="#myModal"><%=CantAlmuMesGene%></a></span>
+                            <span class="progress-description"><a class="label bg-red" id="modal_diez" data-toggle="modal" data-target="#myModal"><%=CantAlmuMesGene%></a></span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -298,8 +298,8 @@
                 </div>
 
                 <div class="col-md-4">
-                    <div class="info-box bg-green">
-                        <span class="info-box-icon"><i class="fa fa-glass"><span style="font-size: 25px;">G</span></i></i></span>
+                    <div class="info-box bg-gray">
+                        <span class="info-box-icon bg-green"><i class="fa fa-glass"><span style="font-size: 25px;">G</span></i></i></span>
 
                         <div class="info-box-content">
                             <span class="info-box-text">Cenas General</span>
@@ -324,7 +324,7 @@
                                     CantCenaDiaGene = rset.getString("CantCenaDia");
                                 }
                             %>  
-                            <span  class="info-box-number" ><a id="modal_once" data-toggle="modal" data-target="#myModal"><%=CantCenaDiaGene%></a></span>
+                            <span  class="info-box-number" ><a class="label bg-yellow" id="modal_once" data-toggle="modal" data-target="#myModal"><%=CantCenaDiaGene%></a></span>
 
 
                             <div class="progress">
@@ -348,7 +348,7 @@
                                     CantCenaMesGene = rset.getString("CantCenaMes");
                                 }
                             %>
-                            <span class="progress-description"><a id="modal_doce" data-toggle="modal" data-target="#myModal"><%=CantCenaMesGene%></a></span>
+                            <span class="progress-description"><a class="label bg-red" id="modal_doce" data-toggle="modal" data-target="#myModal"><%=CantCenaMesGene%></a></span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -356,8 +356,8 @@
                 </div>
 
                 <div class="col-md-4">
-                    <div class="info-box bg-aqua-active">
-                        <span class="info-box-icon"><i class="fa fa-coffee"><span style="font-size: 25px;">E</span></i></i></span>
+                    <div class="info-box bg-gray">
+                        <span class="info-box-icon bg-green"><i class="fa fa-coffee"><span style="font-size: 25px;">E</span></i></i></span>
 
                         <div class="info-box-content">
                             <span class="info-box-text">Desayunos Ejecutivos</span>
@@ -382,7 +382,7 @@
                                     CantDesaDiaEjec = rset.getString("CantDesaDia");
                                 }
                             %> 
-                            <span class="info-box-number" ><a id="modal_trece" data-toggle="modal" data-target="#myModal"><%=CantDesaDiaEjec%></a></span>
+                            <span class="info-box-number" ><a class="label bg-yellow" id="modal_trece" data-toggle="modal" data-target="#myModal"><%=CantDesaDiaEjec%></a></span>
 
                             <div class="progress">
                                 <div class="progress-bar" style="width: 100%"></div>
@@ -405,7 +405,7 @@
                                     CantDesaMesEjec = rset.getString("CantDesaMes");
                                 }
                             %>
-                            <span class="progress-description" ><a id="modal_catorce" data-toggle="modal" data-target="#myModal"><%=CantDesaMesEjec%></a></span>
+                            <span class="progress-description" ><a class="label bg-red" id="modal_catorce" data-toggle="modal" data-target="#myModal"><%=CantDesaMesEjec%></a></span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -413,8 +413,8 @@
                 </div>
 
                 <div class="col-md-4">
-                    <div class="info-box bg-aqua-active">
-                        <span class="info-box-icon"><i class="fa fa-cutlery"><span style="font-size: 25px;">&nbsp;E</span></i></span>
+                    <div class="info-box bg-gray">
+                        <span class="info-box-icon bg-green"><i class="fa fa-cutlery"><span style="font-size: 25px;">&nbsp;E</span></i></span>
 
                         <div class="info-box-content">
                             <span class="info-box-text">Almuerzos Ejecutivos</span>
@@ -439,7 +439,7 @@
                                     CantAlmuDiaEjec = rset.getString("CantAlmuDia");
                                 }
                             %> 
-                            <span class="info-box-number" ><a id="modal_quince" data-toggle="modal" data-target="#myModal"><%=CantAlmuDiaEjec%></a></span>
+                            <span class="info-box-number" ><a class="label bg-yellow" id="modal_quince" data-toggle="modal" data-target="#myModal"><%=CantAlmuDiaEjec%></a></span>
 
                             <div class="progress">
                                 <div class="progress-bar" style="width: 100%"></div>
@@ -462,7 +462,7 @@
                                     CantAlmuMesEjec = rset.getString("CantAlmuMes");
                                 }
                             %>
-                            <span class="progress-description"><a id="modal_dieciseis" data-toggle="modal" data-target="#myModal"><%=CantAlmuMesEjec%></a></span>
+                            <span class="progress-description"><a class="label bg-red" id="modal_dieciseis" data-toggle="modal" data-target="#myModal"><%=CantAlmuMesEjec%></a></span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -470,8 +470,8 @@
                 </div>
 
                 <div class="col-md-4">
-                    <div class="info-box bg-aqua-active">
-                        <span class="info-box-icon"><i class="fa fa-glass"><span style="font-size: 25px;">E</span></i></span>
+                    <div class="info-box bg-gray">
+                        <span class="info-box-icon bg-green"><i class="fa fa-glass"><span style="font-size: 25px;">E</span></i></span>
 
                         <div class="info-box-content">
                             <span class="info-box-text">Cenas Ejecutivos</span>
@@ -496,7 +496,7 @@
                                     CantCenaDiaEjec = rset.getString("CantCenaDia");
                                 }
                             %>  
-                            <span class="info-box-number" ><a id="modal_diecisiete" data-toggle="modal" data-target="#myModal"><%=CantCenaDiaEjec%></a></span>
+                            <span class="info-box-number" ><a class="label bg-yellow" id="modal_diecisiete" data-toggle="modal" data-target="#myModal"><%=CantCenaDiaEjec%></a></span>
 
                             <div class="progress">
                                 <div class="progress-bar" style="width: 100%"></div>
@@ -519,7 +519,7 @@
                                     CantCenaMesEjec = rset.getString("CantCenaMes");
                                 }
                             %>
-                            <span class="progress-description" ><a id="modal_dieciocho" data-toggle="modal" data-target="#myModal"><%=CantCenaMesEjec%></a></span>
+                            <span class="progress-description" ><a class="label bg-red" id="modal_dieciocho" data-toggle="modal" data-target="#myModal"><%=CantCenaMesEjec%></a></span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -527,8 +527,8 @@
                 </div>
 
                 <div class="col-md-4">
-                    <div class="info-box bg-purple">
-                        <span class="info-box-icon"><i class="fa fa-battery-3"></i></span>
+                    <div class="info-box bg-gray">
+                        <span class="info-box-icon bg-green"><i class="fa fa-battery-3"></i></span>
 
                         <div class="info-box-content">
                             <span class="info-box-text">----</span>
@@ -547,8 +547,8 @@
                 </div>
 
                 <div class="col-md-4">
-                    <div class="info-box bg-purple">
-                        <span class="info-box-icon"><i class="fa fa-ambulance"></i></span>
+                    <div class="info-box bg-gray">
+                        <span class="info-box-icon bg-green"><i class="fa fa-ambulance"></i></span>
 
                         <div class="info-box-content">
                             <span class="info-box-text">-----</span>
@@ -567,8 +567,8 @@
                 </div>
 
                 <div class="col-md-4">
-                    <div class="info-box bg-purple">
-                        <span class="info-box-icon"><i class="fa fa-stethoscope"></i></span>
+                    <div class="info-box bg-gray">
+                        <span class="info-box-icon bg-green"><i class="fa fa-stethoscope"></i></span>
 
                         <div class="info-box-content">
                             <span class="info-box-text">----</span>
@@ -586,8 +586,8 @@
                     <!-- /.info-box -->
                 </div>
                 <div class="col-md-4">
-                    <div class="info-box bg-red-active">
-                        <span class="info-box-icon"><i class="fa fa-user-circle"><span style="font-size: 25px;">P</span></i></span>
+                    <div class="info-box bg-gray">
+                        <span class="info-box-icon bg-green"><i class="fa fa-user-circle"><span style="font-size: 25px;">P</span></i></span>
 
                         <div class="info-box-content">
                             <span class="info-box-text">Personas</span>
@@ -630,8 +630,8 @@
                 </div>
 
                 <div class="col-md-4">
-                    <div class="info-box bg-red-active">
-                        <span class="info-box-icon"><i class="fa fa-hospital-o"></i></span>
+                    <div class="info-box bg-gray">
+                        <span class="info-box-icon bg-green"><i class="fa fa-hospital-o"></i></span>
 
                         <div class="info-box-content">
                             <span class="info-box-text">Usuarios</span>
@@ -650,8 +650,8 @@
                 </div>
 
                 <div class="col-md-4" style="display: none;">
-                    <div class="info-box bg-red-active">
-                        <span class="info-box-icon"><i class="fa fa-money"></i></span>
+                    <div class="info-box bg-gray">
+                        <span class="info-box-icon bg-green"><i class="fa fa-money"></i></span>
 
                         <div class="info-box-content">
                             <span class="info-box-text">-----</span>
@@ -670,8 +670,8 @@
                 </div>
 
                 <div class="col-md-4">
-                    <div class="info-box bg-red-active">
-                        <span class="info-box-icon"><i class="fa fa-frown-o"></i></span>
+                    <div class="info-box bg-gray">
+                        <span class="info-box-icon bg-green"><i class="fa fa-frown-o"></i></span>
 
                         <div class="info-box-content">
                             <span class="info-box-text">Pensionistas</span>
