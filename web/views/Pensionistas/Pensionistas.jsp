@@ -26,50 +26,6 @@
             }
 
         </script>
-        <!--script>
-        $(document).on("click", ".ejecuta", function () {
-            var id = $(this).data("id");
-            bootbox.confirm({
-                message: "Desea Cambiar tipo?",
-                buttons: {
-                    cancel: {
-                        label: 'Si',
-                        className: 'btn-success'
-                    },
-                    confirm: {
-                        label: 'No',
-                        className: 'btn-danger'
-                    }
-
-                },
-                callback: function (result) {
-                    if (result === false) {
-                        $.get("views/Pensionistas/CambiarEstadoPago.jsp", "f_id_pensionista=" +id, function () {
-                             var dialog = bootbox.dialog({
-                                message: '<p class="text-center">Se Actualizo con Exito</p>',
-                                closeButton: false
-                            });
-                            setTimeout(function () {
-                                dialog.modal('hide');
-                               //location.reload();
-                            }, 3000);
-                            //location.reload();
-                        });
-                    }else{
-                        var dialog = bootbox.dialog({
-                                message: '<p class="text-center">Se cancelo la solicitud</p>',
-                                closeButton: false
-                            });
-                            setTimeout(function () {
-                                dialog.modal('hide');
-                               /* location.reload();*/
-                            }, 3000);
-                    }
-                }
-            });
-
-        });
-    </script-->
     </head>
     <body>
         <%            

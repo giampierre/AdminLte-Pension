@@ -49,7 +49,7 @@
         <!-- Google Font -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
     </head>
-    <body class="hold-transition skin-blue sidebar-mini">
+    <body class="hold-transition skin-blue-light sidebar-mini">
         <%
         String usuario = request.getParameter("f_usuario");  
         String nota = request.getParameter("f_nota");  
@@ -414,14 +414,13 @@
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a id="listPersons" href="#"><i class="fa fa-circle-o"></i>Persona</a></li>
-                                <li><a id="listUsuario" href="#"><i class="fa fa-circle-o"></i>Usuarios</a></li>
-                                <li><a href="#"><i class="fa fa-circle-o"></i>Pensionistas</a></li>
+                                <li><a id="listPersons" href="#"><i class="fa fa-circle-o"></i>Persona</a></li>                         
+                                <li><a id="listPensionistas" href="#"><i class="fa fa-circle-o"></i>Pensionistas</a></li>
                                 <li><a href="#"><i class="fa fa-circle-o"></i>Desayunos</a></li>
                                 <li><a href="#"><i class="fa fa-circle-o"></i>Almuerzos</a></li>
                                 <li><a href="#"><i class="fa fa-circle-o"></i>Cenas</a></li>
+                                  <li><a id="listUsuario" href="#"><i class="fa fa-circle-o"></i>Usuarios</a></li>
                                 <li><a href="#"><i class="fa fa-circle-o"></i>Extras</a></li>
-                                <li><a id="personas" href="#"><i class="fa fa-circle-o"></i>Personas</a></li>
                             </ul>
                         </li>
                         <li class="treeview">

@@ -16,8 +16,8 @@
         <script>
 
             function myModalAdd() {
-                $('#detalle').html('<center><img src="dist/img/loader.gif" width="20px" height="20px"/></center>');
-                $('#detalle').load('mantenimiento/persona/AddFormPerson.jsp');
+                $('#insertar').html('<center><img src="dist/img/loader.gif" width="20px" height="20px"/></center>');
+                $('#insertar').load('mantenimiento/pensionista/AddFormPensionita.jsp');
 
             }
             function myModalEdit(id) {
@@ -35,7 +35,9 @@
     <body>
         <%            String s_mes_ini = request.getParameter("f_mes_ini");
             String s_anio_ini = request.getParameter("f_anio_ini");
+            String s_tipo = request.getParameter("f_tipo");
         %>
+
         <!--div class="panel-heading" style="color:#0D5458"> <h5>Lista de Personas</h5></div-->
         <div class="box-header">
             <h3 class="box-title">
@@ -60,13 +62,10 @@
                         <th>#</th>
                         <!--<th>ID</th>-->
                         <th>Nombres</th>
-                        <th>DNI</th>
-                        <th>Dirección</th>
-                        <th>Celular</th>
                         <th>Estado</th>
-                        <th>Fecha Ing.</th>
-                        <th>Codigo</th>
-                        <th>Observación</th>
+                        <th>Fecha Ingr.</th>
+                        <th>Tipo</th>
+                        <th>Monto</th>
                         <th>Options</th>
                     </tr>
                 </thead>
@@ -74,37 +73,31 @@
                     <%                                // Seleccionando los pacientes que actualmente se están atendiendo en emergencia
                         int id = 0;
                         String nombres = "";
-                        String apellidos = "";
-                        String dni = "";
-                        String direccion = "";
-                        String celular = "";
                         String estado = "";
                         String fecha_ingreso = "";
-                        String codigo = "";
-                        String observacion = "";
+                        String tipo = "";
+                        String monto = "";
                         int i = 0;
                         String color = "";
                         String activa = "#E8F8F5";
                         String inactiva = "#FDEDEC";
 
-                        COMANDO = " SELECT idPERSONA, CONCAT(Nombres, ' ', Apellidos)nombres, dni, "
-                                + " direccion, celular, CASE estado WHEN 1 THEN 'Activo' ELSE 'Inactivo' END estado, "
-                                + " DATE_FORMAT(fecha_ingres, '%d-%m-%Y')fecha_inges, codigo, observacion "
-                                + " FROM PERSONA "
-                        + " WHERE DATE_FORMAT(fecha_ingres,'%Y%m') = '" + s_anio_ini + s_mes_ini + "' ";
+                        COMANDO = "SELECT idpensionista, nombre(idpersona) AS nombres, IF(estado=0, 'Sin cancelar', 'Cancelado') as estado, "
+                                + " fecha_ingreso, IF(tipo=0 , 'General', 'Ejecutivo') as tipo, monto "
+                                + "FROM pensionista "
+                                + "WHERE DATE_FORMAT(fecha_ingreso,'%Y%m') = '"+ s_anio_ini + s_mes_ini +"' " 
+                                + "AND tipo = '" + s_tipo + "' "
+                                + "ORDER BY DATE_FORMAT(fecha_ingreso,'%Y%m') DESC ";
                         rset = stmt.executeQuery(COMANDO);
                         //out.println(COMANDO);
                         while (rset.next()) {
                             i++;
-                            id = rset.getInt("idPersona");
+                            id = rset.getInt("idpensionista");
                             nombres = rset.getString("nombres");
-                            dni = rset.getString("dni");
-                            direccion = rset.getString("direccion");
-                            celular = rset.getString("celular");
                             estado = rset.getString("estado");
-                            fecha_ingreso = rset.getString("fecha_inges");
-                            codigo = rset.getString("codigo");
-                            observacion = rset.getString("observacion");
+                            fecha_ingreso = rset.getString("fecha_ingreso");
+                            tipo = rset.getString("tipo");
+                            monto = rset.getString("monto");
 
 
                     %>
@@ -112,14 +105,11 @@
                     <tr>        
                         <td><%=i%></td>
                         <!--td><%=id%></td-->
-                        <td><%=nombres%></td>                 
-                        <td><%=dni%></td>                    
-                        <td><%=direccion%></td>                    
-                        <td><%=celular%></td>                    
+                        <td><%=nombres%></td>                                    
                         <td><%=estado%></td>                    
                         <td><%=fecha_ingreso%></td>                    
-                        <td><%=codigo%></td>                    
-                        <td><%=observacion%></td> 
+                        <td><%=tipo%></td>                    
+                        <td><%=monto%></td>                    
                         <td>
                             <div class="btn-group">
                                 <a title="Editar"  data-toggle="modal" onclick="myModalEdit('<%=id%>')" data-target="#myModalEdit"><button class="btn btn-warning btn-xs glyphicon glyphicon-edit"></button></a>
@@ -144,12 +134,12 @@
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        Registrar Persona
+                        Registrar Pensionista
                         <!--button style="opacity: 10!important;" class="close glyphicon glyphicon-remove-sign text-red" data-dismiss="modal"></button-->
                         <button type="button" class="close" data-dismiss="modal">&times;</button> 
                     </div>
                     <div class="modal-body">
-                        <div id="detalle">
+                        <div id="insertar">
 
                         </div>
 
@@ -178,7 +168,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                            ¿Seguro que desea eliminar el registro?
+                        ¿Seguro que desea eliminar el registro?
                         <!--button style="opacity: 10!important;" class="close glyphicon glyphicon-remove-sign text-red" data-dismiss="modal"></button--> 
                         <button type="button" class="close" data-dismiss="modal">&times;</button> 
                     </div>

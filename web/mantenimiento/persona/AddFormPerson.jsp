@@ -18,7 +18,6 @@
         <script>
             $(document).ready(function () {
                 $("#save_data").click(function () {
-                    $("input").attr("required", true);
                     //alert("succeess");
                     $.ajax({
                         url: "mantenimiento/persona/AddPerson.jsp",
