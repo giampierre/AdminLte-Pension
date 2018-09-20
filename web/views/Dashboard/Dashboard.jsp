@@ -20,7 +20,7 @@
                 <div class="col-md-4">
                     <!-- Info Boxes Style 2 -->
                     <div class="info-box bg-gray">
-                        <span class="info-box-icon bg-green"><i class="fa fa-coffee "></i></span>         
+                        <span class="info-box-icon bg-blue-active"><i class="fa fa-coffee "></i></span>         
                         <div class="info-box-content">
                             <span class="info-box-text">Desayunos</span>
                             <%                                String CantDesaDia = "";
@@ -72,7 +72,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="info-box bg-gray">
-                        <span class="info-box-icon bg-green"><i class="fa fa-cutlery"></i></span>
+                        <span class="info-box-icon bg-blue-active"><i class="fa fa-cutlery"></i></span>
 
                         <div class="info-box-content">
                             <span class="info-box-text">Almuerzos</span>
@@ -127,7 +127,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="info-box bg-gray">
-                        <span class="info-box-icon bg-green"><i class="fa fa-glass"></i></span>
+                        <span class="info-box-icon bg-blue-active"><i class="fa fa-glass"></i></span>
 
                         <div class="info-box-content">
                             <span class="info-box-text">Cenas</span>
@@ -183,7 +183,7 @@
 
                 <div class="col-md-4">
                     <div class="info-box bg-gray">
-                        <span class="info-box-icon bg-green"><i class="fa fa-coffee"><span style="font-size: 25px;">G</span></i></span>
+                        <span class="info-box-icon bg-blue-active"><i class="fa fa-coffee"><span style="font-size: 25px;">G</span></i></span>
 
                         <div class="info-box-content">
                             <span class="info-box-text">Desayunos General</span>
@@ -241,7 +241,7 @@
 
                 <div class="col-md-4">
                     <div class="info-box bg-gray">
-                        <span class="info-box-icon bg-green"><i class="fa fa-cutlery"><span style="font-size: 25px;">&nbsp;G</span></i></i></span>
+                        <span class="info-box-icon bg-blue-active"><i class="fa fa-cutlery"><span style="font-size: 25px;">&nbsp;G</span></i></i></span>
 
                         <div class="info-box-content">
                             <span class="info-box-text">Almuerzos General</span>
@@ -299,7 +299,7 @@
 
                 <div class="col-md-4">
                     <div class="info-box bg-gray">
-                        <span class="info-box-icon bg-green"><i class="fa fa-glass"><span style="font-size: 25px;">G</span></i></i></span>
+                        <span class="info-box-icon bg-blue-active"><i class="fa fa-glass"><span style="font-size: 25px;">G</span></i></i></span>
 
                         <div class="info-box-content">
                             <span class="info-box-text">Cenas General</span>
@@ -357,7 +357,7 @@
 
                 <div class="col-md-4">
                     <div class="info-box bg-gray">
-                        <span class="info-box-icon bg-green"><i class="fa fa-coffee"><span style="font-size: 25px;">E</span></i></i></span>
+                        <span class="info-box-icon bg-blue-active"><i class="fa fa-coffee"><span style="font-size: 25px;">E</span></i></i></span>
 
                         <div class="info-box-content">
                             <span class="info-box-text">Desayunos Ejecutivos</span>
@@ -414,7 +414,7 @@
 
                 <div class="col-md-4">
                     <div class="info-box bg-gray">
-                        <span class="info-box-icon bg-green"><i class="fa fa-cutlery"><span style="font-size: 25px;">&nbsp;E</span></i></span>
+                        <span class="info-box-icon bg-blue-active"><i class="fa fa-cutlery"><span style="font-size: 25px;">&nbsp;E</span></i></span>
 
                         <div class="info-box-content">
                             <span class="info-box-text">Almuerzos Ejecutivos</span>
@@ -471,7 +471,7 @@
 
                 <div class="col-md-4">
                     <div class="info-box bg-gray">
-                        <span class="info-box-icon bg-green"><i class="fa fa-glass"><span style="font-size: 25px;">E</span></i></span>
+                        <span class="info-box-icon bg-blue-active"><i class="fa fa-glass"><span style="font-size: 25px;">E</span></i></span>
 
                         <div class="info-box-content">
                             <span class="info-box-text">Cenas Ejecutivos</span>
@@ -528,7 +528,7 @@
 
                 <div class="col-md-4">
                     <div class="info-box bg-gray">
-                        <span class="info-box-icon bg-green"><i class="fa fa-battery-3"></i></span>
+                        <span class="info-box-icon bg-blue-active"><i class="fa fa-battery-3"></i></span>
 
                         <div class="info-box-content">
                             <span class="info-box-text">----</span>
@@ -548,7 +548,7 @@
 
                 <div class="col-md-4">
                     <div class="info-box bg-gray">
-                        <span class="info-box-icon bg-green"><i class="fa fa-ambulance"></i></span>
+                        <span class="info-box-icon bg-blue-active"><i class="fa fa-ambulance"></i></span>
 
                         <div class="info-box-content">
                             <span class="info-box-text">-----</span>
@@ -568,7 +568,7 @@
 
                 <div class="col-md-4">
                     <div class="info-box bg-gray">
-                        <span class="info-box-icon bg-green"><i class="fa fa-stethoscope"></i></span>
+                        <span class="info-box-icon bg-blue-active"><i class="fa fa-stethoscope"></i></span>
 
                         <div class="info-box-content">
                             <span class="info-box-text">----</span>
@@ -587,7 +587,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="info-box bg-gray">
-                        <span class="info-box-icon bg-green"><i class="fa fa-user-circle"><span style="font-size: 25px;">P</span></i></span>
+                        <span class="info-box-icon bg-blue-active"><i class="fa fa-user-circle"><span style="font-size: 25px;">P</span></i></span>
 
                         <div class="info-box-content">
                             <span class="info-box-text">Personas</span>
@@ -631,7 +631,7 @@
 
                 <div class="col-md-4">
                     <div class="info-box bg-gray">
-                        <span class="info-box-icon bg-green"><i class="fa fa-hospital-o"></i></span>
+                        <span class="info-box-icon bg-blue-active"><i class="fa fa-hospital-o"></i></span>
 
                         <div class="info-box-content">
                             <span class="info-box-text">Usuarios</span>
@@ -651,7 +651,7 @@
 
                 <div class="col-md-4" style="display: none;">
                     <div class="info-box bg-gray">
-                        <span class="info-box-icon bg-green"><i class="fa fa-money"></i></span>
+                        <span class="info-box-icon bg-blue-active"><i class="fa fa-money"></i></span>
 
                         <div class="info-box-content">
                             <span class="info-box-text">-----</span>
@@ -671,7 +671,7 @@
 
                 <div class="col-md-4">
                     <div class="info-box bg-gray">
-                        <span class="info-box-icon bg-green"><i class="fa fa-frown-o"></i></span>
+                        <span class="info-box-icon bg-blue-active"><i class="fa fa-frown-o"></i></span>
 
                         <div class="info-box-content">
                             <span class="info-box-text">Pensionistas</span>
