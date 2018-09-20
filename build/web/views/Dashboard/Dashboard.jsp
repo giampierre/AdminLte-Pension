@@ -12,17 +12,22 @@
         <script src="dist/js/modalDetDashboard.js" type="text/javascript"></script>
         <link href="dist/css/styleDashboard.css" rel="stylesheet" type="text/css"/>
         <title>JSP Page</title>
+        <style>
+            small {
+                font-weight: normal;
+            }
+        </style>
     </head>
     <body>
         <div>
-            <div>
+            <div >
 
                 <div class="col-md-4">
                     <!-- Info Boxes Style 2 -->
                     <div class="info-box bg-gray">
-                        <span class="info-box-icon bg-green"><i class="fa fa-coffee "></i></span>         
-                        <div class="info-box-content">
-                            <span class="info-box-text">Desayunos</span>
+                        <span class="info-box-icon bg-aqua-active"><i class="fa fa-coffee "></i></span>         
+                        <div class="info-box-content bg-gray-light">
+                            <span class="info-box-text"><b>Total de Desayunos</b></span>
                             <%                                String CantDesaDia = "";
 
                                 COMANDO = "SELECT COUNT(idDESAYUNO) as CantDesaDia "
@@ -42,7 +47,7 @@
                                     CantDesaDia = rset.getString("CantDesaDia");
                                 }
                             %>  
-                            <span class="info-box-number"><a class="label bg-yellow" id="modal_uno" data-toggle="modal" data-target="#myModal"><%=CantDesaDia%></a></span>
+                            <span class="info-box-number"><a class="label bg-yellow" id="modal_uno" data-toggle="modal" data-target="#myModal"><%=CantDesaDia%></a><small>&nbsp;Día</small></span>
 
                             <div class="progress">
                                 <div class="progress-bar" style="width: 100%"></div>
@@ -64,7 +69,7 @@
                                     CantDesaMes = rset.getString("CantDesaMes");
                                 }
                             %>
-                            <span class="progress-description"><a class="label bg-red" id="modal_dos" data-toggle="modal" data-target="#myModal"><%=CantDesaMes%></a></span>
+                            <span class="progress-description"><a class="label bg-green" id="modal_dos" data-toggle="modal" data-target="#myModal"><%=CantDesaMes%></a>&nbsp;Mes</span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -72,10 +77,10 @@
                 </div>
                 <div class="col-md-4">
                     <div class="info-box bg-gray">
-                        <span class="info-box-icon bg-green"><i class="fa fa-cutlery"></i></span>
+                        <span class="info-box-icon bg-aqua-active"><i class="fa fa-cutlery"></i></span>
 
-                        <div class="info-box-content">
-                            <span class="info-box-text">Almuerzos</span>
+                        <div class="info-box-content bg-gray-light">
+                            <span class="info-box-text"><b>Total de Almuerzos</b></span>
                             <%
                                 String CantAlmuDia = "";
 
@@ -96,7 +101,7 @@
                                     CantAlmuDia = rset.getString("CantAlmuDia");
                                 }
                             %> 
-                            <span class="info-box-number"><a class="label bg-yellow" id="modal_tres" data-toggle="modal" data-target="#myModal"><%=CantAlmuDia%></a></span>
+                            <span class="info-box-number"><a class="label bg-yellow" id="modal_tres" data-toggle="modal" data-target="#myModal"><%=CantAlmuDia%></a><small>&nbsp;Día</small></span>
 
                             <div class="progress">
                                 <div class="progress-bar" style="width: 100%"></div>
@@ -118,7 +123,7 @@
                                     CantAlmuMes = rset.getString("CantAlmuMes");
                                 }
                             %>
-                            <span class="progress-description" ><a class="label bg-red" id="modal_cuatro" data-toggle="modal" data-target="#myModal"><%=CantAlmuMes%></a></span>
+                            <span class="progress-description" ><a class="label bg-green" id="modal_cuatro" data-toggle="modal" data-target="#myModal"><%=CantAlmuMes%></a>&nbsp;Mes</span>
 
                         </div>
                         <!-- /.info-box-content -->
@@ -127,10 +132,10 @@
                 </div>
                 <div class="col-md-4">
                     <div class="info-box bg-gray">
-                        <span class="info-box-icon bg-green"><i class="fa fa-glass"></i></span>
+                        <span class="info-box-icon bg-aqua-active"><i class="fa fa-glass"></i></span>
 
-                        <div class="info-box-content">
-                            <span class="info-box-text">Cenas</span>
+                        <div class="info-box-content bg-gray-light">
+                            <span class="info-box-text"><b>Total de Cenas</b></span>
                             <%
                                 String CantCenaDia = "";
 
@@ -151,7 +156,7 @@
                                     CantCenaDia = rset.getString("CantCenaDia");
                                 }
                             %>  
-                            <span  class="info-box-number"><a class="label bg-yellow" id="modal_cinco" data-toggle="modal" data-target="#myModal"><%=CantCenaDia%></a></span>
+                            <span  class="info-box-number"><a class="label bg-yellow" id="modal_cinco" data-toggle="modal" data-target="#myModal"><%=CantCenaDia%></a><small>&nbsp;Día</small></span>
 
                             <div class="progress">
                                 <div class="progress-bar" style="width: 100%"></div>
@@ -173,7 +178,7 @@
                                     CantCenaMes = rset.getString("CantCenaMes");
                                 }
                             %>
-                            <span class="progress-description" ><a class="label bg-red" id="modal_seis" data-toggle="modal" data-target="#myModal"><%=CantCenaMes%></a></span>
+                            <span class="progress-description" ><a class="label bg-green" id="modal_seis" data-toggle="modal" data-target="#myModal"><%=CantCenaMes%></a>&nbsp;Mes</span>
 
                         </div>
                         <!-- /.info-box-content -->
@@ -183,10 +188,10 @@
 
                 <div class="col-md-4">
                     <div class="info-box bg-gray">
-                        <span class="info-box-icon bg-green"><i class="fa fa-coffee"><span style="font-size: 25px;">G</span></i></span>
+                        <span class="info-box-icon bg-aqua-active"><i class="fa fa-coffee"><span style="font-size: 25px;">G</span></i></span>
 
-                        <div class="info-box-content">
-                            <span class="info-box-text">Desayunos General</span>
+                        <div class="info-box-content bg-gray-light">
+                            <span class="info-box-text"><b>Desayunos General</b></span>
                             <%
                                 String CantDesaDiaGene = "";
 
@@ -208,7 +213,7 @@
                                     CantDesaDiaGene = rset.getString("CantDesaDia");
                                 }
                             %> 
-                            <span  class="info-box-number" data ><a class="label bg-yellow" id="modal_siete" data-toggle="modal" data-target="#myModal"><%=CantDesaDiaGene%></a></span>
+                            <span  class="info-box-number" data ><a class="label bg-yellow" id="modal_siete" data-toggle="modal" data-target="#myModal"><%=CantDesaDiaGene%></a><small>&nbsp;Día</small></span>
 
 
                             <div class="progress">
@@ -232,7 +237,7 @@
                                     CantDesaMesGene = rset.getString("CantDesaMes");
                                 }
                             %>
-                            <span class="progress-description"><a class="label bg-red" id="modal_ocho" data-toggle="modal" data-target="#myModal"><%=CantDesaMesGene%></a></span>
+                            <span class="progress-description"><a class="label bg-green" id="modal_ocho" data-toggle="modal" data-target="#myModal"><%=CantDesaMesGene%></a>&nbsp;Mes</span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -241,10 +246,10 @@
 
                 <div class="col-md-4">
                     <div class="info-box bg-gray">
-                        <span class="info-box-icon bg-green"><i class="fa fa-cutlery"><span style="font-size: 25px;">&nbsp;G</span></i></i></span>
+                        <span class="info-box-icon bg-aqua-active"><i class="fa fa-cutlery"><span style="font-size: 25px;">&nbsp;G</span></i></i></span>
 
-                        <div class="info-box-content">
-                            <span class="info-box-text">Almuerzos General</span>
+                        <div class="info-box-content bg-gray-light">
+                            <span class="info-box-text"><b>Almuerzos General</b></span>
                             <%
                                 String CantAlmuDiaGene = "";
 
@@ -266,7 +271,7 @@
                                     CantAlmuDiaGene = rset.getString("CantAlmuDia");
                                 }
                             %> 
-                            <span class="info-box-number" ><a class="label bg-yellow" id="modal_nueve" data-toggle="modal" data-target="#myModal"><%=CantAlmuDiaGene%></a></span>
+                            <span class="info-box-number" ><a class="label bg-yellow" id="modal_nueve" data-toggle="modal" data-target="#myModal"><%=CantAlmuDiaGene%></a><small>&nbsp;Día</small></span>
 
 
                             <div class="progress">
@@ -290,7 +295,7 @@
                                     CantAlmuMesGene = rset.getString("CantAlmuMes");
                                 }
                             %>
-                            <span class="progress-description"><a class="label bg-red" id="modal_diez" data-toggle="modal" data-target="#myModal"><%=CantAlmuMesGene%></a></span>
+                            <span class="progress-description"><a class="label bg-green" id="modal_diez" data-toggle="modal" data-target="#myModal"><%=CantAlmuMesGene%></a>&nbsp;Mes</span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -299,10 +304,10 @@
 
                 <div class="col-md-4">
                     <div class="info-box bg-gray">
-                        <span class="info-box-icon bg-green"><i class="fa fa-glass"><span style="font-size: 25px;">G</span></i></i></span>
+                        <span class="info-box-icon bg-aqua-active"><i class="fa fa-glass"><span style="font-size: 25px;">G</span></i></i></span>
 
-                        <div class="info-box-content">
-                            <span class="info-box-text">Cenas General</span>
+                        <div class="info-box-content bg-gray-light">
+                            <span class="info-box-text"><b>Cenas General</b></span>
                             <%
                                 String CantCenaDiaGene = "";
 
@@ -324,7 +329,7 @@
                                     CantCenaDiaGene = rset.getString("CantCenaDia");
                                 }
                             %>  
-                            <span  class="info-box-number" ><a class="label bg-yellow" id="modal_once" data-toggle="modal" data-target="#myModal"><%=CantCenaDiaGene%></a></span>
+                            <span  class="info-box-number" ><a class="label bg-yellow" id="modal_once" data-toggle="modal" data-target="#myModal"><%=CantCenaDiaGene%></a><small>&nbsp;Día</small></span>
 
 
                             <div class="progress">
@@ -348,7 +353,7 @@
                                     CantCenaMesGene = rset.getString("CantCenaMes");
                                 }
                             %>
-                            <span class="progress-description"><a class="label bg-red" id="modal_doce" data-toggle="modal" data-target="#myModal"><%=CantCenaMesGene%></a></span>
+                            <span class="progress-description"><a class="label bg-green" id="modal_doce" data-toggle="modal" data-target="#myModal"><%=CantCenaMesGene%></a>&nbsp;Mes</span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -357,10 +362,10 @@
 
                 <div class="col-md-4">
                     <div class="info-box bg-gray">
-                        <span class="info-box-icon bg-green"><i class="fa fa-coffee"><span style="font-size: 25px;">E</span></i></i></span>
+                        <span class="info-box-icon bg-aqua-active"><i class="fa fa-coffee"><span style="font-size: 25px;">E</span></i></i></span>
 
-                        <div class="info-box-content">
-                            <span class="info-box-text">Desayunos Ejecutivos</span>
+                        <div class="info-box-content bg-gray-light">
+                            <span class="info-box-text"><b>Desayunos Ejecutivos</b></span>
                             <%
                                 String CantDesaDiaEjec = "";
 
@@ -382,7 +387,7 @@
                                     CantDesaDiaEjec = rset.getString("CantDesaDia");
                                 }
                             %> 
-                            <span class="info-box-number" ><a class="label bg-yellow" id="modal_trece" data-toggle="modal" data-target="#myModal"><%=CantDesaDiaEjec%></a></span>
+                            <span class="info-box-number" ><a class="label bg-yellow" id="modal_trece" data-toggle="modal" data-target="#myModal"><%=CantDesaDiaEjec%></a><small>&nbsp;Día</small></span>
 
                             <div class="progress">
                                 <div class="progress-bar" style="width: 100%"></div>
@@ -405,7 +410,7 @@
                                     CantDesaMesEjec = rset.getString("CantDesaMes");
                                 }
                             %>
-                            <span class="progress-description" ><a class="label bg-red" id="modal_catorce" data-toggle="modal" data-target="#myModal"><%=CantDesaMesEjec%></a></span>
+                            <span class="progress-description" ><a class="label bg-green" id="modal_catorce" data-toggle="modal" data-target="#myModal"><%=CantDesaMesEjec%></a>&nbsp;Mes</span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -414,10 +419,10 @@
 
                 <div class="col-md-4">
                     <div class="info-box bg-gray">
-                        <span class="info-box-icon bg-green"><i class="fa fa-cutlery"><span style="font-size: 25px;">&nbsp;E</span></i></span>
+                        <span class="info-box-icon bg-aqua-active"><i class="fa fa-cutlery"><span style="font-size: 25px;">&nbsp;E</span></i></span>
 
-                        <div class="info-box-content">
-                            <span class="info-box-text">Almuerzos Ejecutivos</span>
+                        <div class="info-box-content bg-gray-light">
+                            <span class="info-box-text"><b>Almuerzos Ejecutivos</b></span>
                             <%
                                 String CantAlmuDiaEjec = "";
 
@@ -439,7 +444,7 @@
                                     CantAlmuDiaEjec = rset.getString("CantAlmuDia");
                                 }
                             %> 
-                            <span class="info-box-number" ><a class="label bg-yellow" id="modal_quince" data-toggle="modal" data-target="#myModal"><%=CantAlmuDiaEjec%></a></span>
+                            <span class="info-box-number" ><a class="label bg-yellow" id="modal_quince" data-toggle="modal" data-target="#myModal"><%=CantAlmuDiaEjec%></a><small>&nbsp;Día</small></span>
 
                             <div class="progress">
                                 <div class="progress-bar" style="width: 100%"></div>
@@ -462,7 +467,7 @@
                                     CantAlmuMesEjec = rset.getString("CantAlmuMes");
                                 }
                             %>
-                            <span class="progress-description"><a class="label bg-red" id="modal_dieciseis" data-toggle="modal" data-target="#myModal"><%=CantAlmuMesEjec%></a></span>
+                            <span class="progress-description"><a class="label bg-green" id="modal_dieciseis" data-toggle="modal" data-target="#myModal"><%=CantAlmuMesEjec%></a>&nbsp;Mes</span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -471,10 +476,10 @@
 
                 <div class="col-md-4">
                     <div class="info-box bg-gray">
-                        <span class="info-box-icon bg-green"><i class="fa fa-glass"><span style="font-size: 25px;">E</span></i></span>
+                        <span class="info-box-icon bg-aqua-active"><i class="fa fa-glass"><span style="font-size: 25px;">E</span></i></span>
 
-                        <div class="info-box-content">
-                            <span class="info-box-text">Cenas Ejecutivos</span>
+                        <div class="info-box-content bg-gray-light">
+                            <span class="info-box-text"><b>Cenas Ejecutivos</b></span>
                             <%
                                 String CantCenaDiaEjec = "";
 
@@ -496,7 +501,7 @@
                                     CantCenaDiaEjec = rset.getString("CantCenaDia");
                                 }
                             %>  
-                            <span class="info-box-number" ><a class="label bg-yellow" id="modal_diecisiete" data-toggle="modal" data-target="#myModal"><%=CantCenaDiaEjec%></a></span>
+                            <span class="info-box-number" ><a class="label bg-yellow" id="modal_diecisiete" data-toggle="modal" data-target="#myModal"><%=CantCenaDiaEjec%></a><small>&nbsp;Día</small></span>
 
                             <div class="progress">
                                 <div class="progress-bar" style="width: 100%"></div>
@@ -519,7 +524,7 @@
                                     CantCenaMesEjec = rset.getString("CantCenaMes");
                                 }
                             %>
-                            <span class="progress-description" ><a class="label bg-red" id="modal_dieciocho" data-toggle="modal" data-target="#myModal"><%=CantCenaMesEjec%></a></span>
+                            <span class="progress-description" ><a class="label bg-green" id="modal_dieciocho" data-toggle="modal" data-target="#myModal"><%=CantCenaMesEjec%></a>&nbsp;Mes</span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -528,18 +533,48 @@
 
                 <div class="col-md-4">
                     <div class="info-box bg-gray">
-                        <span class="info-box-icon bg-green"><i class="fa fa-battery-3"></i></span>
+                        <span class="info-box-icon bg-aqua-active"><i class="fa fa-money"></i></span>
 
-                        <div class="info-box-content">
-                            <span class="info-box-text">----</span>
-                            <span class="info-box-number"></span>
+                        <div class="info-box-content bg-gray-light">
+                            <span class="info-box-text"><b>Ganancias Desayunos</b></span>
+                            <%
+                                double ganan_desa_día = 0.0;
+
+                                COMANDO = "SELECT IFNULL(sum(monto), 0) as Totalmonto "
+                                        + "FROM desayuno "
+                                        + "WHERE DATE_FORMAT(fecha_d,'%d%m%Y' "
+                                        + ") = DATE_FORMAT(sysdate(), '%d%m%Y' "
+                                        + ")";
+
+                                rset = stmt.executeQuery(COMANDO);
+                                //out.println(COMANDO);
+                                while (rset.next()) {
+
+                                    ganan_desa_día = rset.getDouble("Totalmonto");
+                                }
+                            %>  
+                            <span class="info-box-number label label-warning">S/&nbsp;<%=ganan_desa_día%></span>
 
                             <div class="progress">
                                 <div class="progress-bar" style="width: 100%"></div>
                             </div>
-                            <span class="progress-description">
+                            <%
+                                double ganan_desa_mes = 0.0;
 
-                            </span>
+                                COMANDO = "SELECT IFNULL(sum(monto), 0) as Totalmonto "
+                                        + "FROM desayuno "
+                                        + "WHERE DATE_FORMAT(fecha_d,'%Y%m%' "
+                                        + ") = DATE_FORMAT(sysdate(), '%Y%m%' "
+                                        + ")";
+
+                                rset = stmt.executeQuery(COMANDO);
+                                //out.println(COMANDO);
+                                while (rset.next()) {
+
+                                    ganan_desa_mes = rset.getDouble("Totalmonto");
+                                }
+                            %> 
+                            <span class="progress-description label label-success">S/&nbsp;<%=ganan_desa_mes%></span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -548,18 +583,48 @@
 
                 <div class="col-md-4">
                     <div class="info-box bg-gray">
-                        <span class="info-box-icon bg-green"><i class="fa fa-ambulance"></i></span>
+                        <span class="info-box-icon bg-aqua-active"><i class="fa fa-money"></i></span>
 
-                        <div class="info-box-content">
-                            <span class="info-box-text">-----</span>
-                            <span class="info-box-number" ></span>
+                        <div class="info-box-content bg-gray-light">
+                            <span class="info-box-text"><b>Ganancias Almuerzos</b></span>
+                              <%
+                                double ganan_almu_día = 0.0;
+
+                                COMANDO = "SELECT IFNULL(sum(monto), 0) as Totalmonto "
+                                        + "FROM almuerzo "
+                                        + "WHERE DATE_FORMAT(fecha_a,'%d%m%Y' "
+                                        + ") = DATE_FORMAT(sysdate(), '%d%m%Y' "
+                                        + ")";
+
+                                rset = stmt.executeQuery(COMANDO);
+                                //out.println(COMANDO);
+                                while (rset.next()) {
+
+                                    ganan_almu_día = rset.getDouble("Totalmonto");
+                                }
+                            %>  
+                            <span class="info-box-number label label-warning" >S/&nbsp;<%=ganan_almu_día%></span>
 
                             <div class="progress">
                                 <div class="progress-bar" style="width: 100%"></div>
                             </div>
-                            <span class="progress-description" >
+                                <%
+                                double ganan_almu_mes = 0.0;
 
-                            </span>
+                                COMANDO = "SELECT IFNULL(sum(monto), 0) as Totalmonto "
+                                        + "FROM almuerzo "
+                                        + "WHERE DATE_FORMAT(fecha_a,'%Y%m' "
+                                        + ") = DATE_FORMAT(sysdate(), '%Y%m' "
+                                        + ")";
+
+                                rset = stmt.executeQuery(COMANDO);
+                                //out.println(COMANDO);
+                                while (rset.next()) {
+
+                                    ganan_almu_mes = rset.getDouble("Totalmonto");
+                                }
+                            %> 
+                            <span class="progress-description label label-success" >S/&nbsp;<%=ganan_almu_mes%></span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -568,18 +633,48 @@
 
                 <div class="col-md-4">
                     <div class="info-box bg-gray">
-                        <span class="info-box-icon bg-green"><i class="fa fa-stethoscope"></i></span>
+                        <span class="info-box-icon bg-aqua-active"><i class="fa fa-money"></i></span>
 
-                        <div class="info-box-content">
-                            <span class="info-box-text">----</span>
-                            <span class="info-box-number" ></span>
+                        <div class="info-box-content bg-gray-light">
+                            <span class="info-box-text"><b>Ganancias Cenas</b></span>
+                                <%
+                                double ganan_cena_día = 0.0;
+
+                                COMANDO = "SELECT IFNULL(sum(monto), 0) as Totalmonto "
+                                        + "FROM cena "
+                                        + "WHERE DATE_FORMAT(fecha_c,'%d%m%Y' "
+                                        + ") = DATE_FORMAT(sysdate(), '%d%m%Y' "
+                                        + ")";
+
+                                rset = stmt.executeQuery(COMANDO);
+                                //out.println(COMANDO);
+                                while (rset.next()) {
+
+                                    ganan_cena_día = rset.getDouble("Totalmonto");
+                                }
+                            %>  
+                            <span class="info-box-number label label-warning" >S/&nbsp;<%=ganan_cena_día%></span>
 
                             <div class="progress">
                                 <div class="progress-bar" style="width: 100%"></div>
                             </div>
-                            <span class="progress-description" >
+                                <%
+                                double ganan_cena_mes = 0.0;
 
-                            </span>
+                                COMANDO = "SELECT IFNULL(sum(monto), 0) as Totalmonto "
+                                        + "FROM cena "
+                                        + "WHERE DATE_FORMAT(fecha_c,'%Y%m' "
+                                        + ") = DATE_FORMAT(sysdate(), '%Y%m' "
+                                        + ")";
+
+                                rset = stmt.executeQuery(COMANDO);
+                                //out.println(COMANDO);
+                                while (rset.next()) {
+
+                                    ganan_cena_mes = rset.getDouble("Totalmonto");
+                                }
+                            %>  
+                            <span class="progress-description label label-success" >S/&nbsp;<%=ganan_cena_mes%></span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -587,10 +682,10 @@
                 </div>
                 <div class="col-md-4">
                     <div class="info-box bg-gray">
-                        <span class="info-box-icon bg-green"><i class="fa fa-user-circle"><span style="font-size: 25px;">P</span></i></span>
+                        <span class="info-box-icon bg-aqua-active"><i class="fa fa-user-circle"><span style="font-size: 25px;">P</span></i></span>
 
-                        <div class="info-box-content">
-                            <span class="info-box-text">Personas</span>
+                        <div class="info-box-content bg-gray-light">
+                            <span class="info-box-text"><b>Personas</b></span>
                             <%
                                 String CantPersonaActivas = "";
 
@@ -631,18 +726,16 @@
 
                 <div class="col-md-4">
                     <div class="info-box bg-gray">
-                        <span class="info-box-icon bg-green"><i class="fa fa-hospital-o"></i></span>
+                        <span class="info-box-icon bg-aqua-active"><i class="fa fa-hospital-o"></i></span>
 
-                        <div class="info-box-content">
-                            <span class="info-box-text">Usuarios</span>
-                            <span class="info-box-number" ></span>
+                        <div class="info-box-content bg-gray-light">
+                            <span class="info-box-text"><b>Usuarios</b></span>
+                            <span class="info-box-number" >0</span>
 
                             <div class="progress">
                                 <div class="progress-bar" style="width: 100%"></div>
                             </div>
-                            <span class="progress-description" >
-
-                            </span>
+                            <span class="progress-description" >0</span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -651,7 +744,7 @@
 
                 <div class="col-md-4" style="display: none;">
                     <div class="info-box bg-gray">
-                        <span class="info-box-icon bg-green"><i class="fa fa-money"></i></span>
+                        <span class="info-box-icon bg-aqua-active"><i class="fa fa-money"></i></span>
 
                         <div class="info-box-content">
                             <span class="info-box-text">-----</span>
@@ -671,20 +764,16 @@
 
                 <div class="col-md-4">
                     <div class="info-box bg-gray">
-                        <span class="info-box-icon bg-green"><i class="fa fa-frown-o"></i></span>
+                        <span class="info-box-icon bg-aqua-active"><i class="fa fa-frown-o"></i></span>
 
-                        <div class="info-box-content">
-                            <span class="info-box-text">Pensionistas</span>
-                            <span class="info-box-number" >
-
-                            </span>
+                        <div class="info-box-content bg-gray-light">
+                            <span class="info-box-text"><b>Pensionistas</b></span>
+                            <span class="info-box-number" >0</span>
 
                             <div class="progress">
                                 <div class="progress-bar" style="width: 100%"></div>
                             </div>
-                            <span class="progress-description">
-
-                            </span>
+                            <span class="progress-description">0</span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
