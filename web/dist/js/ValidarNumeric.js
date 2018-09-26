@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 $('.input-number').on('input', function () {
-    this.value = this.value.replace(/[^0-9]/g, '');
+    this.value = this.value.replace(/[^1-9.]/g, '');
 });
+
+//this.value = this.value.replace(/[^0-9]/g, '');
 

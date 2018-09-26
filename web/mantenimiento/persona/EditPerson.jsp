@@ -1,7 +1,5 @@
 <%-- 
-    Document   : EditPerson
-    Created on : 15-jul-2018, 22:21:37
-    Author     : Elvis
+  
 --%>
 <%@ include file="../../conectadb.jsp" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

@@ -19,30 +19,29 @@
                 $("#save_data").click(function () {
                     //alert("succeess");
                     $.ajax({
-                        url: "mantenimiento/pensionista/AddPensionista.jsp",
+                        url: "mantenimiento/desayuno/AddDesayuno.jsp",
                         type: "post",
                         data: {
                             nombres: $('#nombres').val(),
                             estado: $('#estado').val(),
-                            fechaingreso: $('#fechaingreso').val(),
-                            tipo: $('#tipo').val(),
+                            fecha: $('#fecha').val(),
+                            cantidad: $('#cantidad').val(),
                             monto: $('#monto').val(),
                             success: function (data) {
-                                //alert("Registro Exitoso");
-                                //location.reload("");
-                                //document.location.reload();
+
                             }
 
                         }
                     });
                     $('#contenido').html('<center><img src="dist/img/loader.gif" width="20px" height="20px"/></center>');
-                    $("#contenido").load("mantenimiento/pensionista/MainPensionista.jsp");
+                    $("#contenido").load("mantenimiento/desayuno/MainDesayuno.jsp");
                 });
 
 
 
             });
         </script>
+
     </head>
     <body>
         <%            Date dNow = new Date();
@@ -56,45 +55,38 @@
                     <div class="form-group col-md-10">
                         <label for="nombres">Nombres</label>
                         <select class="form-control" name="nombres" id="nombres">
-                            <option value="" selected>seleccionar nombres del pensionista a registrar</option>
-                            <%COMANDO = "select idpersona, nombre(idpersona) nombres "
-                                        + "from persona "
+                            <option value="" selected>seleccionar nombres del pensionista</option>
+                            <%COMANDO = "select idpensionista, nombre(idpensionista) nombres "
+                                        + "from pensionista "
                                         + "order by nombres asc ";
                                 rset = stmt.executeQuery(COMANDO);
                                 while (rset.next()) {%>
-                            <option value="<%=rset.getString("idpersona")%>"><%=rset.getString("nombres")%></option>
+                            <option value="<%=rset.getString("idpensionista")%>"><%=rset.getString("nombres")%></option>
                             <%}%>
                         </select> 
-                    </div>
+                    </div>                   
                     <div class="form-group col-md-2">
-                        <label for="monto">S/ Monto</label>
-                        <input type="text" class="form-control input-number" value="0" id="monto" name="monto" placeholder="Ingrese monto" maxlength="4" required>
+                        <label for="fecha">Fecha</label>
+                        <input type="text" value="<%=fechaActual%>" class="form-control" id="fecha" name="fecha" readonly="">
                     </div>
                 </div>         
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label for="estado">Estado</label>
                         <select name="estado" id="estado" class="form-control" maxlength="1">
-                            <!--option value="" selected>seleccionar</option-->
-                            <option value="0" selected>Sin cancelar</option>
-                            <option value="1">Cancelado</option>
+                            <option value="0" selected>Desayunó</option>
+                            <option value="1">Para llevar</option>
                         </select>
-                        <!--<input type="text" class="form-control" id="estado" name="estado" placeholder="Ingese Estado" required>-->
                     </div>
                     <div class="form-group col-md-4">
-                        <label for="fechaingreso">Fecha de registro</label>
-                        <input type="text" value="<%=fechaActual%>" class="form-control" id="fechaingreso" name="fechaingreso" readonly="">
-                        <!--<input type="datetime-local"  placeholder="Ingrese Fecha">-->
+                        <label for="cantidad">Cantidad</label>
+                        <input type="text" class="form-control input-number" value="0" id="cantidad" name="cantidad" placeholder="Ingrese cantidad" maxlength="4" required>
                     </div>
                     <div class="form-group col-md-4">
-                        <label for="estado">Tipo</label>
-                        <select name="tipo" id="tipo" class="form-control" maxlength="1">
-                            <!--option value="" selected>seleccionar</option-->
-                            <option value="0" selected>General</option>
-                            <option value="1">Ejecutivo</option>
-                        </select>
-                        <!--<input type="text" class="form-control" id="estado" name="estado" placeholder="Ingese Estado" required>-->
+                        <label for="monto">S/ Monto</label>
+                        <input type="text" class="form-control input-number" value="0" id="monto" name="monto" placeholder="Ingrese monto" maxlength="4" required>
                     </div>
+
                 </div>
                 <div class="form-row">          
                     <div class="form-row" align="right">

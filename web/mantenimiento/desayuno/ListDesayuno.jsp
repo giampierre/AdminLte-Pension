@@ -17,7 +17,7 @@
 
             function myModalAdd() {
                 $('#insertar').html('<center><img src="dist/img/loader.gif" width="20px" height="20px"/></center>');
-                $('#insertar').load('mantenimiento/pensionista/AddFormPensionita.jsp');
+                $('#insertar').load('mantenimiento/desayuno/AddFormDesayuno.jsp');
 
             }
             function myModalEdit(id) {
@@ -33,7 +33,8 @@
         </script>
     </head>
     <body>
-        <%            String s_mes_ini = request.getParameter("f_mes_ini");
+        <%            
+            String s_mes_ini = request.getParameter("f_mes_ini");
             String s_anio_ini = request.getParameter("f_anio_ini");
             String s_tipo = request.getParameter("f_tipo");
         %>
@@ -55,62 +56,66 @@
                 </div>
             </div>
         </div>
-        <div class="panel panel-default">    
         <div class="table-responsive">
-            <table class="table table-bordered table-condensed table-hover" >
-                <thead> 
+            <table class="table table-bordered table-condensed table-hover">
+                <thead>     
                     <tr>
-                        <th>#</th>
-                        <!--<th>ID</th>-->
+                        <th>N°</th>
                         <th>Nombres</th>
-                        <th>Estado</th>
-                        <th>Fecha Ingreso</th>
                         <th>Tipo</th>
+                        <th>Estado</th>
+                        <th>Fecha</th>
+                        <th>Cantidad</th>
                         <th>Monto</th>
-                        <th>Options</th>
+                        <th>Opciones</th>
                     </tr>
                 </thead>
                 <tbody id="datos">
-                    <%                                // Seleccionando los pacientes que actualmente se están atendiendo en emergencia
-                        int id = 0;
+                    <%                       
+                        String id = "";
                         String nombres = "";
-                        String estado = "";
-                        String fecha_ingreso = "";
                         String tipo = "";
-                        String monto = "";
+                        String estado = "";
+                        String fecha = "";
+                        int cantidad = 0;
+                        double monto = 0.0;
                         int i = 0;
-                        String color = "";
-                        String activa = "#E8F8F5";
-                        String inactiva = "#FDEDEC";
+         
 
-                        COMANDO = "SELECT idpensionista, nombre(idpersona) AS nombres, IF(estado=0, 'Sin cancelar', 'Cancelado') as estado, "
-                                + " fecha_ingreso, IF(tipo=0 , 'General', 'Ejecutivo') as tipo, monto "
-                                + "FROM pensionista "
-                                + "WHERE DATE_FORMAT(fecha_ingreso,'%Y%m') = '"+ s_anio_ini + s_mes_ini +"' " 
-                                + "AND tipo = '" + s_tipo + "' "
-                                + "ORDER BY DATE_FORMAT(fecha_ingreso,'%Y%m') DESC ";
+                        COMANDO = "SELECT iddesayuno, nombre(d.idpensionista) AS Nombres, p.tipo, IF(p.tipo=0, 'General', 'Ejecutivo') as nom_tipo, "
+                                + "d.estado, IF(d.estado=0, 'Desayunó', 'Para llevar') AS nom_estado, "
+                                + "fecha_d, cantidad, d.monto "
+                                + "FROM desayuno d "
+                                + "INNER JOIN  pensionista p "
+                                + "ON (d.idPENSIONISTA = p.idPENSIONISTA) "
+                                + "WHERE DATE_FORMAT(d.fecha_d,'%Y%m') = '" + s_anio_ini + s_mes_ini + "' "
+                                + "AND p.tipo = '" + s_tipo + "' ";
+                        
                         rset = stmt.executeQuery(COMANDO);
                         //out.println(COMANDO);
+
                         while (rset.next()) {
                             i++;
-                            id = rset.getInt("idpensionista");
-                            nombres = rset.getString("nombres");
-                            estado = rset.getString("estado");
-                            fecha_ingreso = rset.getString("fecha_ingreso");
-                            tipo = rset.getString("tipo");
-                            monto = rset.getString("monto");
+                            id = rset.getString("iddesayuno");
+                            nombres = rset.getString("Nombres");
+                            tipo = rset.getString("nom_tipo");
+                            estado = rset.getString("nom_estado");
+                            fecha = rset.getString("fecha_d");
+                            cantidad = rset.getInt("cantidad");
+                            monto = rset.getDouble("monto");
+  
 
 
                     %>
 
                     <tr>        
                         <td><%=i%></td>
-                        <!--td><%=id%></td-->
-                        <td><%=nombres%></td>                                    
-                        <td><%=estado%></td>                    
-                        <td><%=fecha_ingreso%></td>                    
-                        <td><%=tipo%></td>                    
-                        <td><%=monto%></td>                    
+                        <td><%=nombres%></td>
+                        <td><%=tipo%></td> 
+                        <td><%=estado%></td> 
+                        <td><%=fecha%></td> 
+                        <td><%=cantidad%></td> 
+                        <td><%=monto%></td>                   
                         <td>
                             <div class="btn-group">
                                 <a title="Editar"  data-toggle="modal" onclick="myModalEdit('<%=id%>')" data-target="#myModalEdit"><button class="btn btn-warning btn-xs glyphicon glyphicon-edit"></button></a>
@@ -182,7 +187,7 @@
                 </div>
             </div>    
         </div>
-        </div>
+
     </body>
 </html>
 

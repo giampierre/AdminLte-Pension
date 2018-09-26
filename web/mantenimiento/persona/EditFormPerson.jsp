@@ -58,12 +58,13 @@
             String direc = "";
             String cel = "";
             String est = "";
+            String estado = "";
             String fecha_ing = "";
             String cod = "";
             String observ = "";
 
             COMANDO = "SELECT Nombres, Apellidos, dni, direccion, "
-                    + " celular, estado, fecha_ingres, codigo, observacion "
+                    + " celular, estado, IF(estado=0, 'Inactivo', 'Activo') as nom_estado, fecha_ingres, codigo, observacion "
                     + " FROM PERSONA WHERE idPersona = '" + idPerson + "' ";
 
             //out.print(COMANDO);
@@ -75,23 +76,13 @@
                 dn = rset.getString("dni");
                 direc = rset.getString("direccion");
                 cel = rset.getString("celular");
-                est = rset.getString("estado");
+                est = rset.getString("nom_estado");
+                estado = rset.getString("estado");
                 fecha_ing = rset.getString("fecha_ingres");
                 cod = rset.getString("codigo");
                 observ = rset.getString("observacion");
             }
 
-        %>
-          <%
-            String a_tipo[][] = {{"0", "Inactivo"}, {"1", "Activo"}};
-            String s_estado = "";
-            COMANDO = "Select "
-                    + "distinct estado as  estado "
-                    + "from persona "
-                    + "order by estado desc ";
-            rset = stmt.executeQuery(COMANDO);
-            rset.next();
-            s_estado = rset.getString("estado");
         %>
 
         <form>
@@ -126,14 +117,14 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-4">
-                        <label for="estado">Estado</label>
+                        <label for="estado">Estado</label>                      
                         <select class="form-control" id="estado" name="estado">
-                            <%
-                                        for (int x = 0; x < a_tipo.length; x++) {%>
-                            <option value="<%=a_tipo[x][0]%>" <% if (a_tipo[x][0].equals(s_estado)) {
-                                    out.print("selected");
-                                }%>><%=a_tipo[x][1]%></option>
-                            <%						}%>
+                            <option value="<%=estado%>" selected><%=est%></option>
+                             <%if (estado.equals("1")) {%>
+                            <option value="0">Inactivo</option>
+                            <%} else {%>
+                            <option value="1">Activo</option>	
+                            <%}%>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
