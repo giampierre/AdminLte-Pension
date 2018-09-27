@@ -18,17 +18,17 @@
                 $("#save_data").click(function () {
                     //alert("succeess");
                     $.ajax({
-                        url: "mantenimiento/pensionista/DeletePensionista.jsp",
+                        url: "mantenimiento/desayuno/DeleteDesayuno.jsp",
                         type: "post",
                         data: {
-                            idpensionista: $('#idpensionista').val(),
+                            iddesayuno: $('#iddesayuno').val(),
                             success: function (data) {
                             }
 
                         }
                     });
                     $('#contenido').html('<center><img src="dist/img/loader.gif" width="20px" height="20px"/></center>');
-                    $("#contenido").load("mantenimiento/pensionista/MainPensionista.jsp");
+                    $("#contenido").load("mantenimiento/desayuno/MainDesayuno.jsp");
                 });
 
 
@@ -38,7 +38,7 @@
     </head>
     <body>
 
-        <%            String idPensionista = request.getParameter("f_id");
+        <%            String idDesayuno = request.getParameter("f_id");
         %>
 
         <form>
@@ -47,7 +47,7 @@
                     <div class="form-group col-md-12">                 
                         <button type="button" class="btn btn-primary" id="save_data" data-dismiss="modal">Eliminar</button>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-                        <input type="hidden" id="idpensionista" name="idpensionista" value="<%=idPensionista%>">
+                        <input type="hidden" id="iddesayuno" name="iddesayuno" value="<%=idDesayuno%>">
                     </div>
                 </div>
             </div>

@@ -16,25 +16,23 @@
                 $("#save_data").click(function () {
                     //alert("succeess");
                     $.ajax({
-                        url: "mantenimiento/pensionista/EditPensionista.jsp",
+                        url: "mantenimiento/desayuno/EditDesayuno.jsp",
                         type: "post",
                         data: {
-                            idpersona: $('#idpersona').val(),
+                            nombres: $('#nombres').val(),
                             estado: $('#estado').val(),
-                            fechaingreso: $('#fechaingreso').val(),
-                            tipo: $('#tipo').val(),
+                            fecha: $('#fecha').val(),
+                            cantidad: $('#cantidad').val(),
                             monto: $('#monto').val(),
+                            iddesayuno: $('#iddesayuno').val(),
                             idpensionista: $('#idpensionista').val(),
                             success: function (data) {
-                                //alert("Registro Exitoso");
-                                //location.reload("");
-                                //document.location.reload();
                             }
 
                         }
                     });
                     $('#contenido').html('<center><img src="dist/img/loader.gif" width="20px" height="20px"/></center>');
-                    $("#contenido").load("mantenimiento/pensionista/MainPensionista.jsp");
+                    $("#contenido").load("mantenimiento/desayuno/MainDesayuno.jsp");
                 });
 
 
@@ -45,106 +43,94 @@
     <body>
 
         <%            
-            int i = 0;
-            String idPensionista = request.getParameter("f_id");
-            String idpersona = "";
-            String nomb = "";
-            String est = "";
-            String estado = "";
-            String fecha_ing = "";
+            String idDesayuno = request.getParameter("f_id");
+            String id = "";
+            String idpensionista = "";
+            String nombres = "";
             String tipo = "";
-            String tipoVal = "";
-            String monto = "";
+            String estado = "";
+            String estadoVal = "";
+            String fecha = "";
+            int cantidad = 0;
+            double monto = 0.0;
+            int i = 0;
 
-            COMANDO = "SELECT idpersona, nombre(idpersona) nomb_perso, "
-                    + " estado, IF(estado=0, 'Sin Cancelar', 'Cancelado') as nom_estado, fecha_ingreso, "
-                    + " tipo, IF(tipo=0, 'General', 'Ejecutivo') as nom_tipo, monto "
-                    + " FROM PENSIONISTA WHERE idPensionista = '" + idPensionista + "' ";
+            COMANDO = "SELECT d.iddesayuno, p.idpensionista, nombre(d.idpensionista) AS Nombres, p.tipo, IF(p.tipo=0, 'General', 'Ejecutivo') as nom_tipo, "
+                    + "d.estado, IF(d.estado=0, 'Desayunó', 'Para llevar') AS nom_estado, "
+                    + "fecha_d, cantidad, d.monto "
+                    + "FROM desayuno d "
+                    + "INNER JOIN  pensionista p "
+                    + "ON (d.idPENSIONISTA = p.idPENSIONISTA) "
+                    + "WHERE d.iddesayuno = '" + idDesayuno + "' ";
 
-            //out.print(COMANDO);
             rset = stmt.executeQuery(COMANDO);
+            //out.println(COMANDO);
+
             while (rset.next()) {
                 i++;
-                idpersona = rset.getString("idpersona");
-                nomb = rset.getString("nomb_perso");    
-                est = rset.getString("nom_estado");
-                estado = rset.getString("estado");
-                fecha_ing = rset.getString("fecha_ingreso");
+                id = rset.getString("iddesayuno");
+                idpensionista = rset.getString("idpensionista");
+                nombres = rset.getString("Nombres");
                 tipo = rset.getString("nom_tipo");
-                tipoVal = rset.getString("tipo");
-                monto = rset.getString("monto");
+                estado = rset.getString("nom_estado");
+                estadoVal = rset.getString("estado");
+                fecha = rset.getString("fecha_d");
+                cantidad = rset.getInt("cantidad");
+                monto = rset.getDouble("monto");
             }
 
-        %>
-        <%
-           String a_tipo[][] = {{"0", "General"}, {"1", "Ejecutivo"}};
-           String s_tipo = "";
-           COMANDO = "Select "
-                   + "distinct tipo as  tipo "
-                   + "from pensionista "
-                   + "order by tipo desc ";
-           rset = stmt.executeQuery(COMANDO);
-           rset.next();
-           s_tipo = rset.getString("tipo");
-        %>
 
+        %>
 
         <form>
             <div class="panel-body">
                 <div class="form-row">
-                    <div class="form-group col-md-10">
+                    <div class="form-group col-md-9">
                         <label for="nombres">Nombres</label>
-                        <select class="form-control" name="idpersona" id="idpersona">
-                            <option value="<%=idpersona%>" selected><%=nomb%></option>
-                            <%COMANDO = "select idpersona, nombre(idpersona) nombres "
-                                        + "from persona "
+                        <select class="form-control" name="idpensionista" id="idpensionista">
+                            <option value="<%=idpensionista%>" selected><%=nombres%></option>
+                            <%COMANDO = "select idpensionista, nombre(idpensionista) nombres "
+                                        + "from pensionista "
                                         + "order by nombres asc ";
                                 rset = stmt.executeQuery(COMANDO);
                                 while (rset.next()) {%>
-                            <option value="<%=rset.getString("idpersona")%>"><%=rset.getString("nombres")%></option>
+                            <option value="<%=rset.getString("idpensionista")%>"><%=rset.getString("nombres")%></option>
                             <%}%>
                         </select> 
                     </div>
-                    <div class="form-group col-md-2">
-                        <label for="monto">S/ Monto</label>
-                        <input type="text" class="form-control input-number" value="<%=monto%>" id="monto" name="monto" placeholder="Ingrese monto" maxlength="4" required>
+                    <div class="form-group col-md-3">
+                        <label for="fecha">Fecha</label>
+                        <input type="text" value="<%=fecha%>" class="form-control" id="fecha" name="fecha">
                     </div>
                 </div>         
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label for="estado">Estado</label>
-                        <select class="form-control" id="estado" name="estado">
-                            <option value="<%=estado%>" selected><%=est%></option>
-                            <%if (estado.equals("1")) {%>
-                            <option value="0">Sin Cancelar</option>
+                         <select class="form-control" id="estado" name="estado">
+                            <option value="<%=estadoVal%>" selected><%=estado%></option>
+                            <%if (estadoVal.equals("1")) {%>
+                            <option value="0">Desayunó</option>
                             <%} else {%>
-                            <option value="1">Cancelado</option>	
-                            <%}%>
-                        </select>
-                        <!--<input type="text" class="form-control" id="estado" name="estado" placeholder="Ingese Estado" required>-->
-                    </div>
-                    <div class="form-group col-md-4">
-                        <label for="fechaingreso">Fecha de registro</label>
-                        <input type="text" value="<%=fecha_ing%>" class="form-control" id="fechaingreso" name="fechaingreso">
-                    </div>
-                    <div class="form-group col-md-4">
-                        <label for="estado">Tipo</label>
-                         <select class="form-control" id="tipo" name="tipo">
-                            <option value="<%=tipoVal%>" selected><%=tipo%></option>
-                            <%if (tipoVal.equals("1")) {%>
-                            <option value="0">General</option>
-                            <%} else {%>
-                            <option value="1">Ejecutivo</option>	
+                            <option value="1">Para llevar</option>	
                             <%}%>
                         </select>
                     </div>
+                    <div class="form-group col-md-4">
+                        <label for="cantidad">Cantidad</label>
+                        <input type="text" class="form-control input-number" value="<%=cantidad%>" id="cantidad" name="cantidad" placeholder="Ingrese cantidad" maxlength="4" required>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="monto">S/ Monto</label>
+                        <input type="text" class="form-control input-number" value="<%=monto%>" id="monto" name="monto" placeholder="Ingrese monto" maxlength="4" required>
+                    </div>
+
                 </div>
                 <div class="form-row" align="right">
                     <div class="form-group col-md-12">
 
                         <button type="button" class="btn btn-warning" id="save_data" data-dismiss="modal">Editar</button>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-                        <input type="hidden" id="idpensionista" name="idpensionista" value="<%=idPensionista%>">
+                        <input type="hidden" id="iddesayuno" name="iddesayuno" value="<%=idDesayuno%>">
                     </div>
                 </div>           
             </div>

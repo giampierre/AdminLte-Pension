@@ -22,12 +22,12 @@
             }
             function myModalEdit(id) {
                 $('#editar').html('<center><img src="dist/img/loader.gif" width="20px" height="20px"/></center>');
-                $('#editar').load('mantenimiento/pensionista/EditFormPensionista.jsp?f_id=' + id);
+                $('#editar').load('mantenimiento/desayuno/EditFormDesayuno.jsp?f_id=' + id);
 
             }
             function myModalElim(id) {
                 $('#eliminar').html('<center><img src="dist/img/loader.gif" width="20px" height="20px"/></center>');
-                $('#eliminar').load('mantenimiento/pensionista/DeleteFormPensionista.jsp?f_id=' + id);
+                $('#eliminar').load('mantenimiento/desayuno/DeleteFormDesayuno.jsp?f_id=' + id);
 
             }
         </script>

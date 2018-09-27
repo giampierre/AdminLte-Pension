@@ -6,17 +6,17 @@
 <!DOCTYPE html>
 
 <%      
-    String idPensionista = request.getParameter("idpensionista");
-    String nombres = request.getParameter("idpersona");
-    String estado = request.getParameter("estado");
-    String fecha_ingres = request.getParameter("fechaingreso");
-    String monto = request.getParameter("monto");
-    String tipo = request.getParameter("tipo");
+    String idDesayuno = request.getParameter("iddesayuno");
+    String nomb = request.getParameter("idpensionista");
+    String estad = request.getParameter("estado");
+    String fecha = request.getParameter("fecha");
+    int cantidad = Integer.parseInt(request.getParameter("cantidad"));
+    double monto = Double.parseDouble(request.getParameter("monto"));
 
     int rsetx = 0;
-    COMANDO = "UPDATE pensionista SET idpersona = '" + nombres + "', "
-            + " estado = '" + estado + "', "
-            + " fecha_ingreso = '" + fecha_ingres + "', monto = '" + monto + "', tipo = '" + tipo + "' WHERE idPensionista = '" + idPensionista + "'";
+    COMANDO = "UPDATE desayuno SET idpensionista = '" + nomb + "', "
+            + " estado = '" + estad + "', "
+            + " fecha_d = '" + fecha + "', monto = '" + monto + "', cantidad = '" + cantidad + "' WHERE idDesayuno= '" + idDesayuno + "'";
        out.print(COMANDO);
     rsetx = stmt.executeUpdate(COMANDO);
 

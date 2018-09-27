@@ -9,10 +9,10 @@
 
 
 <%    
-    String idPensionista = request.getParameter("idpensionista");
+    String idDesayuno = request.getParameter("iddesayuno");
 
     int rsetx = 0;
-    COMANDO = "DELETE FROM pensionista WHERE idPensionista = '" + idPensionista + "' ";
+    COMANDO = "DELETE FROM DESAYUNO WHERE idDesayuno = '" + idDesayuno + "' ";
     //out.print(COMANDO);
     rsetx = stmt.executeUpdate(COMANDO);
 

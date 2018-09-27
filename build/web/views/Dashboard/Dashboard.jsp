@@ -24,9 +24,9 @@
 
                 <div class="col-md-4">
                     <!-- Info Boxes Style 2 -->
-                    <div class="info-box bg-gray">
-                        <span class="info-box-icon bg-gray-active"><i class="fa fa-coffee" style="color: #fff;"></i></span>         
-                        <div class="info-box-content bg-gray-light">
+                    <div class="info-box label-success">
+                        <span class="info-box-icon label-primary"><i class="fa fa-coffee"></i></span>         
+                        <div class="info-box-content label-default" style="background: #3b6486; color: #fff;">
                             <span class="info-box-text"><b>Total de Desayunos</b></span>
                             <%                                String CantDesaDia = "";
 
@@ -76,10 +76,10 @@
                     <!-- /.info-box -->
                 </div>
                 <div class="col-md-4">
-                    <div class="info-box bg-gray">
-                        <span class="info-box-icon bg-gray-active"><i class="fa fa-cutlery" style="color: #fff;"></i></span>
+                    <div class="info-box label-success">
+                        <span class="info-box-icon label-primary"><i class="fa fa-cutlery"></i></span>
 
-                        <div class="info-box-content bg-gray-light">
+                        <div class="info-box-content bg-green-light" style="background: #3b6486; color: #fff;">
                             <span class="info-box-text"><b>Total de Almuerzos</b></span>
                             <%
                                 String CantAlmuDia = "";
@@ -131,10 +131,10 @@
                     <!-- /.info-box -->
                 </div>
                 <div class="col-md-4">
-                    <div class="info-box bg-gray">
-                        <span class="info-box-icon bg-gray-active"><i class="fa fa-glass" style="color: #fff;"></i></span>
+                    <div class="info-box bg-green">
+                        <span class="info-box-icon label-primary"><i class="fa fa-glass"></i></span>
 
-                        <div class="info-box-content bg-gray-light">
+                        <div class="info-box-content bg-green-light" style="background: #3b6486; color: #fff;">
                             <span class="info-box-text"><b>Total de Cenas</b></span>
                             <%
                                 String CantCenaDia = "";
@@ -187,10 +187,10 @@
                 </div>
 
                 <div class="col-md-4">
-                    <div class="info-box bg-gray">
-                        <span class="info-box-icon bg-gray-active"><i class="fa fa-coffee" style="color: #fff;"><span style="font-size: 25px;">G</span></i></span>
+                    <div class="info-box bg-green">
+                        <span class="info-box-icon label-primary"><i class="fa fa-coffee" style="color: #fff;"><span style="font-size: 25px;">G</span></i></span>
 
-                        <div class="info-box-content bg-gray-light">
+                        <div class="info-box-content bg-green-light" style="background: #3b6486; color: #fff;">
                             <span class="info-box-text"><b>Desayunos General</b></span>
                             <%
                                 String CantDesaDiaGene = "";
@@ -245,10 +245,10 @@
                 </div>
 
                 <div class="col-md-4">
-                    <div class="info-box bg-gray">
-                        <span class="info-box-icon bg-gray-active"><i class="fa fa-cutlery" style="color: #fff;"><span style="font-size: 25px;">&nbsp;G</span></i></i></span>
+                    <div class="info-box bg-green">
+                        <span class="info-box-icon label-primary"><i class="fa fa-cutlery" style="color: #fff;"><span style="font-size: 25px;">&nbsp;G</span></i></i></span>
 
-                        <div class="info-box-content bg-gray-light">
+                        <div class="info-box-content bg-green-light" style="background: #3b6486; color: #fff;">
                             <span class="info-box-text"><b>Almuerzos General</b></span>
                             <%
                                 String CantAlmuDiaGene = "";
@@ -303,10 +303,10 @@
                 </div>
 
                 <div class="col-md-4">
-                    <div class="info-box bg-gray">
-                        <span class="info-box-icon bg-gray-active"><i class="fa fa-glass" style="color: #fff;"><span style="font-size: 25px;">G</span></i></i></span>
+                    <div class="info-box bg-green">
+                        <span class="info-box-icon label-primary"><i class="fa fa-glass" style="color: #fff;"><span style="font-size: 25px;">G</span></i></i></span>
 
-                        <div class="info-box-content bg-gray-light">
+                        <div class="info-box-content bg-green-light" style="background: #3b6486; color: #fff;">
                             <span class="info-box-text"><b>Cenas General</b></span>
                             <%
                                 String CantCenaDiaGene = "";
@@ -361,10 +361,10 @@
                 </div>
 
                 <div class="col-md-4">
-                    <div class="info-box bg-gray">
-                        <span class="info-box-icon bg-gray-active"><i class="fa fa-coffee" style="color: #fff;"><span style="font-size: 25px;">E</span></i></i></span>
+                    <div class="info-box bg-green">
+                        <span class="info-box-icon label-primary"><i class="fa fa-coffee" style="color: #fff;"><span style="font-size: 25px;">E</span></i></i></span>
 
-                        <div class="info-box-content bg-gray-light">
+                        <div class="info-box-content bg-green-light" style="background: #3b6486; color: #fff;">
                             <span class="info-box-text"><b>Desayunos Ejecutivos</b></span>
                             <%
                                 String CantDesaDiaEjec = "";
@@ -418,10 +418,10 @@
                 </div>
 
                 <div class="col-md-4">
-                    <div class="info-box bg-gray">
-                        <span class="info-box-icon bg-gray-active"><i class="fa fa-cutlery" style="color: #fff;"><span style="font-size: 25px;">&nbsp;E</span></i></span>
+                    <div class="info-box bg-green">
+                        <span class="info-box-icon label-primary"><i class="fa fa-cutlery" style="color: #fff;"><span style="font-size: 25px;">&nbsp;E</span></i></span>
 
-                        <div class="info-box-content bg-gray-light">
+                        <div class="info-box-content" style="background: #3b6486; color: #fff;"> 
                             <span class="info-box-text"><b>Almuerzos Ejecutivos</b></span>
                             <%
                                 String CantAlmuDiaEjec = "";
@@ -475,10 +475,10 @@
                 </div>
 
                 <div class="col-md-4">
-                    <div class="info-box bg-gray">
-                        <span class="info-box-icon bg-gray-active"><i class="fa fa-glass" style="color: #fff;"><span style="font-size: 25px;">E</span></i></span>
+                    <div class="info-box bg-green">
+                        <span class="info-box-icon label-primary"><i class="fa fa-glass" style="color: #fff;"><span style="font-size: 25px;">E</span></i></span>
 
-                        <div class="info-box-content bg-gray-light">
+                        <div class="info-box-content" style="background: #3b6486; color: #fff;">
                             <span class="info-box-text"><b>Cenas Ejecutivos</b></span>
                             <%
                                 String CantCenaDiaEjec = "";
@@ -532,10 +532,10 @@
                 </div>
 
                 <div class="col-md-4">
-                    <div class="info-box bg-gray">
-                        <span class="info-box-icon bg-gray-active"><i class="fa fa-money" style="color: #fff;"></i></span>
+                    <div class="info-box bg-green">
+                        <span class="info-box-icon label-primary"><i class="fa fa-money" style="color: #fff;"></i></span>
 
-                        <div class="info-box-content bg-gray-light">
+                        <div class="info-box-content bg-green-light" style="background: #3b6486; color: #fff;">
                             <span class="info-box-text"><b>Ganancias Desayunos</b></span>
                             <%
                                 double ganan_desa_día = 0.0;
@@ -582,10 +582,10 @@
                 </div>
 
                 <div class="col-md-4">
-                    <div class="info-box bg-gray">
-                        <span class="info-box-icon bg-gray-active"><i class="fa fa-money" style="color: #fff;"></i></span>
+                    <div class="info-box bg-green">
+                        <span class="info-box-icon label-primary"><i class="fa fa-money" style="color: #fff;"></i></span>
 
-                        <div class="info-box-content bg-gray-light">
+                        <div class="info-box-content bg-green-light" style="background: #3b6486; color: #fff;">
                             <span class="info-box-text"><b>Ganancias Almuerzos</b></span>
                               <%
                                 double ganan_almu_día = 0.0;
@@ -632,10 +632,10 @@
                 </div>
 
                 <div class="col-md-4">
-                    <div class="info-box bg-gray">
-                        <span class="info-box-icon bg-gray-active"><i class="fa fa-money" style="color: #fff;"></i></span>
+                    <div class="info-box bg-green">
+                        <span class="info-box-icon label-primary"><i class="fa fa-money" style="color: #fff;"></i></span>
 
-                        <div class="info-box-content bg-gray-light">
+                        <div class="info-box-content bg-green-light" style="background: #3b6486; color: #fff;">
                             <span class="info-box-text"><b>Ganancias Cenas</b></span>
                                 <%
                                 double ganan_cena_día = 0.0;
@@ -681,10 +681,10 @@
                     <!-- /.info-box -->
                 </div>
                 <div class="col-md-4">
-                    <div class="info-box bg-gray">
-                        <span class="info-box-icon bg-gray-active"><i class="fa fa-user-circle" style="color: #fff;"><span style="font-size: 25px;">P</span></i></span>
+                    <div class="info-box bg-green">
+                        <span class="info-box-icon label-primary"><i class="fa fa-user-circle" style="color: #fff;"><span style="font-size: 25px;">P</span></i></span>
 
-                        <div class="info-box-content bg-gray-light">
+                        <div class="info-box-content bg-green-light" style="background: #3b6486; color: #fff;">
                             <span class="info-box-text"><b>Personas</b></span>
                             <%
                                 String CantPersonaActivas = "";
@@ -725,10 +725,10 @@
                 </div>
 
                 <div class="col-md-4">
-                    <div class="info-box bg-gray">
-                        <span class="info-box-icon bg-gray-active"><i class="fa fa-hospital-o" style="color: #fff;"></i></span>
+                    <div class="info-box bg-green">
+                        <span class="info-box-icon label-primary"><i class="fa fa-hospital-o" style="color: #fff;"></i></span>
 
-                        <div class="info-box-content bg-gray-light">
+                        <div class="info-box-content bg-green-light" style="background: #3b6486; color: #fff;">
                             <span class="info-box-text"><b>Usuarios</b></span>
                             <span class="info-box-number" >0</span>
 
@@ -743,10 +743,10 @@
                 </div>
 
                 <div class="col-md-4" style="display: none;">
-                    <div class="info-box bg-gray">
-                        <span class="info-box-icon bg-gray-active"><i class="fa fa-money" style="color: #fff;"></i></span>
+                    <div class="info-box bg-green">
+                        <span class="info-box-icon bg-green-active"><i class="fa fa-money" style="color: #fff;"></i></span>
 
-                        <div class="info-box-content">
+                        <div class="info-box-content" style="background: #3b6486; color: #fff;">
                             <span class="info-box-text">-----</span>
                             <span class="info-box-number">12</span>
 
@@ -763,10 +763,10 @@
                 </div>
 
                 <div class="col-md-4">
-                    <div class="info-box bg-gray">
-                        <span class="info-box-icon bg-gray-active"><i class="fa fa-frown-o" style="color: #fff;"></i></span>
+                    <div class="info-box bg-green">
+                        <span class="info-box-icon label-primary"><i class="fa fa-frown-o" style="color: #fff;"></i></span>
 
-                        <div class="info-box-content bg-gray-light">
+                        <div class="info-box-content bg-green-light" style="background: #3b6486; color: #fff;">
                             <span class="info-box-text"><b>Pensionistas</b></span>
                             <span class="info-box-number" >0</span>
 
