@@ -78,8 +78,8 @@
 
         <form name="datoslist" target="view" id="datoslist" action="#" >
 
-            <div class="panel panel-info">
-                <div class="panel-heading" style="color:#0D5458"> <h5>Lista de Pensionistas por periodo y tipo.</h5></div>
+            <div class="panel label-default" style="color: #fff;">
+                <div class="panel-heading" style="color:#fff; font-weight: bold; background: #3b6486;"> <h5>Lista de Pensionistas por periodo y tipo.</h5></div>
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-4">
@@ -128,7 +128,7 @@
                             </div><!-- /input-group -->
                         </div><!-- /.col-lg-6 -->
                         <div class="col-md-2">
-                            <input class="btn btn-info" type="button" value="Visualizar" id="enviar" class="butoncito"> 
+                            <input class="btn btn-default btn-sm" style="color:#fff; background: #3b6486;" type="button" value="Visualizar" id="enviar" class="butoncito"> 
                         </div>
 
                     </div>

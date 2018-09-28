@@ -13,11 +13,11 @@
     </head>
     <body>
         <%            
-           String id_pensionista = request.getParameter("f_id_pensionista");
+           String idPensionista = request.getParameter("idpensionista");
         
 
             int rsetx = 0;
-            COMANDO = "update pensionista set estado = '1' where idpensionista='" + id_pensionista + "' ";
+            COMANDO = "update pensionista set estado = '1' where idpensionista='" + idPensionista + "' ";
             rsetx = stmt.executeUpdate(COMANDO);
 
         %>

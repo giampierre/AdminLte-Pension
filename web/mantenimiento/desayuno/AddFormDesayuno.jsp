@@ -56,7 +56,7 @@
                         <label for="nombres">Nombres</label>
                         <select class="form-control" name="nombres" id="nombres">
                             <option value="" selected>seleccionar nombres del pensionista</option>
-                            <%COMANDO = "select idpensionista, nombre(idpensionista) nombres "
+                            <%COMANDO = "select idpensionista, nom_pen(idpensionista) nombres "
                                         + "from pensionista "
                                         + "order by nombres asc ";
                                 rset = stmt.executeQuery(COMANDO);

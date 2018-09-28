@@ -64,10 +64,10 @@
 
         <form name="datoslist" target="view" id="datoslist" action="views/Comidas/Desayunos.jsp">
 
-
+ 
        
-                <div class="panel panel-info">
-                    <div class="panel-heading" style="color:#0D5458"> <h5>Lista de Desayunos por periodo y tipo.</h5></div>
+                <div class="panel panel-info" style="color: #fff;">
+                    <div class="panel-heading info-box-text" style="color:#fff; background: #3b6486;"> <h5><b>Lista de Desayunos por periodo y tipo</b></h5></div>
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-4">
@@ -114,7 +114,7 @@
                                 </div><!-- /input-group -->
                             </div><!-- /.col-lg-6 -->
                             <div class="col-md-2">
-                                <input class="btn btn-info" type="button" value="Visualizar" id="enviar" class="butoncito"> 
+                                <input class="btn btn-info btn-sm" style="background: #3b6486; color: #fff;" type="button" value="Visualizar" id="enviar" class="butoncito"> 
                             </div>
 
                         </div>

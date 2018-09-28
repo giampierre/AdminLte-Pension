@@ -55,7 +55,7 @@
             double monto = 0.0;
             int i = 0;
 
-            COMANDO = "SELECT d.iddesayuno, p.idpensionista, nombre(d.idpensionista) AS Nombres, p.tipo, IF(p.tipo=0, 'General', 'Ejecutivo') as nom_tipo, "
+            COMANDO = "SELECT d.iddesayuno, p.idpensionista, nom_pen(d.idpensionista) AS Nombres, p.tipo, IF(p.tipo=0, 'General', 'Ejecutivo') as nom_tipo, "
                     + "d.estado, IF(d.estado=0, 'Desayunó', 'Para llevar') AS nom_estado, "
                     + "fecha_d, cantidad, d.monto "
                     + "FROM desayuno d "
@@ -89,7 +89,7 @@
                         <label for="nombres">Nombres</label>
                         <select class="form-control" name="idpensionista" id="idpensionista">
                             <option value="<%=idpensionista%>" selected><%=nombres%></option>
-                            <%COMANDO = "select idpensionista, nombre(idpensionista) nombres "
+                            <%COMANDO = "select idpensionista, nom_pen(idpensionista) nombres "
                                         + "from pensionista "
                                         + "order by nombres asc ";
                                 rset = stmt.executeQuery(COMANDO);

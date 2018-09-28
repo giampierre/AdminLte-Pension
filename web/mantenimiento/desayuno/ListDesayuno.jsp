@@ -82,7 +82,7 @@
                         int i = 0;
          
 
-                        COMANDO = "SELECT iddesayuno, nombre(d.idpensionista) AS Nombres, p.tipo, IF(p.tipo=0, 'General', 'Ejecutivo') as nom_tipo, "
+                        COMANDO = "SELECT iddesayuno, nom_pen(d.idpensionista) AS Nombres, p.tipo, IF(p.tipo=0, 'General', 'Ejecutivo') as nom_tipo, "
                                 + "d.estado, IF(d.estado=0, 'Desayunó', 'Para llevar') AS nom_estado, "
                                 + "fecha_d, cantidad, d.monto "
                                 + "FROM desayuno d "
@@ -92,7 +92,7 @@
                                 + "AND p.tipo = '" + s_tipo + "' ";
                         
                         rset = stmt.executeQuery(COMANDO);
-                        //out.println(COMANDO);
+                             //out.println(COMANDO);
 
                         while (rset.next()) {
                             i++;

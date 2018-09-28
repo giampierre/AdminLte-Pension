@@ -47,7 +47,7 @@
         </div>
         <div class="table-responsive">
             <table class="table table-bordered table-condensed table-hover">
-                <thead>     
+                <thead style="background: #3b6486; color: #fff;">     
                     <tr>
                         <th>N°</th>
                         <th>Nombres</th>
@@ -100,7 +100,7 @@
                         <td><%=fecha%></td> 
                         <td><%=cantidad%></td> 
                         <td><%=monto%></td> 
-                        <td><a id="modal_desaUno" data-toggle="modal" onclick="myModal('<%=rset.getString("idPENSIONISTA")%>')" data-target="#myModal"><button class="btn btn-success btn-sm fa fa-eye"></button></a></td> 
+                        <td><a id="modal_desaUno" data-toggle="modal" onclick="myModal('<%=rset.getString("idPENSIONISTA")%>')" data-target="#myModal"><button class="btn btn-info btn-sm fa fa-eye"></button></a></td> 
                     </tr>
                     <%}%>
                 </tbody>
