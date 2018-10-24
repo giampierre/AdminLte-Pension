@@ -72,6 +72,14 @@ $(document).ready(function () { // inicio ready.function
         $('#contenido').html('<center><img src="dist/img/loader.gif" width="20px" height="20px"/></center>');
         $("#contenido").load("mantenimiento/desayuno/MainDesayuno.jsp");
     });
+    $("#listAlmuerzos").click(function () {
+        $('#contenido').html('<center><img src="dist/img/loader.gif" width="20px" height="20px"/></center>');
+        $("#contenido").load("mantenimiento/almuerzo/MainAlmuerzo.jsp");
+    });
+    $("#listCenas").click(function () {
+        $('#contenido').html('<center><img src="dist/img/loader.gif" width="20px" height="20px"/></center>');
+        $("#contenido").load("mantenimiento/cena/MainCena.jsp");
+    });
    
     
 }); // fin ready.function

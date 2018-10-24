@@ -3,16 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/TIC-32/Documents/NetBeansProjects/AdminLte-Pension/web/mantenimiento/desayuno/AddDesayuno.jsp</file>
-            <file>file:/C:/Users/TIC-32/Documents/NetBeansProjects/AdminLte-Pension/web/dist/js/ValidarNumeric.js</file>
-            <file>file:/C:/Users/TIC-32/Documents/NetBeansProjects/AdminLte-Pension/web/mantenimiento/desayuno/EditFormDesayuno.jsp</file>
-            <file>file:/C:/Users/TIC-32/Documents/NetBeansProjects/AdminLte-Pension/web/mantenimiento/desayuno/ListDesayuno.jsp</file>
-            <file>file:/C:/Users/TIC-32/Documents/NetBeansProjects/AdminLte-Pension/web/mantenimiento/desayuno/MainDesayuno.jsp</file>
-            <file>file:/C:/Users/TIC-32/Documents/NetBeansProjects/AdminLte-Pension/web/mantenimiento/desayuno/DeleteFormDesayuno.jsp</file>
-            <file>file:/C:/Users/TIC-32/Documents/NetBeansProjects/AdminLte-Pension/web/mantenimiento/desayuno/DeleteDesayuno.jsp</file>
-            <file>file:/C:/Users/TIC-32/Documents/NetBeansProjects/AdminLte-Pension/web/mantenimiento/desayuno/AddFormDesayuno.jsp</file>
-            <file>file:/C:/Users/TIC-32/Documents/NetBeansProjects/AdminLte-Pension/web/mantenimiento/pensionista/AddFormPensionita.jsp</file>
-            <file>file:/C:/Users/TIC-32/Documents/NetBeansProjects/AdminLte-Pension/web/mantenimiento/pensionista/AddPensionista.jsp</file>
+            <file>file:/C:/Users/TIC-32/Documents/NetBeansProjects/AdminLte-Pension/web/views/RegistrarComidas/RegistrarDesayunos/AddDesayuno.jsp</file>
+            <file>file:/C:/Users/TIC-32/Documents/NetBeansProjects/AdminLte-Pension/web/dist/js/AjaxRegistrarDesayuno.js</file>
+            <file>file:/C:/Users/TIC-32/Documents/NetBeansProjects/AdminLte-Pension/web/views/RegistrarComidas/RegistrarDesayunos/RegistrarDesayuno.jsp</file>
+            <file>file:/C:/Users/TIC-32/Documents/NetBeansProjects/AdminLte-Pension/web/views/Dashboard/Dashboard.jsp</file>
+            <file>file:/C:/Users/TIC-32/Documents/NetBeansProjects/AdminLte-Pension/web/ValidateUser.jsp</file>
         </group>
     </open-files>
 </project-private>

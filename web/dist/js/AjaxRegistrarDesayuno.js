@@ -34,7 +34,7 @@ function tufuncion(e) {
         ajax.onreadystatechange = funcionCallback;
 
         // Enviamos la peticion
-        ajax.open("GET", "views/RegistrarComidas/RegistrarDesayunos/AddDesayuno.jsp?dni=" + document.all.entrada.value, true);
+        ajax.open("GET", "views/RegistrarComidas/RegistrarDesayunos/AddDesayuno.jsp?dni=" + document.all.entrada.value + "&estado="+document.all.estado.value, true);
         ajax.send("");
     }
 }
@@ -45,8 +45,8 @@ function tufuncion(e) {
  function funLimpiar(e) {
                 tecla = (document.all) ? e.keyCode : e.which;
                 if (tecla === 13) {
+                    //$('#estado').val("");
                     $('input[type="text"]').val('');
                 }
             }
-
 

@@ -22,6 +22,7 @@
             
           
             String s_dni = request.getParameter("dni");
+            String s_estado = request.getParameter("estado");
    
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bd_pension",
@@ -47,11 +48,22 @@
 
                 session.setAttribute("s_dni", s_dni);
                 
-               //Insert 
+              
+              if( s_estado.equals("1")){
+                    //Insert 
               Statement Estamento = con.createStatement();
               int rs2 = Estamento.executeUpdate("INSERT INTO desayuno (idDESAYUNO, idPENSIONISTA, titulo, estado, fecha_d, monto, cantidad) VALUES "
-                    + "(NULL, '" + idpensionista + "', 'DESAYUNO', '0'"
+                    + "(NULL, '" + idpensionista + "', 'DESAYUNO', '"+ s_estado +"'"
+                            + ", sysdate(), '3.5', '1');");
+                  
+              }else{
+                  
+              Statement Estamento = con.createStatement();
+              int rs2 = Estamento.executeUpdate("INSERT INTO desayuno (idDESAYUNO, idPENSIONISTA, titulo, estado, fecha_d, monto, cantidad) VALUES "
+                    + "(NULL, '" + idpensionista + "', 'DESAYUNO', '"+ s_estado +"'"
                             + ", sysdate(), '3', '1');");
+              
+              }
               
                    if( s_dni.equals(s_dni) )
 	{

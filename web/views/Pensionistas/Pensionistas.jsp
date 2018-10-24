@@ -83,7 +83,7 @@
                             double monto = 0.0;
                             int i = 0;
                             String color = "";
-                            String danger = "#f5c6cb";
+                            String danger = "#D6EAF8";
                             String blanco = "#fff";
                             String verde = "#c3e6cb";
 
@@ -144,7 +144,7 @@
                                     <!--a><button class="btn btn-warning btn-xs glyphicon glyphicon-edit"></button></a>
                                     <a><button class="btn btn-danger btn-xs glyphicon glyphicon-trash"></button></a-->
                                     <a id="modal_desaUno" data-toggle="modal" onclick="myModal('<%=s_id_pensionista%>')" data-target="#myModal"><button class="btn btn-info btn-xs glyphicon glyphicon-eye-open"></button></a>
-                                    <a title="Eliminar"  data-toggle="modal" onclick="myModalElim('<%=s_id_pensionista%>')" data-target="#myModalElim"><button class="btn btn-success btn-xs glyphicon glyphicon-refresh"></button></a>
+                                    <a title=""  data-toggle="modal" onclick="myModalElim('<%=s_id_pensionista%>')" data-target="#myModalElim"><button class="btn btn-success btn-xs glyphicon glyphicon-refresh"></button></a>
                                         <%if (estado.equals("1")) {%>
                                     <a class=" glyphicon glyphicon-ok"></a>
                                     <%} else {%>

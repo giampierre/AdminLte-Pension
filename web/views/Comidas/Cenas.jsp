@@ -33,7 +33,7 @@
         %>
         <div class="box-header">       
 
-            <h3 class="box-title">Cenas por pensionistas</h3>
+            <h3 class="box-title"></h3>
 
             <div class="box-tools">
                 <div class="input-group input-group-sm" style="width: 150px;">
