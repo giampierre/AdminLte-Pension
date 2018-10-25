@@ -37,7 +37,7 @@
                 $("#datoslist").submit(function () {
                     var x = $("#f_mes_ini").val();
                     if (x !== "enviar") {
-                        alert("Valor introducido no válido");
+                        //alert("");
                         return false;
                     } else
                         return true;

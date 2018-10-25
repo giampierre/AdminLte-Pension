@@ -39,8 +39,8 @@
             String s_tipo = request.getParameter("f_tipo");
         %>
         <div class="box-header">
-            <h3 class="box-title"><button class="btn btn-primary btn-xs fa fa-user-plus"></button>&nbsp;</h3>
-
+            <!--h3 class="box-title"><button class="btn btn-primary btn-xs fa fa-user-plus"></button>&nbsp;</h3-->
+            <h3 class="box-title">&nbsp;</h3>
             <div class="box-tools">
                 <div class="input-group input-group-sm" style="width: 150px;">
                     <input id="buscar"  type="text" onkeyup="buscarDatos()" class="form-control pull-right" placeholder="Buscar...">
@@ -144,12 +144,11 @@
                                     <!--a><button class="btn btn-warning btn-xs glyphicon glyphicon-edit"></button></a>
                                     <a><button class="btn btn-danger btn-xs glyphicon glyphicon-trash"></button></a-->
                                     <a id="modal_desaUno" data-toggle="modal" onclick="myModal('<%=s_id_pensionista%>')" data-target="#myModal"><button class="btn btn-info btn-xs glyphicon glyphicon-eye-open"></button></a>
-                                    <a title=""  data-toggle="modal" onclick="myModalElim('<%=s_id_pensionista%>')" data-target="#myModalElim"><button class="btn btn-success btn-xs glyphicon glyphicon-refresh"></button></a>
-                                        <%if (estado.equals("1")) {%>
-                                    <a class=" glyphicon glyphicon-ok"></a>
-                                    <%} else {%>
-                                    <a class=" glyphicon glyphicon-remove"></a>
-                                    <%}%>
+                                    <%if (estado.equals("0")) {%>
+                                    <a title=""  data-toggle="modal" onclick="myModalElim('<%=s_id_pensionista%>')" data-target="#myModalElim"><button class="btn btn-warning btn-xs glyphicon glyphicon-refresh"></button></a>
+                                       <%} else {%>
+                                    <a title="ya pagó"><button class="btn btn-success btn-xs glyphicon glyphicon-ok"></button></a>
+                                     <%}%>
                                 </div>
                             </td>
                         </tr>

@@ -17,6 +17,7 @@ function funcionCallback()
             document.all.salida.innerHTML = "<p style='font-size: 20px; text-transform: uppercase;'><b>" + ajax.responseText + "</b></p>";
         }
     }
+
 }
 
 function tufuncion(e) {
@@ -32,13 +33,19 @@ function tufuncion(e) {
         // Almacenamos en el control al funcion que se invocara cuando la peticion
         // cambie de estado	
         ajax.onreadystatechange = funcionCallback;
-
         // Enviamos la peticion
         ajax.open("GET", "views/RegistrarComidas/RegistrarDesayunos/AddDesayuno.jsp?dni=" + document.all.entrada.value + "&estado=" + document.all.estado.value, true);
         ajax.send("");
         
+        $('#salida').hide(2000);
+	$('.salida').hide("fast");
+       // alert("ok");
+        $('#salida').show(2000);
+	$('.salida').show("slow");
+        
     }
-     document.all.salida.innerHTML = "ingresando código...";
+    
+    document.all.salida.innerHTML = "ingresando código...";
 }
 
 
@@ -47,16 +54,7 @@ function funLimpiar(e) {
     tecla = (document.all) ? e.keyCode : e.which;
     if (tecla === 13) {
         $('input[type="text"]').val('');
-        $('#salida').hide(2000);
-	$('.salida').hide("fast");
-       // alert("ok");
-        $('#salida').show(2000);
-	$('.salida').show("slow");
-     
     }
-    
-   
-
 }
 
 
