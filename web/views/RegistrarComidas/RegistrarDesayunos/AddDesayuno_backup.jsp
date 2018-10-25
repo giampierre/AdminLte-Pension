@@ -30,6 +30,8 @@
             Statement st = con.createStatement();
             ResultSet rs;
             
+           
+            
             int idpersona = 0;
             int idpensionista = 0;
             String nombres = "";
@@ -38,6 +40,8 @@
                     + "WHERE p.idPERSONA = pe.idPERSONA "
                     + "AND p.dni='" + s_dni + "' "
                     + "AND DATE_FORMAT(pe.fecha_ingreso,'%Y%m') = DATE_FORMAT(sysdate(), '%Y%m') ");
+            
+            //out.print(rs);
             if (rs.next()) {
                 
                 idpersona = rs.getInt("idpersona");
@@ -65,7 +69,7 @@
               
                    if( s_dni.equals(s_dni) )
 	{
-            //out.print("Desayuno registrado<br />");         
+            //out.print("Desayuno registrado<br />");
             out.print(rs.getString("Nombres"));
 	}
                

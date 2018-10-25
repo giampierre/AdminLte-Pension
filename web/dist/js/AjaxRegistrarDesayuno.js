@@ -34,19 +34,30 @@ function tufuncion(e) {
         ajax.onreadystatechange = funcionCallback;
 
         // Enviamos la peticion
-        ajax.open("GET", "views/RegistrarComidas/RegistrarDesayunos/AddDesayuno.jsp?dni=" + document.all.entrada.value + "&estado="+document.all.estado.value, true);
+        ajax.open("GET", "views/RegistrarComidas/RegistrarDesayunos/AddDesayuno.jsp?dni=" + document.all.entrada.value + "&estado=" + document.all.estado.value, true);
         ajax.send("");
+        
     }
+     document.all.salida.innerHTML = "ingresando código...";
 }
 
 
 //FUNCION LIMPIAR DESPUES DE REGISTRAR DESAYUNO
+function funLimpiar(e) {
+    tecla = (document.all) ? e.keyCode : e.which;
+    if (tecla === 13) {
+        $('input[type="text"]').val('');
+        $('#salida').hide(2000);
+	$('.salida').hide("fast");
+       // alert("ok");
+        $('#salida').show(2000);
+	$('.salida').show("slow");
+     
+    }
+    
+   
 
- function funLimpiar(e) {
-                tecla = (document.all) ? e.keyCode : e.which;
-                if (tecla === 13) {
-                    //$('#estado').val("");
-                    $('input[type="text"]').val('');
-                }
-            }
+}
+
+
 

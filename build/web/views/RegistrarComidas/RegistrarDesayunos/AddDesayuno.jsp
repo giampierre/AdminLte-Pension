@@ -30,8 +30,6 @@
             Statement st = con.createStatement();
             ResultSet rs;
             
-           
-            
             int idpersona = 0;
             int idpensionista = 0;
             String nombres = "";
@@ -67,7 +65,7 @@
               
                    if( s_dni.equals(s_dni) )
 	{
-            //out.print("Desayuno registrado<br />");
+            //out.print("Desayuno registrado<br />");         
             out.print(rs.getString("Nombres"));
 	}
                
