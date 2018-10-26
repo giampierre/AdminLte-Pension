@@ -32,7 +32,8 @@
             int idpersona = 0;
             int idpensionista = 0;
             String nombres = "";
-            rs = st.executeQuery("SELECT p.idPERSONA, pe.idPENSIONISTA, CONCAT(p.Nombres, ' ', p.Apellidos) as Nombres,"
+            String tipo_pensionista = "";
+            rs = st.executeQuery("SELECT p.idPERSONA, pe.idPENSIONISTA, CONCAT(p.Nombres, ' ', p.Apellidos) as Nombres, pe.tipo,"
                     + " p.dni FROM persona p, pensionista pe "
                     + "WHERE p.idPERSONA = pe.idPERSONA "
                     + "AND p.dni='" + s_dni + "' "
@@ -42,24 +43,42 @@
                 idpersona = rs.getInt("idpersona");
                 idpensionista = rs.getInt("idpensionista");
                 nombres = rs.getString("Nombres");
+                tipo_pensionista = rs.getString("tipo");
 
                 session.setAttribute("s_dni", s_dni);
 
-                if (s_estado.equals("1")) {
+                if (tipo_pensionista.equals("0") & s_estado.equals("1")) {
                     //Insert 
                     Statement Estamento = con.createStatement();
                     int rs2 = Estamento.executeUpdate("INSERT INTO desayuno (idDESAYUNO, idPENSIONISTA, titulo, estado, fecha_d, monto, cantidad) VALUES "
                             + "(NULL, '" + idpensionista + "', 'DESAYUNO', '" + s_estado + "'"
                             + ", sysdate(), '3.5', '1');");
 
-                } else {
+                } else if(tipo_pensionista.equals("0") & s_estado.equals("0")) {
 
                     Statement Estamento = con.createStatement();
                     int rs2 = Estamento.executeUpdate("INSERT INTO desayuno (idDESAYUNO, idPENSIONISTA, titulo, estado, fecha_d, monto, cantidad) VALUES "
                             + "(NULL, '" + idpensionista + "', 'DESAYUNO', '" + s_estado + "'"
                             + ", sysdate(), '3', '1');");
 
+                }else if(tipo_pensionista.equals("1") & s_estado.equals("1")){
+                
+                     //Insert 
+                    Statement Estamento = con.createStatement();
+                    int rs2 = Estamento.executeUpdate("INSERT INTO desayuno (idDESAYUNO, idPENSIONISTA, titulo, estado, fecha_d, monto, cantidad) VALUES "
+                            + "(NULL, '" + idpensionista + "', 'DESAYUNO', '" + s_estado + "'"
+                            + ", sysdate(), '4.5', '1');");
+                    
+                }else if(tipo_pensionista.equals("1") & s_estado.equals("0")){
+                    
+                        //Insert 
+                    Statement Estamento = con.createStatement();
+                    int rs2 = Estamento.executeUpdate("INSERT INTO desayuno (idDESAYUNO, idPENSIONISTA, titulo, estado, fecha_d, monto, cantidad) VALUES "
+                            + "(NULL, '" + idpensionista + "', 'DESAYUNO', '" + s_estado + "'"
+                            + ", sysdate(), '4', '1');");
+                    
                 }
+                        
 
                 if (s_dni.equals(s_dni)) {
                     //out.print("Desayuno registrado<br />");         
