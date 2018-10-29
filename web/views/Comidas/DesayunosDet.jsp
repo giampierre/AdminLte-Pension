@@ -29,10 +29,13 @@
                         String id_pensionista = request.getParameter("f_id_pensionista");
                         String nombres = "";
                         String nota = "";
-                        String cantidad = "";
-                        String monto = "";
+                        int cantidad = 0;
+                        double monto = 0.0;
+                        double monto_real = 0.0;
                         String fecha = "";
                         int i = 0;
+                        int sumar_cantidad = 0;
+                        double sumar_monto = 0;
                         
                         COMANDO = "SELECT pp.idPENSIONISTA, CONCAT(p.Nombres, ' ', p.Apellidos) as Nombres, "
                                 + "pp.monto, pp.fecha_ingreso, d.titulo, if(d.estado=1,'Para llevar','Desayunó') AS ESTADO, " 
@@ -52,8 +55,11 @@
                             nombres = rset.getString("Nombres");
                             nota = rset.getString("ESTADO");
                             fecha = rset.getString("fecha_d");
-                            cantidad = rset.getString("cantidad");
-                            monto = rset.getString("monto_c");
+                            cantidad = Integer.parseInt(rset.getString("cantidad"));
+                            monto = rset.getDouble("monto_c");
+                            monto_real = cantidad * monto;
+                            sumar_cantidad += cantidad;
+                            sumar_monto += monto_real;
 
 
                     %>
@@ -64,11 +70,18 @@
                         <td><%=nota%></td>
                         <td><%=fecha%></td> 
                         <td><%=cantidad%></td> 
-                        <td><%=monto%></td> 
+                        <td><%=monto_real%></td> 
 
                     </tr>
                     <%}%>
                 </tbody>
+                <tfoot>
+                    <tr><th colspan="4">Total...</th>
+                        <th><%=sumar_cantidad%></th>
+                        <th><%=sumar_monto%></th>
+                        <th><br></th>
+                    </tr>
+                </tfoot>
             </table>
         </div>
     </body>

@@ -28,7 +28,7 @@
             table tr td {
                 border: inset 0pt !important;
             }
-                    
+
         </style>
         <script>
         </script>    
@@ -69,12 +69,23 @@
                                 <center><h3 style="font-size: 100px; color: #D7DBDD;" class="fa fa-user"></h3></center>     
                                 <input class="form-control input-number" style=" padding: 2%; width: 22%; text-align: center; font-size: 300%; font-weight: bold; color: #2E4053;" type="text" name="dni" id="entrada" size="400" maxlength="8" onkeypress="tufuncion(event);funLimpiar(event);" required><br>
                                 <!--input class="checkbox center" type="checkbox" value="1" id="estado" checked=""-->
-                                
-                                    <select style="width: 18%; text-align: center;" class="form-control" name="estado" id="estado">
-                                        <option value="0" selected>Desayuné en la pensión</option>
-                                        <option value="1">Desayuno para llevar</option>
-                                    </select>
-                                
+                                <div class="form-inline">
+                                    <div class="form-group">
+                                        <select class="form-control" name="cantidad" id="cantidad">
+                                            <option value="1" selected>Cantidad</option>
+                                            <option value="2">Dos</option>
+                                            <option value="3">Tres</option>
+                                            <option value="4">Cuatro</option>
+                                            <option value="5">Cinco</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <select class="form-control" name="estado" id="estado">
+                                            <option value="0" selected>Desayuné en la pensión</option>
+                                            <option value="1">Desayuno para llevar</option>
+                                        </select>
+                                    </div>
+                                </div>
                                 <!--div style="color: #fff;" class="help-block text-center">
                                     Ingrese su código para registrar su desayuno                        
                                 </div-->

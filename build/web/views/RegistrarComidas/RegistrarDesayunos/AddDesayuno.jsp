@@ -22,6 +22,7 @@
 
             String s_dni = request.getParameter("dni");
             String s_estado = request.getParameter("estado");
+            int s_cantidad = Integer.parseInt(request.getParameter("cantidad"));
 
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bd_pension",
@@ -52,14 +53,14 @@
                     Statement Estamento = con.createStatement();
                     int rs2 = Estamento.executeUpdate("INSERT INTO desayuno (idDESAYUNO, idPENSIONISTA, titulo, estado, fecha_d, monto, cantidad) VALUES "
                             + "(NULL, '" + idpensionista + "', 'DESAYUNO', '" + s_estado + "'"
-                            + ", sysdate(), '3.5', '1');");
+                            + ", sysdate(), '3.5', '"+ s_cantidad +"');");
 
                 } else if(tipo_pensionista.equals("0") & s_estado.equals("0")) {
 
                     Statement Estamento = con.createStatement();
                     int rs2 = Estamento.executeUpdate("INSERT INTO desayuno (idDESAYUNO, idPENSIONISTA, titulo, estado, fecha_d, monto, cantidad) VALUES "
                             + "(NULL, '" + idpensionista + "', 'DESAYUNO', '" + s_estado + "'"
-                            + ", sysdate(), '3', '1');");
+                            + ", sysdate(), '3', '"+ s_cantidad +"');");
 
                 }else if(tipo_pensionista.equals("1") & s_estado.equals("1")){
                 
@@ -67,7 +68,7 @@
                     Statement Estamento = con.createStatement();
                     int rs2 = Estamento.executeUpdate("INSERT INTO desayuno (idDESAYUNO, idPENSIONISTA, titulo, estado, fecha_d, monto, cantidad) VALUES "
                             + "(NULL, '" + idpensionista + "', 'DESAYUNO', '" + s_estado + "'"
-                            + ", sysdate(), '4.5', '1');");
+                            + ", sysdate(), '4.5', '"+ s_cantidad +"');");
                     
                 }else if(tipo_pensionista.equals("1") & s_estado.equals("0")){
                     
@@ -75,7 +76,7 @@
                     Statement Estamento = con.createStatement();
                     int rs2 = Estamento.executeUpdate("INSERT INTO desayuno (idDESAYUNO, idPENSIONISTA, titulo, estado, fecha_d, monto, cantidad) VALUES "
                             + "(NULL, '" + idpensionista + "', 'DESAYUNO', '" + s_estado + "'"
-                            + ", sysdate(), '4', '1');");
+                            + ", sysdate(), '4', '"+ s_cantidad +"');");
                     
                 }
                         

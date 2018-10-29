@@ -60,8 +60,8 @@
                 <tbody id="datos">
                     <%                       
                         String nombres = "";
-                        String cantidad = "";
-                        String monto = "";
+                        int cantidad = 0;
+                        double monto = 0.0;
                         String fecha = "";
                         int i = 0;
                         int sumar_cantidad = 0;
@@ -69,15 +69,17 @@
                         String s_id_pensionista = "";
 
                         COMANDO = "SELECT pp.idPENSIONISTA, CONCAT(p.Nombres, ' ', p.Apellidos) as Nombres, "
-                                + "pp.monto, pp.fecha_ingreso, d.titulo,"
-                                + "SUM(d.monto) as monto_c, SUM(d.cantidad) as cantidad, "
+                                + "pp.monto, pp.fecha_ingreso, d.titulo, "
+                                + "SUM(d.cantidad) AS cantidad, SUM(d.monto*d.cantidad) as monto_total, "
                                 + "DATE_FORMAT(d.fecha_d, '%m-%Y' ) as fecha_d "
                                 + "FROM persona p, pensionista pp, desayuno d  "
                                 + "WHERE p.idpersona = pp.idpersona "
                                 + "AND pp.idpensionista = d.idpensionista "
                                 + "AND DATE_FORMAT(d.fecha_d,'%Y%m') = '" + s_anio_ini + s_mes_ini + "' "
-                                 + "AND pp.tipo = '" + s_tipo + "' "
+                                + "AND pp.tipo = '" + s_tipo + "' "
                                 + "GROUP BY pp.idPENSIONISTA ";
+            
+                                
                         rset = stmt.executeQuery(COMANDO);
                         //out.println(COMANDO);
 
@@ -85,11 +87,11 @@
                             i++;
                             nombres = rset.getString("Nombres");
                             fecha = rset.getString("fecha_d");
-                            cantidad = rset.getString("cantidad");
-                            monto = rset.getString("monto_c");
+                            cantidad = rset.getInt("cantidad");
+                            monto = rset.getDouble("monto_total");
                             s_id_pensionista = rset.getString("idPENSIONISTA");
                             sumar_cantidad += rset.getInt("cantidad");
-                            sumar_monto += rset.getDouble("monto_c");
+                            sumar_monto += monto;
 
 
                     %>
