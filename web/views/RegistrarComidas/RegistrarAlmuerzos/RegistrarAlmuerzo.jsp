@@ -30,7 +30,7 @@
             <div class="col-lg-12 col-md-12">
                 <div>
                     <!-- /.box-header -->
-                    <div style="background-image: url('dist/img/desayuno3.jpg');  width: 100%; height: 82vh;" >
+                    <div style="background-image: url('dist/img/almuerzo.jpg');  width: 100%; height: 82vh;" >
 
                         <div class="table-responsive">
                             <table class="table table-condensed">
@@ -42,7 +42,7 @@
                                         <br>
                                         <br>
                                         <div style="width: 50%;"  class="alert alert-warning">
-                                            <p style="font-size: 35px;" class="text-center fa fa-coffee"><b>&nbsp;&nbsp;ALMUERZOS</b>&nbsp;</p>
+                                            <p style="font-size: 35px;" class="text-center fa fa-cutlery"><b>&nbsp;&nbsp;ALMUERZOS</b>&nbsp;</p>
                                         </div>
                                     </td>
                                 </tr>
