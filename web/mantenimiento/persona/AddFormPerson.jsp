@@ -81,33 +81,36 @@
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-md-12">
+                    <div class="form-group col-md-8">
                         <label for="direccion">Dirección</label>
                         <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Ingrese Dirección" required>
                     </div>
+                     <div class="form-group col-md-4">
+                        <label for="fechaingreso">Fecha de registro</label>
+                        <input type="text" value="<%=fechaActual%>" class="form-control" id="fechaingres" name="fechaingres" readonly="">
+                        <!--<input type="datetime-local"  placeholder="Ingrese Fecha">-->
+                    </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-md-4">
+                    <!--div class="form-group col-md-4">
                         <label for="estado">Estado</label>
                         <select name="estado" id="estado" class="form-control" maxlength="1">
                             <option value="1" selected>Activo</option>
                             <option value="0">Inactivo</option>
                         </select>
                         <!--<input type="text" class="form-control" id="estado" name="estado" placeholder="Ingese Estado" required>-->
-                    </div>
-                    <div class="form-group col-md-4">
-                        <label for="fechaingreso">Fecha de registro</label>
-                        <input type="text" value="<%=fechaActual%>" class="form-control" id="fechaingres" name="fechaingres" readonly="">
-                        <!--<input type="datetime-local"  placeholder="Ingrese Fecha">-->
-                    </div>
-                    <div class="form-group col-md-4">
+                    <!--/div-->
+                    <!--div class="form-group col-md-4">
+                       Aqui estaba el campo fecha.
+                    <!--/div-->
+                    <!--div class="form-group col-md-4">
                         <label for="codigo">Codigo</label>
                         <input type="text" class="form-control input-number" id="codigo" name="codigo" placeholder="Ingrese Codigo" maxlength="4" required>
-                    </div>
+                    </div-->
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-12">
-                        <label for="observacion">Observación</label>
+                        <label for="observacion">Información</label>
                         <textarea class="form-control" id="observacion" name="observacion" placeholder="Ingrese Observación" maxlength="450" ></textarea>
                     </div>
                 </div>

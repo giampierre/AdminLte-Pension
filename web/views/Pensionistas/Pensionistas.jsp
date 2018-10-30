@@ -62,7 +62,7 @@
                             <th>DNI</th>
                             <th>Celular</th>
                             <th>Dirección</th>
-                            <th>Nota</th>
+                            <th>Información</th>
                             <th>Tipo</th>
                             <th>Registrado</th>
                             <th>S/</th>

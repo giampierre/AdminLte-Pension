@@ -64,10 +64,10 @@
                         <th>DNI</th>
                         <th>Dirección</th>
                         <th>Celular</th>
-                        <th>Estado</th>
+                        <!--th>Estado</th-->
                         <th>Registrado</th>
-                        <th>Codigo</th>
-                        <th>Observación</th>
+                        <!--th>Codigo</th-->
+                        <th>Información</th>
                         <th>Opciones</th>
                     </tr>
                 </thead>
@@ -120,9 +120,9 @@
                         <td><%=dni%></td>                    
                         <td><%=direccion%></td>                    
                         <td><%=celular%></td>                    
-                        <td><%=estado%></td>                    
+                        <!--td><%=estado%></td-->                    
                         <td><%=fecha_ingreso%></td>                    
-                        <td><%=codigo%></td>                    
+                        <!--td><%=codigo%></td-->                    
                         <td><%=observacion%></td> 
                         <td>
                             <div class="btn-group">

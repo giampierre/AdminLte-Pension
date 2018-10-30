@@ -110,13 +110,18 @@
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-md-12">
+                    <div class="form-group col-md-8">
                         <label for="direccion">Dirección</label>
                         <input type="text" class="form-control" id="direccion" name="direccion" value="<%=direc%>" required>
                     </div>
+                      <div class="form-group col-md-4">
+                        <label for="fechaingreso">Fecha de registro</label>
+                        <input type="text" class="form-control" id="fecha_ingres" name="fecha_ingres" value="<%=fecha_ing%>">
+                        <!--<input type="datetime-local"  placeholder="Ingrese Fecha">-->
+                    </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-md-4">
+                    <!--div class="form-group col-md-4">
                         <label for="estado">Estado</label>                      
                         <select class="form-control" id="estado" name="estado">
                             <option value="<%=estado%>" selected><%=est%></option>
@@ -126,20 +131,20 @@
                             <option value="1">Activo</option>	
                             <%}%>
                         </select>
-                    </div>
-                    <div class="form-group col-md-4">
+                    </div-->
+                    <!--div class="form-group col-md-4">
                         <label for="fechaingreso">Fecha de registro</label>
                         <input type="text" class="form-control" id="fecha_ingres" name="fecha_ingres" value="<%=fecha_ing%>">
                         <!--<input type="datetime-local"  placeholder="Ingrese Fecha">-->
-                    </div>
-                    <div class="form-group col-md-4">
+                    <!--/div>
+                    <!--div class="form-group col-md-4">
                         <label for="codigo">Codigo</label>
                         <input type="text" class="form-control input-number" id="codigo" name="codigo" value="<%=cod%>" maxlength="4" required>
-                    </div>
+                    </div-->
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-12">
-                        <label for="observacion">Observación</label>
+                        <label for="observacion">Información</label>
                         <textarea class="form-control" id="observacion" name="observacion"  maxlength="450"><%=observ%></textarea>
                     </div>
                 </div>
