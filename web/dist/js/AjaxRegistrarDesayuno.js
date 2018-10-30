@@ -14,13 +14,16 @@ function funcionCallback()
         if (ajax.status === 200)
         {
             // Escribimos el resultado en la pagina HTML mediante DHTML
-            document.all.salida.innerHTML = "<p style='font-size: 20px; text-transform: uppercase;'><b>" + ajax.responseText + "</b></p>";
-        }else {
-            alert("nada");
+           document.all.salida.innerHTML = "<p style='font-size: 20px; text-transform: uppercase;'><b>" + ajax.responseText + "</b></p>";      
+           //$('#salida').hide(3000);
+           //$('.salida').hide("fast");
+          
         }
+       
     }
-
+      
 }
+
 
 function tufuncion(e) {
     tecla = (document.all) ? e.keyCode : e.which;
@@ -39,14 +42,14 @@ function tufuncion(e) {
         ajax.open("GET", "views/RegistrarComidas/RegistrarDesayunos/AddDesayuno.jsp?dni=" + document.all.entrada.value + "&estado=" + document.all.estado.value + "&cantidad=" + document.all.cantidad.value, true);
         ajax.send("");
         
-        $('#salida').hide(2000);
-	$('.salida').hide("fast");
+        //$('#salida').hide(20000);
+	//$('.salida').hide("fast");
        // alert("ok");
-        $('#salida').show(2000);
-	$('.salida').show("slow");
+        //$('#salida').show(2000);
+	//$('.salida').show("slow");
         
     }
-    
+    //document.getElementById('salida').innerHTML = "ingresando código...";
     document.all.salida.innerHTML = "ingresando código...";
 }
 

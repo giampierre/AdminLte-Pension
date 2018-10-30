@@ -44,11 +44,11 @@ function tufuncion(e) {
         ajax.open("GET", "views/RegistrarComidas/RegistrarAlmuerzos/AddAlmuerzos.jsp?dni=" + document.all.entrada.value + "&estado=" + document.all.estado.value + "&cantidad=" + document.all.cantidad.value, true);
         ajax.send("");
         
-        $('#salida').hide(2000);
-	$('.salida').hide("fast");
+        //$('#salida').hide(2000);
+	//$('.salida').hide("fast");
        // alert("ok");
-        $('#salida').show(2000);
-	$('.salida').show("slow");
+        //$('#salida').show(2000);
+	//$('.salida').show("slow");
         
     }
     

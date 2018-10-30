@@ -81,12 +81,10 @@
                         
 
                 if (s_dni.equals(s_dni)) {
-                    //out.print("Desayuno registrado<br />");         
                     out.print(rs.getString("Nombres"));
                 }
 
             } else {
-                //out.print("Desayuno no registrado<br />");
                 out.print("Código Incorrecto");
             }
         %> 
