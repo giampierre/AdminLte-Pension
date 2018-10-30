@@ -56,7 +56,7 @@
             int i = 0;
 
             COMANDO = "SELECT d.idalmuerzo, p.idpensionista, nom_pen(d.idpensionista) AS Nombres, p.tipo, IF(p.tipo=0, 'General', 'Ejecutivo') as nom_tipo, "
-                    + "d.estado, IF(d.estado=0, 'Desayunó', 'Para llevar') AS nom_estado, "
+                    + "d.estado, IF(d.estado=0, 'Almorzó', 'Para llevar') AS nom_estado, "
                     + "fecha_a, cantidad, d.monto "
                     + "FROM almuerzo d "
                     + "INNER JOIN  pensionista p "
@@ -109,7 +109,7 @@
                          <select class="form-control" id="estado" name="estado">
                             <option value="<%=estadoVal%>" selected><%=estado%></option>
                             <%if (estadoVal.equals("1")) {%>
-                            <option value="0">Desayunó</option>
+                            <option value="0">Almorzó</option>
                             <%} else {%>
                             <option value="1">Para llevar</option>	
                             <%}%>
