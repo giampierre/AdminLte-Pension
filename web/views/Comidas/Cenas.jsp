@@ -22,11 +22,9 @@
 
         </script>
     </head>
- 
+
     <body>
-         <%            
-           
-            String s_mes_ini = request.getParameter("f_mes_ini");
+        <%             String s_mes_ini = request.getParameter("f_mes_ini");
             String s_anio_ini = request.getParameter("f_anio_ini");
             String s_tipo = request.getParameter("f_tipo");
 
@@ -51,6 +49,7 @@
                     <tr>
                         <th>N°</th>
                         <th>Nombres</th>
+                        <th>Tipo</th>
                         <th>Fecha</th>
                         <th>Cantidad</th>
                         <th>Monto</th>
@@ -58,8 +57,9 @@
                     </tr>
                 </thead>
                 <tbody id="datos">
-                    <%                        
+                    <%                       
                         String nombres = "";
+                        String tipo = "";
                         String cena = "";
                         int cantidad = 0;
                         double monto = 0.0;
@@ -72,20 +72,24 @@
                         COMANDO = "SELECT pp.idPENSIONISTA, CONCAT(p.Nombres, ' ', p.Apellidos) as Nombres, "
                                 + "pp.monto, pp.fecha_ingreso, d.titulo, "
                                 + "SUM(d.cantidad) AS cantidad, SUM(d.monto*d.cantidad) as monto_total, "
+                                + "IF(pp.tipo=0 , 'General', 'Ejecutivo') as tipo,"
                                 + "DATE_FORMAT(d.fecha_c, '%m-%Y' ) as fecha_c "
                                 + "FROM persona p, pensionista pp, cena d  "
                                 + "WHERE p.idpersona = pp.idpersona "
                                 + "AND pp.idpensionista = d.idpensionista "
-                                + "AND DATE_FORMAT(d.fecha_c,'%Y%m') = '" + s_anio_ini + s_mes_ini + "' "
-                                + "AND pp.tipo = '" + s_tipo + "' "
-                                + "GROUP BY pp.idPENSIONISTA "
-                                + "ORDER BY Nombres ASC ";
+                                + "AND DATE_FORMAT(d.fecha_c,'%Y%m') = '" + s_anio_ini + s_mes_ini + "' ";
+                        if (!s_tipo.equals("3")) {
+                            COMANDO += "AND pp.tipo = '" + s_tipo + "' ";
+                        }
+                        COMANDO += "GROUP BY pp.idPENSIONISTA ";
+                        COMANDO += "ORDER BY Nombres ASC ";
                         rset = stmt.executeQuery(COMANDO);
                         //out.println(COMANDO);
 
                         while (rset.next()) {
                             i++;
                             nombres = rset.getString("Nombres");
+                            tipo = rset.getString("tipo");
                             fecha = rset.getString("fecha_c");
                             cantidad = rset.getInt("cantidad");
                             monto = rset.getDouble("monto_total");
@@ -99,6 +103,7 @@
                     <tr>        
                         <td><%=i%></td>
                         <td><%=nombres%></td>  
+                        <td><%=tipo%></td>  
                         <td><%=fecha%></td> 
                         <td><%=cantidad%></td> 
                         <td><%=monto%></td> 
@@ -107,7 +112,7 @@
                     <%}%>
                 </tbody>
                 <tfoot>
-                    <tr><th colspan="3">Total Cenas</th>
+                    <tr><th colspan="4">Total Cenas</th>
                         <th><%=sumar_cantidad%></th>
                         <th><%=sumar_monto%></th>
                         <th><br></th>

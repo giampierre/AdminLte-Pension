@@ -104,10 +104,11 @@
                                         <li class="fa fa-user">&nbsp;Tipo:</li>
                                     </span>
                                     <select class="form-control" name="f_tipo" id="f_tipo">
+                                        <option value="3" selected="">Todos</option>
                                         <%
                                             for (int x = 0; x < a_tipo.length; x++) {%>
                                         <option value="<%=a_tipo[x][0]%>" <% if (a_tipo[x][0].equals(s_tipo)) {
-                                                out.print("selected");
+                                                
                                             }%>><%=a_tipo[x][1]%></option>
                                         <%						}%>
                                     </select>

@@ -63,6 +63,7 @@
                             <th>Celular</th>
                             <th>Dirección</th>
                             <th>Nota</th>
+                            <th>Tipo</th>
                             <th>Registrado</th>
                             <th>S/</th>
                             <!--th>Actual</th-->
@@ -76,6 +77,7 @@
                             String celular = "";
                             String direccion = "";
                             String nota = "";
+                            String tipo = "";
                             String estado = "";
                             String fecha_ingreso = "";
                             String mes_actual = "";
@@ -90,6 +92,7 @@
                             COMANDO = "SELECT pe.idpensionista, CONCAT(p.Nombres, ' ', p.Apellidos) as Nombres,"
                                     + "p.dni, p.celular, p.direccion, p.observacion,"
                                     + "pe.estado, DATE_FORMAT(pe.fecha_ingreso,'%d/%m/%Y') as fecha_ingreso, pe.monto, "
+                                    + "IF(pe.tipo=0 , 'General', 'Ejecutivo') as tipo,"
                                     + "CASE "
                                     + "WHEN DATE_FORMAT(pe.fecha_ingreso,'%Y%m') = DATE_FORMAT(sysdate(), '%Y%m') THEN '1' "
                                     + "WHEN DATE_FORMAT(pe.fecha_ingreso,'%Y%m') = DATE_FORMAT(pe.fecha_ingreso,'%Y%m') THEN '0' "
@@ -97,9 +100,11 @@
                                     + "END as mes_actual "
                                     + "FROM persona p, pensionista pe "
                                     + "WHERE p.idPERSONA = pe.idPERSONA "
-                                    + "AND DATE_FORMAT(pe.fecha_ingreso,'%Y%m') = '" + s_anio_ini + s_mes_ini + "' "
-                                    + "AND pe.tipo = '" + s_tipo + "' "
-                                    + "ORDER BY Nombres ASC";
+                                    + "AND DATE_FORMAT(pe.fecha_ingreso,'%Y%m') = '" + s_anio_ini + s_mes_ini + "' ";
+                            if (!s_tipo.equals("3")) {
+                                COMANDO += "AND pe.tipo = '" + s_tipo + "' ";
+                            }
+                                COMANDO += "ORDER BY Nombres ASC ";
                             rset = stmt.executeQuery(COMANDO);
                             //out.println(COMANDO);
                             while (rset.next()) {
@@ -109,6 +114,7 @@
                                 celular = rset.getString("celular");
                                 direccion = rset.getString("direccion");
                                 nota = rset.getString("observacion");
+                                tipo = rset.getString("tipo");
                                 estado = rset.getString("estado");
                                 fecha_ingreso = rset.getString("fecha_ingreso");
                                 monto = rset.getDouble("monto");
@@ -135,6 +141,7 @@
                             <td><%=celular%></td> 
                             <td><%=direccion%></td> 
                             <td><%=nota%></td> 
+                            <td><%=tipo%></td> 
                             <!--td><%=estado%></td--> 
                             <td><%=fecha_ingreso%></td> 
                             <td><%=monto%></td> 
@@ -144,11 +151,11 @@
                                     <!--a><button class="btn btn-warning btn-xs glyphicon glyphicon-edit"></button></a>
                                     <a><button class="btn btn-danger btn-xs glyphicon glyphicon-trash"></button></a-->
                                     <a id="modal_desaUno" data-toggle="modal" onclick="myModal('<%=s_id_pensionista%>')" data-target="#myModal"><button class="btn btn-info btn-xs glyphicon glyphicon-eye-open"></button></a>
-                                    <%if (estado.equals("0")) {%>
+                                        <%if (estado.equals("0")) {%>
                                     <a title=""  data-toggle="modal" onclick="myModalElim('<%=s_id_pensionista%>')" data-target="#myModalElim"><button class="btn btn-warning btn-xs glyphicon glyphicon-refresh"></button></a>
-                                       <%} else {%>
+                                        <%} else {%>
                                     <a title="ya pagó"><button class="btn btn-success btn-xs glyphicon glyphicon-ok"></button></a>
-                                     <%}%>
+                                        <%}%>
                                 </div>
                             </td>
                         </tr>
