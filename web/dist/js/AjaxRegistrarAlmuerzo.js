@@ -41,7 +41,7 @@ function tufuncion(e) {
         // cambie de estado	
         ajax.onreadystatechange = funcionCallback;
         // Enviamos la peticion
-        ajax.open("GET", "views/RegistrarComidas/RegistrarAlmuerzos/AddAlmuerzo.jsp?dni=" + document.all.entrada.value + "&estado=" + document.all.estado.value + "&cantidad=" + document.all.cantidad.value, true);
+        ajax.open("GET", "views/RegistrarComidas/RegistrarAlmuerzos/AddAlmuerzos.jsp?dni=" + document.all.entrada.value + "&estado=" + document.all.estado.value + "&cantidad=" + document.all.cantidad.value, true);
         ajax.send("");
         
         $('#salida').hide(2000);
