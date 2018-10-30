@@ -33,8 +33,7 @@
         </script>
     </head>
     <body>
-        <%            
-            String s_mes_ini = request.getParameter("f_mes_ini");
+        <%            String s_mes_ini = request.getParameter("f_mes_ini");
             String s_anio_ini = request.getParameter("f_anio_ini");
             String s_tipo = request.getParameter("f_tipo");
         %>
@@ -71,7 +70,7 @@
                     </tr>
                 </thead>
                 <tbody id="datos">
-                    <%                       
+                    <%
                         String id = "";
                         String nombres = "";
                         String tipo = "";
@@ -80,7 +79,6 @@
                         int cantidad = 0;
                         double monto = 0.0;
                         int i = 0;
-         
 
                         COMANDO = "SELECT idcena, nom_pen(d.idpensionista) AS Nombres, p.tipo, IF(p.tipo=0, 'General', 'Ejecutivo') as nom_tipo, "
                                 + "d.estado, IF(d.estado=0, 'Cenó', 'Para llevar') AS nom_estado, "
@@ -88,11 +86,14 @@
                                 + "FROM cena d "
                                 + "INNER JOIN  pensionista p "
                                 + "ON (d.idPENSIONISTA = p.idPENSIONISTA) "
-                                + "WHERE DATE_FORMAT(d.fecha_c,'%Y%m') = '" + s_anio_ini + s_mes_ini + "' "
-                                + "AND p.tipo = '" + s_tipo + "' ";
-                        
+                                + "WHERE DATE_FORMAT(d.fecha_c,'%Y%m') = '" + s_anio_ini + s_mes_ini + "' ";
+                        if (!s_tipo.equals("3")) {
+                            COMANDO += "AND p.tipo = '" + s_tipo + "' ";
+                        }
+                        COMANDO += "ORDER BY Nombres ASC ";
+
                         rset = stmt.executeQuery(COMANDO);
-                             //out.println(COMANDO);
+                        //out.println(COMANDO);
 
                         while (rset.next()) {
                             i++;
@@ -103,7 +104,6 @@
                             fecha = rset.getString("fecha_c");
                             cantidad = rset.getInt("cantidad");
                             monto = rset.getDouble("monto");
-  
 
 
                     %>

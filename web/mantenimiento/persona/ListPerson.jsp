@@ -35,6 +35,7 @@
     <body>
         <%            String s_mes_ini = request.getParameter("f_mes_ini");
             String s_anio_ini = request.getParameter("f_anio_ini");
+            String s_todos = request.getParameter("f_todos");
         %>
         <!--div class="panel-heading" style="color:#0D5458"> <h5>Lista de Personas</h5></div-->
         <div class="box-header">
@@ -64,10 +65,10 @@
                         <th>Dirección</th>
                         <th>Celular</th>
                         <th>Estado</th>
-                        <th>Fecha Ing.</th>
+                        <th>Registrado</th>
                         <th>Codigo</th>
                         <th>Observación</th>
-                        <th>Options</th>
+                        <th>Opciones</th>
                     </tr>
                 </thead>
                 <tbody id="datos">
@@ -87,11 +88,14 @@
                         String activa = "#E8F8F5";
                         String inactiva = "#FDEDEC";
 
-                        COMANDO = " SELECT idPERSONA, CONCAT(Nombres, ' ', Apellidos)nombres, dni, "
+                        COMANDO = " SELECT idPERSONA, CONCAT(Nombres, ' ', Apellidos) nombres, dni, "
                                 + " direccion, celular, CASE estado WHEN 1 THEN 'Activo' ELSE 'Inactivo' END estado, "
                                 + " DATE_FORMAT(fecha_ingres, '%d-%m-%Y')fecha_inges, codigo, observacion "
-                                + " FROM PERSONA "
-                        + " WHERE DATE_FORMAT(fecha_ingres,'%Y%m') = '" + s_anio_ini + s_mes_ini + "' ";
+                                + " FROM PERSONA ";
+                         if(!s_todos.equals("T")){  
+                            COMANDO +=  " WHERE DATE_FORMAT(fecha_ingres,'%Y%m') = '" + s_anio_ini + s_mes_ini + "' ";                        
+                        }
+                          COMANDO += "ORDER BY nombres ASC ";
                         rset = stmt.executeQuery(COMANDO);
                         //out.println(COMANDO);
                         while (rset.next()) {

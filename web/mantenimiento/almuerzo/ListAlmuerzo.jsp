@@ -88,8 +88,11 @@
                                 + "FROM almuerzo d "
                                 + "INNER JOIN  pensionista p "
                                 + "ON (d.idPENSIONISTA = p.idPENSIONISTA) "
-                                + "WHERE DATE_FORMAT(d.fecha_a,'%Y%m') = '" + s_anio_ini + s_mes_ini + "' "
-                                + "AND p.tipo = '" + s_tipo + "' ";
+                                + "WHERE DATE_FORMAT(d.fecha_a,'%Y%m') = '" + s_anio_ini + s_mes_ini + "' ";
+                                 if(!s_tipo.equals("3")){  
+                            COMANDO +=  "AND p.tipo = '" + s_tipo + "' ";                          
+                        }
+                             COMANDO += "ORDER BY Nombres ASC ";
                         
                         rset = stmt.executeQuery(COMANDO);
                              //out.println(COMANDO);
