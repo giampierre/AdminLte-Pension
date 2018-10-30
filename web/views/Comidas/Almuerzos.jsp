@@ -69,27 +69,28 @@
                         String s_id_pensionista = "";
 
                         COMANDO = "SELECT pp.idPENSIONISTA, CONCAT(p.Nombres, ' ', p.Apellidos) as Nombres, "
-                                + "pp.monto, pp.fecha_ingreso, d.titulo, if(d.estado=1,'Si Almorzó','No Almorzó') AS ESTADO, "
-                                + "SUM(d.monto) as monto_c, SUM(d.cantidad) as cantidad, d.fecha_a "
+                                + "pp.monto, pp.fecha_ingreso, d.titulo, "
+                                + "SUM(d.cantidad) AS cantidad, SUM(d.monto*d.cantidad) as monto_total, "
+                                + "DATE_FORMAT(d.fecha_a, '%m-%Y' ) as fecha_a "
                                 + "FROM persona p, pensionista pp, almuerzo d  "
                                 + "WHERE p.idpersona = pp.idpersona "
                                 + "AND pp.idpensionista = d.idpensionista "
                                 + "AND DATE_FORMAT(d.fecha_a,'%Y%m') = '" + s_anio_ini + s_mes_ini + "' "
                                 + "AND pp.tipo = '" + s_tipo + "' "
-                                + "GROUP BY pp.idPENSIONISTA ";
+                                + "GROUP BY pp.idPENSIONISTA "
+                                + "ORDER BY Nombres ASC ";
                         rset = stmt.executeQuery(COMANDO);
                         //out.println(COMANDO);
 
                         while (rset.next()) {
                             i++;
                             nombres = rset.getString("Nombres");
-                            almuerzo = rset.getString("ESTADO");
                             fecha = rset.getString("fecha_a");
                             cantidad = rset.getString("cantidad");
-                            monto = rset.getString("monto_c");
+                            monto = rset.getString("monto_total");
                             s_id_pensionista = rset.getString("idPENSIONISTA");
                             sumar_cantidad += rset.getInt("cantidad");
-                            sumar_monto += rset.getInt("monto_c");
+                            sumar_monto += rset.getInt("monto_total");
 
 
                     %>

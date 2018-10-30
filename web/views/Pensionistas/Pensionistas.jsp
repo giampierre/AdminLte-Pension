@@ -99,7 +99,7 @@
                                     + "WHERE p.idPERSONA = pe.idPERSONA "
                                     + "AND DATE_FORMAT(pe.fecha_ingreso,'%Y%m') = '" + s_anio_ini + s_mes_ini + "' "
                                     + "AND pe.tipo = '" + s_tipo + "' "
-                                    + "order by DATE_FORMAT(pe.fecha_ingreso,'%Y%m') desc";
+                                    + "ORDER BY Nombres ASC";
                             rset = stmt.executeQuery(COMANDO);
                             //out.println(COMANDO);
                             while (rset.next()) {

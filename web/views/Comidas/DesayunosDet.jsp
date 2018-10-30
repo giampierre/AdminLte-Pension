@@ -76,7 +76,7 @@
                     <%}%>
                 </tbody>
                 <tfoot>
-                    <tr><th colspan="4">Total...</th>
+                    <tr><th colspan="4">Total</th>
                         <th><%=sumar_cantidad%></th>
                         <th><%=sumar_monto%></th>
                         <th><br></th>

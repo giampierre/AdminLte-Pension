@@ -77,7 +77,8 @@
                                 + "AND pp.idpensionista = d.idpensionista "
                                 + "AND DATE_FORMAT(d.fecha_d,'%Y%m') = '" + s_anio_ini + s_mes_ini + "' "
                                 + "AND pp.tipo = '" + s_tipo + "' "
-                                + "GROUP BY pp.idPENSIONISTA ";
+                                + "GROUP BY pp.idPENSIONISTA "
+                                + "ORDER BY Nombres ASC ";
             
                                 
                         rset = stmt.executeQuery(COMANDO);
